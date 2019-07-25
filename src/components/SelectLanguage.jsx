@@ -3,22 +3,27 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import { FormattedMessage } from 'react-intl';
 
-const SelectLanguage = (props) => {
-  const links = props.langs.map(lang =>
-    <Link to={lang.link} key={lang.langKey} style={{
-      color: 'white'
-    }}>
+const SelectLanguage = ({ langs }) => {
+  const links = langs.map(lang => (
+    <Link
+      to={lang.link}
+      key={lang.langKey}
+      style={{
+        color: 'white',
+      }}
+    >
       <li selected={lang.selected}>
         {lang.langKey}
       </li>
     </Link>
-  );
+  ));
 
   return (
     <section>
       <header style={{
-        color: 'white'
-      }}>
+        color: 'white',
+      }}
+      >
         <FormattedMessage id="selectLanguage" />
       </header>
       <ul>
@@ -29,7 +34,7 @@ const SelectLanguage = (props) => {
 };
 
 SelectLanguage.propTypes = {
-  langs: PropTypes.array
+  langs: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SelectLanguage;

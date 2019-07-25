@@ -1,8 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
+
 import SelectLanguage from './SelectLanguage';
 
-const Header = (props) => (
+const Header = ({ langs }) => (
   <div
     style={{
       background: 'rebeccapurple',
@@ -27,9 +29,13 @@ const Header = (props) => (
           Gatsby
         </Link>
       </h1>
-      <SelectLanguage langs={props.langs} />
+      <SelectLanguage langs={langs} />
     </div>
   </div>
-)
+);
+
+Header.propTypes = {
+  langs: PropTypes.string.isRequired,
+};
 
 export default Header;

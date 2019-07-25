@@ -1,12 +1,14 @@
 {
-  "name": "gatsby-starter-contentful-i18n",
+  "name": "culture-portal",
   "private": true,
-  "description": "Gatsby example site using the Contentful source plugin and i18n",
-  "version": "2.0.0",
-  "author": "Paul McCrodden <paul.mccrodden@x-team.com> (paulmccrodden.com)",
+  "description": "RSS 2019-q1 stage 3",
+  "version": "1.0.0",
+  "author": "Group19",
   "dependencies": {
+    "babel-eslint": "^10.0.2",
     "gatsby": "^2.0.0",
     "gatsby-image": "^2.0.5",
+    "gatsby-link": "^2.2.2",
     "gatsby-plugin-google-analytics": "^2.0.5",
     "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-offline": "^2.0.5",
@@ -16,6 +18,8 @@
     "gatsby-transformer-remark": "^2.1.1",
     "intl": "^1.2.5",
     "lodash": "^4.17.10",
+    "prop-types": "^15.7.2",
+    "ptz-i18n": "^1.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-helmet": "^5.2.0",
@@ -36,6 +40,24 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "start": "gatsby serve"
+    "start": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "lint-fix": "eslint --fix src/**/*.{js,jsx}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": ""
+    }
+  },
+  "devDependencies": {
+    "babel-preset-gatsby": "^0.2.7",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "husky": "^3.0.1"
   }
 }

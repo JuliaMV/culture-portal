@@ -35,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create Product pages
-        const productTemplate = path.resolve(`./src/templates/product.js`)
+        const productTemplate = path.resolve(`./src/templates/product.jsx`)
         // We want to create a detailed page for each
         // product node. We'll just use the Contentful id for the slug.
         _.each(result.data.allContentfulProduct.edges, edge => {
@@ -79,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
 
           // Create Category pages
-          const categoryTemplate = path.resolve(`./src/templates/category.js`)
+          const categoryTemplate = path.resolve(`./src/templates/category.jsx`)
           // We want to create a detailed page for each
           // category node. We'll just use the Contentful id for the slug.
           _.each(result.data.allContentfulCategory.edges, edge => {
