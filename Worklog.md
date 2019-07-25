@@ -11,5 +11,5 @@ Anna-Pronovich
 JuliaMV
 | time spent | feature |
 |-------------|-------------|
-| 2h | base structure of the project with gatsby starter, add eslint and fix all errors |
+| 3h | base structure of the project with gatsby starter, add eslint and fix all errors, setup Nedlify deploy |
 
