@@ -10,9 +10,11 @@ import 'intl';
 import en from 'react-intl/locale-data/en';
 import 'intl/locale-data/jsonp/en';
 import de from 'react-intl/locale-data/de';
-import { rhythm } from '../utils/typography';
-import Header from './Header';
+import { rhythm } from '../../utils/typography';
+import Header from '../header/Header';
 import 'intl/locale-data/jsonp/de';
+
+import './custom_variables.css';
 
 // add concatenated locale data
 addLocaleData([...en, ...de]);
@@ -23,9 +25,6 @@ class Layout extends Component {
     const { children, data, location } = this.props;
     const { pathname: url } = location;
     this.children = children;
-    // const { data } = this.props;
-    // const { location } = this.props;
-    // const url = location.pathname;
     const { langs, defaultLangKey } = data.site.siteMetadata.languages;
     this.langKey = getCurrentLangKey(langs, defaultLangKey, url);
     this.homeLink = `/${this.langKey}/`;
@@ -34,7 +33,7 @@ class Layout extends Component {
     // get the appropriate message file based on langKey
     // at the moment this assumes that langKey will provide us
     // with the appropriate language code
-    this.i18nMessages = require(`../data/messages/${this.langKey}`); // eslint-disable-line
+    this.i18nMessages = require(`../../data/messages/${this.langKey}`); // eslint-disable-line
   }
 
   render() {

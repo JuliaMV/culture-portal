@@ -2,15 +2,11 @@ import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 
-import SelectLanguage from './SelectLanguage';
+import SelectLanguage from '../SelectLanguage';
+import styles from './Header.module.scss';
 
 const Header = ({ langs }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
+  <div className={styles.Header}>
     <div
       style={{
         margin: '0 auto',
