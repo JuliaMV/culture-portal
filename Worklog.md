@@ -4,8 +4,8 @@ anna-klempach
 
 Anna-Pronovich
 | time spent | feature |
-|-------------|-------------|
-
+|------------|-------------|
+| 1h | layout component|
 
 
 JuliaMV
