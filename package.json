@@ -32,7 +32,8 @@
     "react-typography": "^0.16.3",
     "slash": "^2.0.0",
     "typography": "^0.16.7",
-    "typography-breakpoint-constants": "^0.15.0"
+    "typography-breakpoint-constants": "^0.15.0",
+    "vertical-timeline-component-for-react": "^1.0.6"
   },
   "keywords": [
     "gatsby"
