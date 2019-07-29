@@ -19,7 +19,7 @@ const inputdata = [
     date: '2000',
     description: 'Est incididunt sint eu minim dolore mollit velit velit commodo ex nulla',
   },
-]
+];
 
 const AuthorTimeline = () => (
   <Timeline lineColor="#ddd">
