@@ -13,5 +13,5 @@ JuliaMV
 |-------------|-------------|
 | 3h | base structure of the project with gatsby starter, add eslint and fix all errors, setup Nedlify deploy |
 | 1h | fix production build errors |
+| 0.5h | add basic timeline component |
 | 0.25h | add basic geowidget component |
-
