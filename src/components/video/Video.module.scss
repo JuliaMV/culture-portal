@@ -1,0 +1,9 @@
+.VideoFrame {
+  margin-bottom: 0;
+
+  & + button > svg {
+    fill: #ff0000;
+  }
+}
+
+
