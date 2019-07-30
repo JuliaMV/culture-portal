@@ -36,7 +36,7 @@ class Video extends React.Component {
           styles={{
             modal: {
               padding: 0,
-              bacgkroundColor: '#000000',
+              fontSize: 0,
             },
           }}
         >
