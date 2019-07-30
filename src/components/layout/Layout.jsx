@@ -41,7 +41,7 @@ class Layout extends Component {
         locale={this.langKey}
         messages={this.i18nMessages}
       >
-        <Grid  container className={layoutStyles.container}>
+        <Grid container className={layoutStyles.container}>
           <Grid item xs={12}>
             <Header langs={this.langsMenu} />
           </Grid>

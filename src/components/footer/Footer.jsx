@@ -15,18 +15,22 @@ const Footer = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <footer className={footerStyles.footer}>
       <div className={footerStyles.footerContent}>
-        <a href="https://github.com/JuliaMV/culture-portal" target="_blank" title="link to GitHub project" alt="link to GitHub project">
-          <Img fixed={data.file.childImageSharp.fixed} className={footerStyles.footerImg}/>
+        <a href="https://github.com/JuliaMV/culture-portal" target="_blank" rel="noopener noreferrer" title="link to GitHub project" alt="link to GitHub project">
+          <Img fixed={data.file.childImageSharp.fixed} className={footerStyles.footerImg} />
         </a>
-        <p> Created by <em>GROUP-19</em>, RS 2019Q1</p>
+        <p>
+          Created by
+          <em> GROUP-19</em>
+          , RS 2019Q1
+        </p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;
