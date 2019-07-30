@@ -25,7 +25,7 @@ const Footer = () => {
         </a>
         <p>
           Created by
-          <em> GROUP-19</em>
+          <span className={footerStyles.styleSpan}> GROUP-19</span>
           , RS 2019Q1
         </p>
       </div>

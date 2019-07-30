@@ -22,6 +22,11 @@ p {
   margin: 0;
 }
 
+.styleSpan {
+  color: var(--darkRed-color);
+  font-weight: bold;
+}
+
 @media (max-width: 400px) {
   .footerContent {
     flex-direction: column;
