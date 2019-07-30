@@ -26,7 +26,7 @@ class Video extends React.Component {
     const { url } = this.props;
     return (
       <div>
-        <button type="button" onClick={this.showVideo}>
+        <button className={styles.VideoButton} type="button" onClick={this.showVideo}>
           Show Video
         </button>
         <Modal
