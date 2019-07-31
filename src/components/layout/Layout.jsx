@@ -6,9 +6,11 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-import 'intl/locale-data/jsonp/de';
+import 'intl/locale-data/jsonp/be';
+import 'intl/locale-data/jsonp/ru';
 import en from 'react-intl/locale-data/en';
-import de from 'react-intl/locale-data/de';
+import be from 'react-intl/locale-data/be';
+import ru from 'react-intl/locale-data/ru';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -19,7 +21,7 @@ import Footer from '../footer/Footer';
 import './custom_variables.css';
 import layoutStyles from './Layout.module.scss';
 
-addLocaleData([...en, ...de]);
+addLocaleData([...en, ...be, ...ru]);
 
 class Layout extends Component {
   constructor(props) {
