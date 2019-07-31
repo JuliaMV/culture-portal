@@ -14,8 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import Header from '../header/Header';
-// import Footer from '../footer/Footer';
-// import Video from "../video/Video";
+import Footer from '../footer/Footer';
 import './custom_variables.css';
 import layoutStyles from './Layout.module.scss';
 
@@ -49,7 +48,7 @@ class Layout extends Component {
             <Paper className={layoutStyles.content}>{this.children}</Paper>
           </Grid>
           <Grid item xs={12}>
-            {/*<Footer />*/}
+            <Footer />
           </Grid>
         </Grid>
       </IntlProvider>
