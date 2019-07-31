@@ -8,4 +8,5 @@ module.exports = {
   videoTitle: 'Youtube video',
   mapTitle: 'Map',
   galleryTitle: 'Gallery',
+  logo: 'Architects of Belarus',
 };

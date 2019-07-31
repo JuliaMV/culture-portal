@@ -31,7 +31,9 @@ const Header = ({ langs, url }) => (
     <div className={headerStyles.headerWrapper}>
       <Container>
         <Link to={`${url}`} className={headerStyles.logoLink}>
-          <h1 className={headerStyles.headerTextLogo}>Architects of Belarus</h1>
+          <h1 className={headerStyles.headerTextLogo}>
+            <FormattedMessage id="logo" />
+          </h1>
         </Link>
         <SelectLanguage langs={langs} />
       </Container>

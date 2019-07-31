@@ -8,4 +8,5 @@ module.exports = {
   videoTitle: 'Youtube відэа',
   mapTitle: 'Мапа',
   galleryTitle: 'Галерэя',
+  logo: 'Архітэктары Беларусі',
 };

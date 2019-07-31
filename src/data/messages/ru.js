@@ -8,4 +8,5 @@ module.exports = {
   videoTitle: 'Youtube видео',
   mapTitle: 'Карта',
   galleryTitle: 'Галерея',
+  logo: 'Архитекторы Беларуси',
 };
