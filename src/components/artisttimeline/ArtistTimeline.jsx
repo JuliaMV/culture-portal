@@ -21,7 +21,7 @@ const inputdata = [
   },
 ];
 
-const AuthorTimeline = () => (
+const ArtistTimeline = () => (
   <Timeline lineColor="#ddd">
     {inputdata.map(item => (
       <TimelineItem
@@ -35,4 +35,4 @@ const AuthorTimeline = () => (
   </Timeline>
 );
 
-export default AuthorTimeline;
+export default ArtistTimeline;
