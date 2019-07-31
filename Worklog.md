@@ -8,7 +8,6 @@ Anna-Pronovich
 | 1h | layout component|
 | 4h | footer component|
 
-
 JuliaMV
 | time spent | feature |
 |-------------|-------------|
@@ -17,3 +16,8 @@ JuliaMV
 | 0.5h | add basic timeline component |
 | 0.25h | add basic geowidget component |
 | 1 | add video component |
+
+Vitali-Hantarenka
+| time spent | feature |
+|------------|-------------|
+| 2h | Artist page template, fix problems |

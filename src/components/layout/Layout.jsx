@@ -15,7 +15,6 @@ import Grid from '@material-ui/core/Grid';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-
 import './custom_variables.css';
 import layoutStyles from './Layout.module.scss';
 
