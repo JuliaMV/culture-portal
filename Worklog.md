@@ -6,6 +6,7 @@ Anna-Pronovich
 | time spent | feature |
 |------------|-------------|
 | 1h | layout component|
+| 4h | footer component|
 
 JuliaMV
 | time spent | feature |
