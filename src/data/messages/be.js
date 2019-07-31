@@ -1,6 +1,11 @@
 module.exports = {
   selectLanguage: 'Выберыце мову',
-  authorsPageButton: 'Да спісу аўтараў',
+  artistsPageButton: 'Да спісу архітэктараў',
   mainPageButton: 'На галоўную',
-  footerMessage: 'Створана',
+  footerMessage: 'Сайт распрацаваны',
+  timelineTitle: 'Стужка часу',
+  worksTitle: 'Галоўныя творы',
+  videoTitle: 'Youtube відэа',
+  mapTitle: 'Мапа',
+  galleryTitle: 'Галерэя',
 };
