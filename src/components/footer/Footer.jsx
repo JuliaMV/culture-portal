@@ -27,7 +27,6 @@ const Footer = () => {
         </a>
         <div className={footerStyles.footerText}>
           <FormattedMessage id="footerMessage" />
-          Created by
           <span className={footerStyles.styleSpan}> GROUP-19</span>
           , RS 2019Q1
         </div>
