@@ -23,7 +23,7 @@ const Footer = () => {
         <a href="https://github.com/JuliaMV/culture-portal" target="_blank" rel="noopener noreferrer" title="link to GitHub project" alt="link to GitHub project">
           <Img fixed={data.file.childImageSharp.fixed} className={footerStyles.footerImg} />
         </a>
-        <p>
+        <p className={footerStyles.footerText}>
           Created by
           <span className={footerStyles.styleSpan}> GROUP-19</span>
           , RS 2019Q1
