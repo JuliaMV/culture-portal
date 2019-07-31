@@ -1,44 +1,55 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import SelectLanguage from '../SelectLanguage';
-// @ts-ignore
-import styles from './Header.module.scss';
+// import PropTypes from 'prop-types';
 
-const Header = ({ langs }) => (
-  <div className={styles.Header}>
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
+import Link from 'gatsby-link';
+
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { withStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+
+// import SelectLanguage from '../SelectLanguage';
+// @ts-ignore
+import headerStyles from './Header.module.scss';
+
+const ColorButton = withStyles(theme => ({
+  root: {
+    height: 48,
+    color: theme.palette.getContrastText(grey[900]),
+    backgroundColor: grey[900],
+    '&:hover': {
+      backgroundColor: grey[700],
+    },
+
+    boxShadow: '0px -6px 13px 2px rgb(55, 71, 79)',
+  },
+}))(Button);
+
+//  header props was { langs }
+const Header = () => (
+  <header className={headerStyles.header}>
+    <div className={headerStyles.headerWrapper}>
+      <Container>
+        <Link to="/" className={headerStyles.logoLink}>
+          <h1 className={headerStyles.headerTextLogo}>Architects of Belarus</h1>
         </Link>
-      </h1>
-      <SelectLanguage langs={langs} />
-      <button type="button">
-        <FormattedMessage id="authorsPageButton" />
-      </button>
-      <button type="button">
-        <FormattedMessage id="mainPageButton" />
-      </button>
+        {/* <SelectLanguage langs={langs} />  !Anna Klempach it's tag for button translations */}
+      </Container>
+      <ButtonGroup fullWidth>
+        <ColorButton variant="contained" href="/">
+            Main
+        </ColorButton>
+        <ColorButton variant="contained" href="/list-of-architecture">
+            List of architecture
+        </ColorButton>
+      </ButtonGroup>
     </div>
-  </div>
+  </header>
 );
 
-Header.propTypes = {
-  langs: PropTypes.string.isRequired,
-};
+// Header.propTypes = {
+//   langs: PropTypes.string.isRequired,
+// };
 
 export default Header;

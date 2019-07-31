@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 // import { rhythm } from '../utils/typography';
 
 import Layout from '../components/layout/Layout';
-import ArtistTimeline from '../components/authortimeline/AuthorTimeline';
+import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
 
 const artistPageTemplate = ({ data, location }) =>
   // const artist = data.contentfulProduct;

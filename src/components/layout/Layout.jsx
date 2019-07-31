@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { IntlProvider, addLocaleData } from 'react-intl';
@@ -17,7 +18,6 @@ import Grid from '@material-ui/core/Grid';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-
 import './custom_variables.css';
 // @ts-ignore
 import layoutStyles from './Layout.module.scss';
@@ -44,17 +44,24 @@ class Layout extends Component {
         locale={this.langKey}
         messages={this.i18nMessages}
       >
-        <Grid container className={layoutStyles.container}>
-          <Grid item xs={12}>
-            <Header langs={this.langsMenu} />
+        <div>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>CodeJam-Culture-Portal</title>
+            <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
+          </Helmet>
+          <Grid container className={layoutStyles.container}>
+            <Grid item xs={12}>
+              <Header langs={this.langsMenu} />
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={layoutStyles.content}>{this.children}</Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Footer />
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Paper className={layoutStyles.content}>{this.children}</Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Footer />
-          </Grid>
-        </Grid>
+        </div>
       </IntlProvider>
     );
   }

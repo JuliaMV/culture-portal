@@ -1,6 +1,6 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+// import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 // import { rhythm } from '../utils/typography';
 
@@ -10,7 +10,6 @@ const ProductTemplate = ({ data, location }) => {
   const product = data.contentfulProduct;
   const {
     productName: { productName },
-    productDescription,
     price,
     image,
     brand,
@@ -38,19 +37,18 @@ const ProductTemplate = ({ data, location }) => {
             Price: $
             {price}
           </span>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: productDescription.childMarkdownRemark.html,
-            }}
-          />
+          <div />
           <div>
             <span>See other: </span>
             <ul>
               {categories.map(category => (
                 <li key={`${category.contentful_id}-item`}>
-                  <Link key={category.contentful_id} to={`/${category.node_locale}/categories/${category.contentful_id}`}>
-                    {category.title.title}
-                  </Link>
+                  {/* <Link
+                            key={category.contentful_id}
+                            to={`/${category.node_locale}
+                            /categories/${category.contentful_id}`}> */}
+                  {/*  {category.title.title} */}
+                  {/* </Link> */}
                 </li>
               ))}
             </ul>
@@ -68,48 +66,48 @@ ProductTemplate.propTypes = {
 
 export default ProductTemplate;
 
-export const pageQuery = graphql`
-  query productQuery($id: String!) {
-    site {
-      siteMetadata {
-        languages {
-          defaultLangKey
-          langs
-        }
-      }
-    }
-    contentfulProduct(id: { eq: $id }) {
-      productName {
-        productName
-      }
-      productDescription {
-        childMarkdownRemark {
-          html
-        }
-      }
-      price
-      image {
-        resolutions(width: 50, height: 50) {
-          base64
-          src
-          srcSet
-          height
-          width
-        }
-      }
-      brand {
-        companyName {
-          companyName
-        }
-      }
-      categories {
-        id
-        contentful_id
-        node_locale
-        title {
-          title
-        }
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query productQuery($id: String!) {
+//     site {
+//       siteMetadata {
+//         languages {
+//           defaultLangKey
+//           langs
+//         }
+//       }
+//     }
+//     contentfulProduct(id: { eq: $id }) {
+//       productName {
+//         productName
+//       }
+//       productDescription {
+//         childMarkdownRemark {
+//           html
+//         }
+//       }
+//       price
+//       image {
+//         resolutions(width: 50, height: 50) {
+//           base64
+//           src
+//           srcSet
+//           height
+//           width
+//         }
+//       }
+//       brand {
+//         companyName {
+//           companyName
+//         }
+//       }
+//       categories {
+//         id
+//         contentful_id
+//         node_locale
+//         title {
+//           title
+//         }
+//       }
+//     }
+//   }
+// `;
