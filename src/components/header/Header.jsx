@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
-
+import { FormattedMessage } from 'react-intl';
 import SelectLanguage from '../SelectLanguage';
 import styles from './Header.module.scss';
 
@@ -26,6 +26,12 @@ const Header = ({ langs }) => (
         </Link>
       </h1>
       <SelectLanguage langs={langs} />
+      <button type="button">
+        <FormattedMessage id="authorsPageButton" />
+      </button>
+      <button type="button">
+        <FormattedMessage id="mainPageButton" />
+      </button>
     </div>
   </div>
 );
