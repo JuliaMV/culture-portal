@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import SelectLanguage from '../SelectLanguage';
+// @ts-ignore
 import styles from './Header.module.scss';
 
 const Header = ({ langs }) => (

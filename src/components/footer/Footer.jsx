@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { FormattedMessage } from 'react-intl';
 
+// @ts-ignore
 import footerStyles from './Footer.module.scss';
 
 const Footer = () => {
