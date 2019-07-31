@@ -28,20 +28,22 @@ const ColorButton = withStyles(theme => ({
 //  header props was { langs }
 const Header = () => (
   <header className={headerStyles.header}>
-    <Container>
-      <Link to="/" className={headerStyles.logoLink}>
-        <h1 className={headerStyles.headerTextLogo}>Architects of Belarus</h1>
-      </Link>
-      {/* <SelectLanguage langs={langs} />  !Anna Klempach it's tag for button translations */}
-    </Container>
-    <ButtonGroup fullWidth>
-      <ColorButton variant="contained" href="/">
-          Main
-      </ColorButton>
-      <ColorButton variant="contained" href="/list-of-architecture">
-          List of architecture
-      </ColorButton>
-    </ButtonGroup>
+    <div className={headerStyles.headerWrapper}>
+      <Container>
+        <Link to="/" className={headerStyles.logoLink}>
+          <h1 className={headerStyles.headerTextLogo}>Architects of Belarus</h1>
+        </Link>
+        {/* <SelectLanguage langs={langs} />  !Anna Klempach it's tag for button translations */}
+      </Container>
+      <ButtonGroup fullWidth>
+        <ColorButton variant="contained" href="/">
+            Main
+        </ColorButton>
+        <ColorButton variant="contained" href="/list-of-architecture">
+            List of architecture
+        </ColorButton>
+      </ButtonGroup>
+    </div>
   </header>
 );
 
