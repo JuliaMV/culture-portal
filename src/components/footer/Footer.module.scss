@@ -20,6 +20,8 @@
 
 .footerText {
   margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
 }
 
 .styleSpan {
@@ -27,8 +29,10 @@
   font-weight: bold;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .footerContent {
     flex-direction: column;
+    width: 230px;
+    text-align: center;
   }
 }
