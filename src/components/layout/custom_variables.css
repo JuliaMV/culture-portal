@@ -1,3 +1,8 @@
 body {
-  --some-color: #ff6347;
+  --black-color: #000000;
+  --lightGray-color: #f8f8f8;
+  --darkGray-color:#777777;
+  --darkRed-color:#c0301c;
+  --white-color: #ffffff;
+  --main-font:	Trebuchet, sans-serif;
 }
