@@ -34,7 +34,6 @@ class Layout extends Component {
     this.langKey = getCurrentLangKey(langs, defaultLangKey, url);
     this.homeLink = `/${this.langKey}/`;
     this.langsMenu = getLangs(langs, this.langKey, getUrlForLang(this.homeLink, url));
-
     this.i18nMessages = require(`../../data/messages/${this.langKey}`); // eslint-disable-line
   }
 
@@ -52,7 +51,7 @@ class Layout extends Component {
           </Helmet>
           <Grid container className={layoutStyles.container}>
             <Grid item xs={12}>
-              <Header langs={this.langsMenu} />
+              <Header langs={this.langsMenu} url={this.homeLink} />
             </Grid>
             <Grid item xs={12}>
               <Paper className={layoutStyles.content}>{this.children}</Paper>
