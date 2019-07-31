@@ -39,7 +39,7 @@ const Header = ({ langs, url }) => (
         <ColorButton variant="contained" href={`${url}`}>
           <FormattedMessage id="mainPageButton" />
         </ColorButton>
-        <ColorButton variant="contained" href={`${url}/artists`}>
+        <ColorButton variant="contained" href={`${url}artists`}>
           <FormattedMessage id="artistsPageButton" />
         </ColorButton>
       </ButtonGroup>
@@ -48,7 +48,7 @@ const Header = ({ langs, url }) => (
 );
 
 Header.propTypes = {
-  langs: PropTypes.objectOf(PropTypes.string).isRequired,
+  langs: PropTypes.arrayOf(PropTypes.object).isRequired,
   url: PropTypes.string.isRequired,
 };
 
