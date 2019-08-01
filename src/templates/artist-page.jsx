@@ -12,12 +12,16 @@ import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
 const artistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
   const {
+    yearsOfLife,
     videoTag: { videoTag },
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
     listOfWorks: {
       content,
+    },
+    generalInfo: {
+      content: generalInfo,
     },
   } = artist;
   const works = content.map((contentItem) => {
@@ -34,6 +38,20 @@ const artistPageTemplate = ({ data, location }) => {
       </li>
     );
   });
+  const generalInformation = generalInfo.map((contentItem) => {
+    const {
+      content: [
+        {
+          value,
+        },
+      ],
+    } = contentItem;
+    return (
+      <p key={`${value}`}>
+        {value}
+      </p>
+    );
+  });
   return (// eslint-disable-line
     <Layout data={data} location={location}>
       <main className="artist-page">
@@ -43,11 +61,10 @@ const artistPageTemplate = ({ data, location }) => {
               {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
             <h1>{`${surname} ${name} ${patronymic}`}</h1>
-            <span className="artist__date">(99 декабря 9999 - 99 декабря 9999)</span>
-            <p className="artist__description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-              doloremque iste non repudiandae voluptates.
-            </p>
+            <span className="artist__date">{yearsOfLife}</span>
+            <div className="artist__description">
+              {generalInformation}
+            </div>
           </section>
           <section className="artist__timeline">
             <h2>
@@ -143,6 +160,13 @@ export const pageQuery = graphql`
           }
           yearsOfLife
           listOfWorks {
+            content {
+              content {
+                value
+              }
+            }
+          }
+          generalInfo {
             content {
               content {
                 value
