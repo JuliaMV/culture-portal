@@ -5,7 +5,7 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
 
-const Item = queryData => (
+const ArtistInfo = queryData => (
   <div key={`${queryData.node.slug}-item`}>
     <img src={queryData.node.personalPhoto.file.url} alt={queryData.node.personalPhoto.title} width="140" height="170" />
     <h2>
@@ -19,7 +19,7 @@ const Item = queryData => (
 );
 
 const ArtistPage = ({ data, location }) => {
-  const items = data.allContentfulArchitectPage.edges.map(edge => Item(edge));
+  const items = data.allContentfulArchitectPage.edges.map(edge => ArtistInfo(edge));
   return (
     <Layout data={data} location={location}>
       <ul>
