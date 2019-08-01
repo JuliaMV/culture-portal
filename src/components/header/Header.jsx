@@ -7,8 +7,8 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { FormattedMessage } from 'react-intl';
 import { withStyles } from '@material-ui/core/styles';
 import { grey } from '@material-ui/core/colors';
+
 import SelectLanguage from '../selectlanguage/SelectLanguage';
-// @ts-ignore
 import headerStyles from './Header.module.scss';
 
 const ColorButton = withStyles(theme => ({
