@@ -1,6 +1,7 @@
 anna-klempach
 | time spent | feature |
 |-------------|-------------|
+| 8h | implement multilanguage layout |
 
 Anna-Pronovich
 | time spent | feature |

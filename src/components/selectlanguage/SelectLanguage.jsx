@@ -34,7 +34,7 @@ const SelectLanguage = ({ langs }) => {
 };
 
 SelectLanguage.propTypes = {
-  langs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  langs: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default SelectLanguage;

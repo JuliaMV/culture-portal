@@ -6,7 +6,6 @@ class RedirectIndex extends React.PureComponent {
   constructor(args) {
     super(args);
 
-    // Skip build, Browsers only
     if (typeof window !== 'undefined') {
       const { langs, defaultLangKey } = args.data.site.siteMetadata.languages;
       const langKey = getUserLangKey(langs, defaultLangKey);
@@ -17,8 +16,6 @@ class RedirectIndex extends React.PureComponent {
   }
 
   render() {
-    // It's recommended to add your SEO solution in here for bots
-    // eg. https://github.com/ahimsayogajp/ahimsayoga-gatsby/blob/master/src/pages/index.js#L22
     return (<div />);
   }
 }
