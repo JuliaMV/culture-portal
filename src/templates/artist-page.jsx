@@ -60,43 +60,43 @@ const artistPageTemplate = ({ data, location }) => {
             <div className="artist__img">
               {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
-            <h1>{`${surname} ${name} ${patronymic}`}</h1>
+            <h2>{`${surname} ${name} ${patronymic}`}</h2>
             <span className="artist__date">{yearsOfLife}</span>
             <div className="artist__description">
               {generalInformation}
             </div>
           </section>
           <section className="artist__timeline">
-            <h2>
+            <h3>
               <FormattedMessage id="timelineTitle" />
-            </h2>
+            </h3>
             <ArtistTimeline inputData={data.allContentfulTimeline.edges} />
           </section>
           <section className="artist__buildings">
-            <h2>
+            <h3>
               <FormattedMessage id="worksTitle" />
-            </h2>
+            </h3>
             {/* <Buildings></Buildings> */}
             <ul>
               {works}
             </ul>
           </section>
           <section className="artist__video">
-            <h2>
+            <h3>
               <FormattedMessage id="videoTitle" />
-            </h2>
+            </h3>
             <Video url={videoTag} />
           </section>
           <section className="artist__map">
-            <h2>
+            <h3>
               <FormattedMessage id="mapTitle" />
-            </h2>
+            </h3>
             {/* <Map></Map> */}
           </section>
           <section className="gallery">
-            <h2>
+            <h3>
               <FormattedMessage id="galleryTitle" />
-            </h2>
+            </h3>
             {/* <Gallery></Gallery> */}
           </section>
         </div>
