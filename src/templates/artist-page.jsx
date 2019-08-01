@@ -16,7 +16,24 @@ const artistPageTemplate = ({ data, location }) => {
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
+    listOfWorks: {
+      content,
+    },
   } = artist;
+  const works = content.map((contentItem) => {
+    const {
+      content: [
+        {
+          value,
+        },
+      ],
+    } = contentItem;
+    return (
+      <li key={`${value}`}>
+        {value}
+      </li>
+    );
+  });
   return (// eslint-disable-line
     <Layout data={data} location={location}>
       <main className="artist-page">
@@ -43,6 +60,9 @@ const artistPageTemplate = ({ data, location }) => {
               <FormattedMessage id="worksTitle" />
             </h2>
             {/* <Buildings></Buildings> */}
+            <ul>
+              {works}
+            </ul>
           </section>
           <section className="artist__video">
             <h2>
@@ -96,32 +116,39 @@ export const pageQuery = graphql`
           }
         }
         contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang },) {
-            slug
-        patronymic {
-          patronymic
-        }
-        name {
-          name
-        }
-        personalPhoto {
-          file {
-            url
-            fileName
+          slug
+          patronymic {
+            patronymic
           }
-        }
-        photoGallery {
-          file {
-            url
+          name {
+            name
           }
-          title
-        }
-        surname {
-          surname
-        }
-        videoTag {
-          videoTag
-        }
-        yearsOfLife
+          personalPhoto {
+            file {
+              url
+              fileName
+            }
+          }
+          photoGallery {
+            file {
+              url
+            }
+            title
+          }
+          surname {
+            surname
+          }
+          videoTag {
+            videoTag
+          }
+          yearsOfLife
+          listOfWorks {
+            content {
+              content {
+                value
+              }
+            }
+          }
         }
     }
 `;
