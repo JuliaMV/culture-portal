@@ -5,15 +5,18 @@ import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 // import Img from 'gatsby-image';
 // import { rhythm } from '../utils/typography';
-import Video from '../components/video/Video';
-import Layout from '../components/layout/Layout';
-import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
 
-const artistPageTemplate = ({ data, location }) => {
+import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
+import Geowidget from '../components/geowidget/geowidget';
+import Layout from '../components/layout/Layout';
+import Video from '../components/video/Video';
+
+const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
   const {
     yearsOfLife,
     videoTag: { videoTag },
+    geoTag: { geoTag },
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
@@ -52,7 +55,8 @@ const artistPageTemplate = ({ data, location }) => {
       </p>
     );
   });
-  return (// eslint-disable-line
+
+  return (
     <Layout data={data} location={location}>
       <main className="artist-page">
         <div className="wrapper">
@@ -91,7 +95,7 @@ const artistPageTemplate = ({ data, location }) => {
             <h3>
               <FormattedMessage id="mapTitle" />
             </h3>
-            {/* <Map></Map> */}
+            <Geowidget url={geoTag} />
           </section>
           <section className="gallery">
             <h3>
@@ -104,12 +108,18 @@ const artistPageTemplate = ({ data, location }) => {
     </Layout>
   );
 };
-artistPageTemplate.propTypes = {
-  data: PropTypes.object.isRequired, // eslint-disable-line
-  location: PropTypes.object.isRequired, // eslint-disable-line
+
+ArtistPageTemplate.propTypes = {
+  data: PropTypes.shape({
+    contentfulArchitectPage: PropTypes.object,
+    allContentfulTimeline: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    href: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
-export default artistPageTemplate;
+export default ArtistPageTemplate;
 
 export const pageQuery = graphql`
     query artistQuery($slug: String!, $lang: String!) {
@@ -157,6 +167,9 @@ export const pageQuery = graphql`
           }
           videoTag {
             videoTag
+          }
+          geoTag {
+            geoTag
           }
           yearsOfLife
           listOfWorks {
