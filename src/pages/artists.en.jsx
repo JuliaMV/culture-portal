@@ -15,7 +15,7 @@ const Item = queryData => (
   </div>
 );
 
-const IndexPage = ({ data, location }) => {
+const ArtistPage = ({ data, location }) => {
   const items = data.allContentfulArchitectPage.edges.map(edge => Item(edge));
   return (
     <Layout data={data} location={location}>
@@ -26,12 +26,12 @@ const IndexPage = ({ data, location }) => {
   );
 };
 
-IndexPage.propTypes = {
+ArtistPage.propTypes = {
   data: PropTypes.object.isRequired, // eslint-disable-line
   location: PropTypes.object.isRequired, // eslint-disable-line
 };
 
-export default IndexPage;
+export default ArtistPage;
 
 export const pageQuery = graphql`
 query AboutEnQuery {
