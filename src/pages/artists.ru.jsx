@@ -1,11 +1,12 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 import Layout from '../components/layout/Layout';
 
-const Item = queryData => (
-  <div>
+const ArtistInfo = queryData => (
+  <div key={`${queryData.node.slug}-item`}>
     <img src={queryData.node.personalPhoto.file.url} alt={queryData.node.personalPhoto.title} width="140" height="170" />
     <h2>
       <Link to={`ru/artists/${queryData.node.slug}`}>
@@ -18,7 +19,7 @@ const Item = queryData => (
 );
 
 const ArtistPage = ({ data, location }) => {
-  const items = data.allContentfulArchitectPage.edges.map(edge => Item(edge));
+  const items = data.allContentfulArchitectPage.edges.map(edge => ArtistInfo(edge));
   return (
     <Layout data={data} location={location}>
       <ul>
@@ -26,6 +27,15 @@ const ArtistPage = ({ data, location }) => {
       </ul>
     </Layout>
   );
+};
+
+ArtistPage.propTypes = {
+  data: PropTypes.shape({
+    allContentfulArchitectPage: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ArtistPage;

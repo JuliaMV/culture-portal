@@ -18,8 +18,8 @@ import Grid from '@material-ui/core/Grid';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+
 import './custom_variables.css';
-// @ts-ignore
 import layoutStyles from './Layout.module.scss';
 
 addLocaleData([...en, ...be, ...ru]);

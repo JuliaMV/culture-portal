@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
@@ -13,6 +13,15 @@ const IndexPage = ({ data, location }) => {
       </Link>
     </Layout>
   );
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    data: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default IndexPage;

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-responsive-modal';
 
-// @ts-ignore
 import styles from './Video.module.scss';
 
 class Video extends React.Component {
@@ -56,7 +55,6 @@ class Video extends React.Component {
     );
   }
 }
-
 
 Video.propTypes = {
   url: PropTypes.string.isRequired,
