@@ -6,7 +6,8 @@
 .footerContent {
   display: flex;
   flex-flow: row wrap;
-  width: 410px;
+  min-width: 230px;
+  max-width: 470px;
   margin: 0 auto;
   padding: 15px;
   color: var(--white-color);
@@ -29,10 +30,10 @@
   font-weight: bold;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .footerContent {
     flex-direction: column;
-    width: 230px;
+    min-width: 305px;
     text-align: center;
   }
 }

@@ -9,6 +9,7 @@ Anna-Pronovich
 | 1h | layout component|
 | 4h | footer component|
 | 4h | header component|
+| 3h | fix bug in header|
 
 JuliaMV
 | time spent | feature |
