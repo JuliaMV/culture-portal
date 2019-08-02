@@ -1,5 +1,5 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import { Link, graphql } from 'gatsby';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 // import { rhythm } from '../utils/typography';
 
 import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
+import Gallery from '../components/gallery/Gallery';
 import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
@@ -32,7 +33,9 @@ const ArtistPageTemplate = ({ data, location }) => {
       },
       title,
     },
+    photoGallery,
   } = artist;
+
   const works = content.map((contentItem) => {
     const {
       content: [
@@ -47,6 +50,7 @@ const ArtistPageTemplate = ({ data, location }) => {
       </li>
     );
   });
+
   const generalInformation = generalInfo.map((contentItem) => {
     const {
       content: [
@@ -61,6 +65,9 @@ const ArtistPageTemplate = ({ data, location }) => {
       </p>
     );
   });
+
+  const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
+  // console.log(galleryImages);
 
   return (
     <Layout data={data} location={location}>
@@ -98,17 +105,17 @@ const ArtistPageTemplate = ({ data, location }) => {
             </h3>
             <Video url={videoTag} />
           </section>
+          <section className="gallery">
+            <h3>
+              <FormattedMessage id="galleryTitle" />
+            </h3>
+            <Gallery images={galleryImages} />
+          </section>
           <section className="artist__map">
             <h3>
               <FormattedMessage id="mapTitle" />
             </h3>
             <Geowidget url={geoTag} />
-          </section>
-          <section className="gallery">
-            <h3>
-              <FormattedMessage id="galleryTitle" />
-            </h3>
-            {/* <Gallery></Gallery> */}
           </section>
         </div>
       </main>
