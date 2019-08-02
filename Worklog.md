@@ -25,3 +25,4 @@ ggwebproject
 | time spent | feature |
 |------------|-------------|
 | 2h | Artist page template, fix problems |
+| 1h | 404 page |
