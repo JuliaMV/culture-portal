@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SelectLanguage({ langs, url }) {
+  // @ts-ignore
   const classes = useStyles();
   const [values, setValues] = React.useState({
     lang: '',
@@ -44,11 +45,11 @@ export default function SelectLanguage({ langs, url }) {
   }
 
   const menuItems = langs.map(lang => (
-    <Link to={lang.link}>
-      <MenuItem value={lang.langKey} key={`${lang.langKey}-key`}>
+    <MenuItem value={lang.langKey} key={`${lang.langKey}-key`}>
+      <Link to={lang.link}>
         {lang.langKey}
-      </MenuItem>
-    </Link>
+      </Link>
+    </MenuItem>
   ));
   // object with keys {langKey, selected, link}
 
@@ -74,84 +75,3 @@ SelectLanguage.propTypes = {
   langs: PropTypes.arrayOf(PropTypes.object).isRequired,
   url: PropTypes.string.isRequired,
 };
-
-/* import React from 'react';
-import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
-import { FormattedMessage } from 'react-intl';
-import { makeStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-
-const useStyles = makeStyles({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: 10,
-    minWidth: 200,
-  },
-  selectEmpty: {
-    marginTop: 20,
-  },
-}); */
-
-
-/* const SelectLanguage = ({ langs }) => {
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    lang: langs.defaultLang,
-    name: langs.defaultLang,
-  });
-
-  const inputLabel = React.useRef(null);
-  const [labelWidth] = React.useState(0); */
-/* React.useEffect(() => {
-    setLabelWidth(inputLabel.current.offsetWidth);
-  }, []); */
-
-/* function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  const menuItems = langs.map(lang => (
-    <MenuItem value={lang.langKey} selected={lang.selected} key={lang.langKey}>
-      <Link to={lang.link}>
-        {lang.langKey}
-      </Link>
-    </MenuItem>
-  ));
-
-  return (
-    <form className={classes.root} autoComplete="off">
-      <FormControl variant="outlined" className={classes.formControl}>
-        <Select
-          value={values.lang}
-          onChange={handleChange}
-          input={<OutlinedInput ref={inputLabel} labelWidth={labelWidth} 
-          id="outlined-age-simple" />}
-          autoWidth
-        >
-          {menuItems}
-        </Select>
-        <FormHelperText>
-          <FormattedMessage id="selectLanguage" />
-        </FormHelperText>
-      </FormControl>
-    </form>
-  );
-};
-
-SelectLanguage.propTypes = {
-  langs: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
-
-export default SelectLanguage; */
