@@ -38,7 +38,7 @@ class Search extends Component {
     };
   }
 
-  searchHandler(event) {
+  searchHandler = (event) => {
     this.setState({ query: event.target.value });
   }
 
@@ -61,7 +61,7 @@ class Search extends Component {
           <input
             type="text"
             value={query}
-            onChange={this.searchHandler.bind(this)}
+            onChange={this.searchHandler}
           />
         </form>
         <ul className="architects-list">
