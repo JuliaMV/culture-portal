@@ -18,8 +18,10 @@ import Grid from '@material-ui/core/Grid';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+import SelectLanguage from '../selectlanguage/SelectLanguage';
 
 import './custom_variables.css';
+// @ts-ignore
 import layoutStyles from './Layout.module.scss';
 
 addLocaleData([...en, ...be, ...ru]);
@@ -50,8 +52,9 @@ class Layout extends Component {
             <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
           </Helmet>
           <Grid container className={layoutStyles.container}>
+            <SelectLanguage langs={this.langsMenu} url={this.homeLink} />
             <Grid item xs={12}>
-              <Header langs={this.langsMenu} url={this.homeLink} />
+              <Header url={this.homeLink} />
             </Grid>
             <Grid item xs={12}>
               <Paper className={layoutStyles.content}>{this.children}</Paper>

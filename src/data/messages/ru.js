@@ -1,5 +1,5 @@
 module.exports = {
-  selectLanguage: 'Выберите язык',
+  selectLanguage: 'Язык',
   artistsPageButton: 'К списку архитекторов',
   mainPageButton: 'На главную',
   footerMessage: 'Сайт разработан',

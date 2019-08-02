@@ -1,5 +1,5 @@
 module.exports = {
-  selectLanguage: 'Select your language',
+  selectLanguage: 'Language',
   artistsPageButton: 'List of architects',
   mainPageButton: 'Main',
   footerMessage: 'Created by',
