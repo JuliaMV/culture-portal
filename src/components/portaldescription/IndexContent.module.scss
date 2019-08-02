@@ -1,0 +1,14 @@
+.textDescription {
+  width: 100%;
+  column-count: 2; 
+    -moz-column-count: 2; 
+    -webkit-column-count: 2; 
+  column-gap: 40px; 
+    -moz-column-gap: 40px;
+    -webkit-column-gap: 40px;
+  column-rule: 1px solid #bdbdbd; 
+    -moz-column-rule: 1px solid #bdbdbd;
+    -webkit-column-rule: 1px solid #bdbdbd;
+    font-size: 26px;
+    text-align: justify;
+}

@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
+import IndexContent from '../components/portaldescription/descriptionEn/IndexContentEn';
 
-const IndexPage = ({ data, location }) => {
-  const { pathname: url } = location;
-  return (
-    <Layout data={data} location={location}>
-      <Link to={`${url}artists`}>
-        To the list of architects
-      </Link>
-    </Layout>
-  );
-};
+const IndexPage = ({ data, location }) => (
+  <Layout data={data} location={location}>
+    <IndexContent />
+  </Layout>
+);
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
