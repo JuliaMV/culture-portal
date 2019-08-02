@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import Container from '@material-ui/core/Container';
 import { FormattedMessage } from 'react-intl';
 import SelectLanguage from '../selectlanguage/SelectLanguage';
+// @ts-ignore
 import headerStyles from './Header.module.scss';
 
 // you can change the labels for buttons in 'data/messages' en.js, ru.js, be.js accordingly
@@ -16,8 +17,8 @@ const Header = ({ langs, url }) => (
             <FormattedMessage id="logo" />
           </h1>
         </Link>
-        <SelectLanguage langs={langs} />
       </Container>
+      <SelectLanguage langs={langs} />
       <ul className={headerStyles.listNav}>
         <li className={headerStyles.listNav_item}>
           <Link to={`${url}`}>

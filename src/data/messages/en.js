@@ -1,5 +1,5 @@
 module.exports = {
-  selectLanguage: 'Select your language',
+  selectLanguage: 'Language',
   artistsPageButton: 'List of architects',
   mainPageButton: 'Main',
   footerMessage: 'Created by',
@@ -9,4 +9,7 @@ module.exports = {
   mapTitle: 'Map',
   galleryTitle: 'Gallery',
   logo: 'Architects of Belarus',
+  be: 'Беларуская',
+  ru: 'Русский',
+  en: 'English',
 };
