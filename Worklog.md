@@ -11,6 +11,7 @@ Anna-Pronovich
 | 4h | footer component|
 | 4h | header component|
 | 3h | fix bug in header|
+| 3h | list of architects|
 
 JuliaMV
 | time spent | feature |
