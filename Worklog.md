@@ -2,6 +2,10 @@ anna-klempach
 | time spent | feature |
 |-------------|-------------|
 | 8h | implement multilanguage layout |
+| 1h | add ArchitectPage and TimeLine content types to contentful |
+| 1h | add information about Baklanov |
+| 1h | add information about Langbard |
+| 1h | add timeline information for Baklanov |
 
 Anna-Pronovich
 | time spent | feature |
