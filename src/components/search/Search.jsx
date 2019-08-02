@@ -29,6 +29,12 @@ const architectsList = [
 ];
 
 class Search extends Component {
+  static searchFor(query) {
+    return x => x.name.toLowerCase().includes(query.toLowerCase())
+             || x.surname.toLowerCase().includes(query.toLowerCase())
+             || x.city.toLowerCase().includes(query.toLowerCase()) || !query;
+  }
+
   constructor(props) {
     super(props);
 
@@ -40,16 +46,6 @@ class Search extends Component {
 
   searchHandler = (event) => {
     this.setState({ query: event.target.value });
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  searchFor(query) {
-    // eslint-disable-next-line func-names
-    return function (x) {
-      return x.name.toLowerCase().includes(query.toLowerCase())
-             || x.surname.toLowerCase().includes(query.toLowerCase())
-             || x.city.toLowerCase().includes(query.toLowerCase()) || !query;
-    };
   }
 
   render() {
@@ -66,7 +62,7 @@ class Search extends Component {
         </form>
         <ul className="architects-list">
           {
-          architects.filter(this.searchFor(searchQuery)).map(architect => (
+          architects.filter(Search.searchFor(searchQuery)).map(architect => (
             <li
               className="architects-list-item"
               key={architect.id}
