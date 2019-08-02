@@ -32,23 +32,12 @@ const useStyles = makeStyles(theme => ({
 
 export default function SelectLanguage({ langs }) {
   const classes = useStyles({});
-  const [values, setValues] = React.useState({
-    lang: '',
-    name: 'hai',
-  });
 
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
 
   const menuItems = langs.map(lang => (
     <Link className={selectLanguageStyles.link} to={lang.link}>
@@ -57,7 +46,6 @@ export default function SelectLanguage({ langs }) {
       </MenuItem>
     </Link>
   ));
-  // object with keys {langKey, selected, link}
 
   return (
     <form className={classes.root} autoComplete="off">
@@ -66,8 +54,7 @@ export default function SelectLanguage({ langs }) {
           <FormattedMessage id="selectLanguage" />
         </InputLabel>
         <Select
-          value={values.lang}
-          onChange={handleChange}
+          value=""
           input={<OutlinedInput labelWidth={labelWidth} name="lang" id="outlined-lang-simple" />}
         >
           {menuItems}
