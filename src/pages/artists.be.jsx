@@ -1,28 +1,15 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
-
-const ArtistInfo = queryData => (
-  <div key={`${queryData.node.personalPhoto.title}-item`}>
-    <img src={queryData.node.personalPhoto.file.url} alt={queryData.node.personalPhoto.title} width="140" height="170" />
-    <h2>
-      <Link to={`be/artists/${queryData.node.slug}`}>
-        {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-      </Link>
-    </h2>
-    <p>{queryData.node.yearsOfLife}</p>
-  </div>
-);
+import Search from '../components/search/Search';
 
 const ArtistPage = ({ data, location }) => {
-  const items = data.allContentfulArchitectPage.edges.map(edge => ArtistInfo(edge));
+  const searchData = data.allContentfulArchitectPage.edges;
   return (
     <Layout data={data} location={location}>
-      <ul>
-        {items}
-      </ul>
+      <Search searchData={searchData} />
     </Layout>
   );
 };
@@ -69,6 +56,7 @@ query AboutBeQuery {
           videoTag
         }
         yearsOfLife
+        searchKeys
       }
     }
   }

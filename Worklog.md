@@ -11,6 +11,7 @@ Anna-Pronovich
 | 4h | footer component|
 | 4h | header component|
 | 3h | fix bug in header|
+| 3h | list of architects|
 
 JuliaMV
 | time spent | feature |
@@ -20,13 +21,15 @@ JuliaMV
 | 0.5h | add basic timeline component |
 | 0.5h | add basic geowidget component |
 | 1 | add video component |
+| 0.25 | add gallery component |
 
 ggwebproject
 | time spent | feature |
 |------------|-------------|
 | 2h | Artist page template, fix problems |
+| 1h | 404 page |
 
 pryvvid
 | time spent | feature |
 |------------|-------------|
-| 4h | search component |
+| 6h | search component |

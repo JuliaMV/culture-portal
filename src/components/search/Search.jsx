@@ -1,45 +1,60 @@
 import React, { Component } from 'react';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import artistCardStyles from './artistCardStyles.module.scss';
 
-const architectsList = [
-  {
-    id: 1,
-    name: 'John',
-    surname: 'Doe',
-    city: 'Minsk',
-  },
-  {
-    id: 2,
-    name: 'Mike',
-    surname: 'Hike',
-    city: 'Hrodno',
-  },
-  {
-    id: 3,
-    name: 'Jane',
-    surname: 'Doe',
-    city: 'Vitebsk',
-  },
-  {
-    id: 4,
-    name: 'Sarah',
-    surname: 'Smith',
-    city: 'Homel',
-  },
-
-];
+const ArtistInfo = queryData => (
+  <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard}>
+    <CardMedia
+      className={artistCardStyles.artistImage}
+      image={queryData.node.personalPhoto.file.url}
+      alt={queryData.node.personalPhoto.title}
+      title="Contemplative Reptile"
+    />
+    <CardContent className={artistCardStyles.artistDescriptions}>
+      <div>
+        <Typography gutterBottom variant="h5" component="h2">
+          <CardActions>
+            <Link to={`en/artists/${queryData.node.slug}`}>
+              {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
+            </Link>
+          </CardActions>
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {queryData.node.yearsOfLife}
+        </Typography>
+      </div>
+      <CardActions>
+        <Button size="small" color="primary">
+          <Link href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">
+                YOUTUBE VIDEO
+          </Link>
+        </Button>
+        <Button size="small" color="primary">
+          <Link to={`ru/artists/${queryData.node.slug}`}>
+              READ MORE
+          </Link>
+        </Button>
+      </CardActions>
+    </CardContent>
+  </Card>
+);
 
 class Search extends Component {
-  static searchFor(query) {
-    return x => x.name.toLowerCase().includes(query.toLowerCase())
-             || x.surname.toLowerCase().includes(query.toLowerCase())
-             || x.city.toLowerCase().includes(query.toLowerCase()) || !query;
+  static searchFor(edge, query) {
+    const searchKeys = edge.node.searchKeys.split(',');
+    return searchKeys.some(key => key.includes(query.toLowerCase()));
   }
 
   constructor(props) {
     super(props);
-
     this.state = {
-      architects: architectsList,
       query: '',
     };
   }
@@ -49,10 +64,13 @@ class Search extends Component {
   }
 
   render() {
-    const { architects, query } = this.state;
+    const { query } = this.state;
     const searchQuery = query.trim();
+    const { searchData } = this.props;
+    const searchItems = searchData.filter(edge => Search.searchFor(edge, searchQuery));
+    const searchResultItems = searchItems ? searchItems.map(edge => ArtistInfo(edge)) : null;
     return (
-      <div className="App">
+      <div>
         <form>
           <input
             type="text"
@@ -60,26 +78,16 @@ class Search extends Component {
             onChange={this.searchHandler}
           />
         </form>
-        <ul className="architects-list">
-          {
-          architects.filter(Search.searchFor(searchQuery)).map(architect => (
-            <li
-              className="architects-list-item"
-              key={architect.id}
-            >
-              {architect.name}
-              {' '}
-              {architect.surname}
-,
-              {' '}
-              {architect.city}
-            </li>
-          ))
-        }
-        </ul>
+        {searchResultItems.length > 0
+          ? <ul className="artists-list">{searchResultItems}</ul>
+          : <p>No results found</p>}
       </div>
     );
   }
 }
+
+Search.propTypes = {
+  searchData: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Search;

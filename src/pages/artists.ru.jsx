@@ -1,30 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
-// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
-
-const ArtistInfo = queryData => (
-  <div key={`${queryData.node.slug}-item`}>
-    <img src={queryData.node.personalPhoto.file.url} alt={queryData.node.personalPhoto.title} width="140" height="170" />
-    <h2>
-      <Link to={`ru/artists/${queryData.node.slug}`}>
-        {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-      </Link>
-    </h2>
-    <p>{queryData.node.yearsOfLife}</p>
-    <a href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">Youtube Video</a>
-  </div>
-);
+import Search from '../components/search/Search';
 
 const ArtistPage = ({ data, location }) => {
-  const items = data.allContentfulArchitectPage.edges.map(edge => ArtistInfo(edge));
+  const searchData = data.allContentfulArchitectPage.edges;
   return (
     <Layout data={data} location={location}>
-      <ul>
-        {items}
-      </ul>
+      <Search searchData={searchData} />
     </Layout>
   );
 };
@@ -71,6 +56,7 @@ query RuArtistQuery {
           videoTag
         }
         yearsOfLife
+        searchKeys
       }
     }
   }

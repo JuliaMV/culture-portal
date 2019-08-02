@@ -32,6 +32,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-image-gallery": "^0.8.18",
     "react-intl": "^2.7.2",
     "react-responsive-modal": "^4.0.1",
     "react-typography": "^0.16.3",
@@ -50,6 +51,7 @@
   },
   "scripts": {
     "develop": "gatsby develop",
+    "developWithPlayGround": "./node_modules/.bin/env-cmd -f .env.development gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve",
     "clean": "rm -rf .cache",
@@ -64,6 +66,7 @@
   },
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.7",
+    "env-cmd": "^9.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.0",
