@@ -2,6 +2,7 @@ anna-klempach
 | time spent | feature |
 |-------------|-------------|
 | 8h | implement multilanguage layout |
+| 5h | refactor and implement language select component |
 
 Anna-Pronovich
 | time spent | feature |
