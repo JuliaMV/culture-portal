@@ -6,26 +6,32 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { FormattedMessage } from 'react-intl';
 import Link from 'gatsby-link';
+// @ts-ignore
+import selectLanguageStyles from './SelectLanguage.module.scss';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
   formControl: {
-    position: 'fixed',
+    position: 'absolute',
+    top: 20,
+    right: 20,
     margin: theme.spacing(1),
-    minWidth: 55,
+    minWidth: 120,
     zIndex: 10,
+    color: '#000000',
+    opacity: 0.9,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
 }));
 
-export default function SelectLanguage({ langs, url }) {
-  // @ts-ignore
-  const classes = useStyles();
+export default function SelectLanguage({ langs }) {
+  const classes = useStyles({});
   const [values, setValues] = React.useState({
     lang: '',
     name: 'hai',
@@ -45,11 +51,11 @@ export default function SelectLanguage({ langs, url }) {
   }
 
   const menuItems = langs.map(lang => (
-    <MenuItem value={lang.langKey} key={`${lang.langKey}-key`}>
-      <Link to={lang.link}>
+    <Link className={selectLanguageStyles.link} to={lang.link}>
+      <MenuItem value={lang.langKey} key={`${lang.langKey}-key`}>
         {lang.langKey}
-      </Link>
-    </MenuItem>
+      </MenuItem>
+    </Link>
   ));
   // object with keys {langKey, selected, link}
 
@@ -57,7 +63,7 @@ export default function SelectLanguage({ langs, url }) {
     <form className={classes.root} autoComplete="off">
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel ref={inputLabel} htmlFor="outlined-lang-simple">
-          {url.slice(1, -1)}
+          <FormattedMessage id="selectLanguage" />
         </InputLabel>
         <Select
           value={values.lang}
@@ -73,5 +79,4 @@ export default function SelectLanguage({ langs, url }) {
 
 SelectLanguage.propTypes = {
   langs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  url: PropTypes.string.isRequired,
 };

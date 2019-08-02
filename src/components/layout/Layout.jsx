@@ -52,7 +52,7 @@ class Layout extends Component {
             <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
           </Helmet>
           <Grid container className={layoutStyles.container}>
-            <SelectLanguage langs={this.langsMenu} url={this.homeLink} />
+            <SelectLanguage langs={this.langsMenu} />
             <Grid item xs={12}>
               <Header url={this.homeLink} />
             </Grid>
