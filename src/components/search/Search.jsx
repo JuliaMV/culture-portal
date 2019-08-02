@@ -54,6 +54,7 @@ class Search extends Component {
 
   render() {
     const { architects, query } = this.state;
+    const searchQuery = query.trim();
     return (
       <div className="App">
         <form>
@@ -65,7 +66,7 @@ class Search extends Component {
         </form>
         <ul className="architects-list">
           {
-          architects.filter(this.searchFor(query)).map(architect => (
+          architects.filter(this.searchFor(searchQuery)).map(architect => (
             <li
               className="architects-list-item"
               key={architect.id}
