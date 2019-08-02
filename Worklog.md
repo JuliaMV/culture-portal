@@ -21,6 +21,7 @@ JuliaMV
 | 0.5h | add basic timeline component |
 | 0.5h | add basic geowidget component |
 | 1 | add video component |
+| 0.25 | add gallery component |
 
 ggwebproject
 | time spent | feature |
