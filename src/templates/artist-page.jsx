@@ -67,7 +67,6 @@ const ArtistPageTemplate = ({ data, location }) => {
   });
 
   const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
-  // console.log(galleryImages);
 
   return (
     <Layout data={data} location={location}>

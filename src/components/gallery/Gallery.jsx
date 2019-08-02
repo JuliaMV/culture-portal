@@ -5,7 +5,9 @@ import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 const Gallery = ({ images }) => {
-  const transformedImages = images.map(image => ({ original: image.src }));
+  const transformedImages = images.map(image => ({
+    original: image.src, thumbnail: image.src,
+  }));
   return <ImageGallery items={transformedImages} />;
 };
 
