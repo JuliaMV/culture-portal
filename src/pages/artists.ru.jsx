@@ -3,26 +3,59 @@ import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 import Layout from '../components/layout/Layout';
+import artistCardStyles from './artistCardStyles.module.scss';
 
 const ArtistInfo = queryData => (
-  <div key={`${queryData.node.slug}-item`}>
-    <img src={queryData.node.personalPhoto.file.url} alt={queryData.node.personalPhoto.title} width="140" height="170" />
-    <h2>
-      <Link to={`ru/artists/${queryData.node.slug}`}>
-        {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-      </Link>
-    </h2>
-    <p>{queryData.node.yearsOfLife}</p>
-    <a href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">Youtube Video</a>
-  </div>
+  <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard}>
+    <CardMedia
+      className={artistCardStyles.artistImage}
+      image={queryData.node.personalPhoto.file.url}
+      alt={queryData.node.personalPhoto.title}
+      title="Contemplative Reptile"
+    />
+    <CardContent className={artistCardStyles.artistDescriptions}>
+      <div>
+        <Typography gutterBottom variant="h5" component="h2">
+          <CardActions>
+            <Link to={`ru/artists/${queryData.node.slug}`}>
+              {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
+            </Link>
+          </CardActions>
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {queryData.node.yearsOfLife}
+        </Typography>
+      </div>
+      <CardActions>
+        <Button size="small" color="primary">
+          <Link href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">
+                YOUTUBE ВИДЕО
+          </Link>
+        </Button>
+        <Button size="small" color="primary">
+          <Link to={`ru/artists/${queryData.node.slug}`}>
+              ЧИТАТЬ
+          </Link>
+        </Button>
+      </CardActions>
+    </CardContent>
+  </Card>
 );
 
 const ArtistPage = ({ data, location }) => {
   const items = data.allContentfulArchitectPage.edges.map(edge => ArtistInfo(edge));
   return (
     <Layout data={data} location={location}>
-      <ul>
+      <h2 className={artistCardStyles.headerOfartistsList}>Список архитекторов</h2>
+      <ul className={artistCardStyles.artistsList}>
         {items}
       </ul>
     </Layout>
