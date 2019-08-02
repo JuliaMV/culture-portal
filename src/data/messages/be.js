@@ -9,4 +9,7 @@ module.exports = {
   mapTitle: 'Мапа',
   galleryTitle: 'Галерэя',
   logo: 'Архітэктары Беларусі',
+  be: 'Беларуская',
+  ru: 'Русский',
+  en: 'English',
 };

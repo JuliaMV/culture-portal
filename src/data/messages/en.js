@@ -9,4 +9,7 @@ module.exports = {
   mapTitle: 'Map',
   galleryTitle: 'Gallery',
   logo: 'Architects of Belarus',
+  be: 'Беларуская',
+  ru: 'Русский',
+  en: 'English',
 };

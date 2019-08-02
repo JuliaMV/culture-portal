@@ -9,4 +9,7 @@ module.exports = {
   mapTitle: 'Карта',
   galleryTitle: 'Галерея',
   logo: 'Архитекторы Беларуси',
+  be: 'Беларуская',
+  ru: 'Русский',
+  en: 'English',
 };
