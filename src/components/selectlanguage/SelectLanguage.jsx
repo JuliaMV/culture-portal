@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     minWidth: 120,
     zIndex: 10,
     color: '#000000',
-    opacity: 0.9,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -40,9 +39,9 @@ export default function SelectLanguage({ langs }) {
   }, []);
 
   const menuItems = langs.map(lang => (
-    <Link className={selectLanguageStyles.link} to={lang.link}>
-      <MenuItem value={lang.langKey} key={`${lang.langKey}-key`}>
-        {lang.langKey}
+    <Link className={selectLanguageStyles.link} to={lang.link} key={`${lang.langKey}-key`}>
+      <MenuItem value={lang.langKey}>
+        <FormattedMessage id={lang.langKey} />
       </MenuItem>
     </Link>
   ));
