@@ -65,17 +65,17 @@ class Search extends Component {
         </form>
         <ul className="architects-list">
           {
-          architects.filter(this.searchFor(query)).map(a => (
+          architects.filter(this.searchFor(query)).map(architect => (
             <li
               className="architects-list-item"
-              key={a.id}
+              key={architect.id}
             >
-              {a.name}
+              {architect.name}
               {' '}
-              {a.surname}
+              {architect.surname}
 ,
               {' '}
-              {a.city}
+              {architect.city}
             </li>
           ))
         }
