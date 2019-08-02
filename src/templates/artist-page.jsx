@@ -26,6 +26,12 @@ const ArtistPageTemplate = ({ data, location }) => {
     generalInfo: {
       content: generalInfo,
     },
+    personalPhoto: {
+      file: {
+        url,
+      },
+      title,
+    },
   } = artist;
   const works = content.map((contentItem) => {
     const {
@@ -62,6 +68,7 @@ const ArtistPageTemplate = ({ data, location }) => {
         <div className="wrapper">
           <section className="artist__info">
             <div className="artist__img">
+              <img src={url} alt={title} width="140" height="170" />
               {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
             <h2>{`${surname} ${name} ${patronymic}`}</h2>
