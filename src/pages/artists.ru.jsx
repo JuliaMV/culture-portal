@@ -31,6 +31,7 @@ query RuArtistQuery {
     edges {
       node {
         slug
+        lang
         patronymic {
           patronymic
         }

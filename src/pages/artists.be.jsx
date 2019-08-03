@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-
 import Layout from '../components/layout/Layout';
 import Search from '../components/search/Search';
 
@@ -31,6 +30,7 @@ query AboutBeQuery {
     edges {
       node {
         slug
+        lang
         patronymic {
           patronymic
         }

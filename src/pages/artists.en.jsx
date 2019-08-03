@@ -31,6 +31,7 @@ query AboutEnQuery {
     edges {
       node {
         slug
+        lang
         patronymic {
           patronymic
         }
