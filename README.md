@@ -10,6 +10,7 @@ https://culture-portal-arch.netlify.com
 
 ## Score calculation
 Maximum points - **240**
+
 Total - (**240/240**)
 
 ### Min scope - (**40/40**)
@@ -69,6 +70,7 @@ Total - (**240/240**)
 | time spent | feature |
 |------------|-------------|
 | 6h | search component |
+| 0.5h | add readme with score calculation and worklog |
 
 # Reminder
 During the presentation the following things have to be shown:
