@@ -11,17 +11,20 @@ import Team from '../components/team/Team';
 
 const IndexPage = ({ data, location }) => (
   <Layout data={data} location={location}>
-    <main>
+    <>
       <section>
         <h2><FormattedMessage id="aboutPortal" /></h2>
+        <p><FormattedMessage id="aboutPortalText1" /></p>
+        <p><FormattedMessage id="aboutPortalText2" /></p>
+      </section>
+      <section>
+        {/* Author of the day */}
       </section>
       <section>
         <h2><FormattedMessage id="ourTeam" /></h2>
         <Team />
       </section>
-    </main>
-    {/* <IndexContent /> */}
-    {/* <OurTeam /> */}
+    </>
   </Layout>
 );
 
