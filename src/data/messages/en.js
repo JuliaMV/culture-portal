@@ -13,4 +13,5 @@ module.exports = {
   ru: 'Русский',
   en: 'English',
   notFound: 'Page is not found',
+  artistCardReadMore: 'READ MORE',
 };

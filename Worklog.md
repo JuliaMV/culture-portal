@@ -3,6 +3,9 @@ anna-klempach
 |-------------|-------------|
 | 8h | implement multilanguage layout |
 | 5h | refactor and implement language select component |
+| 0.75h | implement artist card component |
+| 0.75h | fix problems with queries and page linking |
+
 
 Anna-Pronovich
 | time spent | feature |
@@ -30,3 +33,8 @@ ggwebproject
 |------------|-------------|
 | 2h | Artist page template, fix problems |
 | 1h | 404 page |
+
+pryvvid
+| time spent | feature |
+|------------|-------------|
+| 6h | search component |

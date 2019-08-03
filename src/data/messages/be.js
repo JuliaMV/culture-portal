@@ -13,4 +13,5 @@ module.exports = {
   ru: 'Русский',
   en: 'English',
   notFound: 'Старонка не знойдзена',
+  artistCardReadMore: 'ЧЫТАЦЬ ДАЛЕЙ',
 };
