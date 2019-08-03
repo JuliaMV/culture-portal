@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 // import PropTypes from 'prop-types';
 // @ts-ignore
 import artistCardStyles from './artistCardStyles.module.scss';
@@ -21,7 +21,7 @@ const ArtistCard = queryData => (
       <div>
         <Typography gutterBottom variant="h5" component="h2">
           <CardActions>
-            <a href={`en/artists/${queryData.node.slug}`}>
+            <a href={`${queryData.node.slug}`}>
               {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
             </a>
           </CardActions>
@@ -37,9 +37,9 @@ const ArtistCard = queryData => (
           </a>
         </Button>
         <Button size="small" color="primary">
-          <Link to={`ru/artists/${queryData.node.slug}`}>
+          <a href={`${queryData.node.slug}`}>
               READ MORE
-          </Link>
+          </a>
         </Button>
       </CardActions>
     </CardContent>
