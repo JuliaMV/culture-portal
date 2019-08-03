@@ -43,17 +43,20 @@ const IndexContent = () => {
         About portal
         </Typography>
         <Typography gutterBottom className={indexContentStyles.textDescription}>
-        Active architectural activity began in Belarus at the end of the 1920s.
-        Until that time, the main idea was restoration, reconstruction, and adaptation
-        of existing buildings. It demanded the consolidation of all the creative forces
-        of the republic. In 1932, a committee was formed by unification of the Soviet architects.
-        Architects members of the Union of Byelorussian architects participated in the
-        reconstruction and construction of cities and villages of Belarus. On this portal
-        you can know about brilliant architects, also you can find information about our
-        compatriots who have left a significant mark in the development of architecture Belarus.
+        The end of the 1920s was the beginning of dynamic architectural activity
+        in Belarus. Until that time, main actionscame down to restoration, renovation,
+        and adaptation of existing buildings. The tasks that the country faced demanded
+         consolidation of all the creative forces of the republic. In 1932, a committee
+         forcreating a union of Soviet architects was established. Members of the Union
+         of Belarusian architects participated in the renovation and building of cities
+         and villages of Belarus, establishment of Belarusian soviet architecture.
           <br />
-        Here we collected the biographies of them with interesting facts, photos of their works,
-        videos, related to their activities or the era in which they lived, and ect.
+         This portal gives you a chance to learn about brilliant architects, as well as
+         find information about our compatriots who contributed significantly to the
+         development of Belarusianarchitecture. Here you can find a collection of their
+         biographies with interesting facts, photos of their works, videos, related to
+         their activities or the era in which they lived, and much more information on
+         the most prominent representatives of Belarusian architectural school.
         </Typography>
       </ThemeProvider>
     </Paper>
