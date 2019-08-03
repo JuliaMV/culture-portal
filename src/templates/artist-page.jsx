@@ -121,7 +121,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        allContentfulTimeline(filter: {lang: {eq: $lang}}, sort: {fields: order}) {
+        allContentfulTimeline(filter: {lang: {eq: $lang}, title: {eq: $slug}}, sort: {fields: order}) {
           edges {
             node {
               date
