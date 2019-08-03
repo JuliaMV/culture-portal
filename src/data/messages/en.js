@@ -12,4 +12,5 @@ module.exports = {
   be: 'Беларуская',
   ru: 'Русский',
   en: 'English',
+  notFound: 'Page is not found',
 };

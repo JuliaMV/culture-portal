@@ -27,3 +27,9 @@ ggwebproject
 | time spent | feature |
 |------------|-------------|
 | 2h | Artist page template, fix problems |
+| 1h | 404 page |
+
+pryvvid
+| time spent | feature |
+|------------|-------------|
+| 6h | search component |

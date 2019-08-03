@@ -1,0 +1,45 @@
+.headerOfartistsList {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 36px;
+  text-align: center;
+}
+.artistsList {
+  margin: 0 auto;
+}
+
+.artistCard {
+  display: flex;
+  min-width: 300px;
+  max-width: 640px;
+  width: 100%;
+  min-height: 200px;
+  margin: 20px auto;
+}
+
+.artistCard a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+.artistCard a:hover {
+  color: var(--darkRed-color);
+}
+
+.artistImage {
+  width: 210px;
+}
+
+.artistDescriptions{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+  .artistCard {
+    // flex-direction: column;
+    //if you open a line above, you will not see photo of author!!!
+    width: 200px;
+  }
+}
