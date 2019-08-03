@@ -71,6 +71,7 @@ Total - (**240/240**)
 | time spent | feature |
 |------------|-------------|
 | 6h | search component |
+| 2h | add styles, placeholders and error messages to search component |
 | 0.5h | add readme with score calculation and worklog |
 
 # Reminder

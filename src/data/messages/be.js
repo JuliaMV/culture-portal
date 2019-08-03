@@ -14,4 +14,6 @@ module.exports = {
   en: 'English',
   notFound: 'Старонка не знойдзена',
   artistCardReadMore: 'ЧЫТАЦЬ ДАЛЕЙ',
+  searchPlaceholder: 'Пошук',
+  noSearchResults: 'Нічога не знойдзена',
 };
