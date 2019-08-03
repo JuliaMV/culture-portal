@@ -66,6 +66,7 @@ Total - (**240/240**)
 |------------|-------------|
 | 2h | Artist page template, fix problems |
 | 1h | 404 page |
+| 2h | implement adaptive to gallery |
 
 ### pryvvid
 | time spent | feature |
