@@ -59,6 +59,7 @@ Total - (**240/240**)
 | 0.5h | add basic geowidget component |
 | 1 | add video component |
 | 0.25 | add gallery component |
+| 0.25 | add information into contentful |
 
 ### ggwebproject
 | time spent | feature |
