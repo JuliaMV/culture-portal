@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
+
 import ArtistCard from '../artistcard/ArtistCard';
+import searchStyles from './Search.module.scss';
 
 class Search extends Component {
   static searchFor(edge, query) {
@@ -25,18 +28,25 @@ class Search extends Component {
     const { searchData } = this.props;
     const searchItems = searchData.filter(edge => Search.searchFor(edge, searchQuery));
     const searchResultItems = searchItems ? searchItems.map(edge => ArtistCard(edge)) : null;
+
     return (
-      <div>
+      <div className={searchStyles.artistsWrapper}>
         <form>
-          <input
-            type="text"
-            value={query}
-            onChange={this.searchHandler}
-          />
+          <FormattedMessage id="searchPlaceholder">
+            {placeholder => (
+              <input
+                className={searchStyles.searchInput}
+                type="text"
+                value={query}
+                placeholder={placeholder}
+                onChange={this.searchHandler}
+              />
+            )}
+          </FormattedMessage>
         </form>
         {searchResultItems.length > 0
-          ? <ul className="artists-list">{searchResultItems}</ul>
-          : <p>No results found</p>}
+          ? <ul className={searchStyles.artistsList}>{searchResultItems}</ul>
+          : <p className={searchStyles.errorMessage}><FormattedMessage id="noSearchResults" /></p>}
       </div>
     );
   }

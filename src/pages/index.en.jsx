@@ -1,29 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { FormattedMessage } from 'react-intl';
+import Paper from '@material-ui/core/Paper';
 
 import Layout from '../components/layout/Layout';
 import Team from '../components/team/Team';
-// import IndexContent from '../components/portaldescription/descriptionEn/IndexContentEn';
-// import OurTeam from '../components/portaldescription/descriptionEn/OurTeamEn';
+import AboutPortal from '../components/aboutportal/AboutPortal';
+
+import indexStyle from './indexStyle.module.scss';
 
 const IndexPage = ({ data, location }) => (
   <Layout data={data} location={location}>
-    <>
-      <section>
-        <h2><FormattedMessage id="aboutPortal" /></h2>
-        <p><FormattedMessage id="aboutPortalText1" /></p>
-        <p><FormattedMessage id="aboutPortalText2" /></p>
-      </section>
-      <section>
-        {/* Author of the day */}
-      </section>
-      <section>
-        <h2><FormattedMessage id="ourTeam" /></h2>
-        <Team />
-      </section>
-    </>
+    <Paper className={indexStyle.sectionWrapper}>
+      <AboutPortal />
+    </Paper>
+    <Paper>
+      {/* Author of the day */}
+    </Paper>
+    <Paper className={indexStyle.sectionWrapper}>
+      <Team />
+    </Paper>
   </Layout>
 );
 

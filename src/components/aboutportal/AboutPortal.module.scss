@@ -1,4 +1,10 @@
-.textDescription {
+.containerAboutPortal {
+  padding: 50px 40px 30px;
+  background-color: var(--lightGray-color);
+}
+
+.textWrapper {
+  margin-top: 40px; 
   width: 100%;
   column-count: 2; 
     -moz-column-count: 2; 
@@ -9,14 +15,22 @@
   column-rule: 1px solid #bdbdbd; 
     -moz-column-rule: 1px solid #bdbdbd;
     -webkit-column-rule: 1px solid #bdbdbd;
-    font-size: 26px;
     text-align: justify;
 }
 
+.sectionText {
+  text-indent: 30px;
+}
+
 @media (max-width: 740px) {
-  .textDescription {
+  .containerAboutPortal {
+    padding: 20px 40px;
+  }
+  
+  .textWrapper {
+    margin-top: 20px; 
     column-count: 1; 
     -moz-column-count: 1; 
-    -webkit-column-count: 1; 
+    -webkit-column-count: 1;     
   }
 }

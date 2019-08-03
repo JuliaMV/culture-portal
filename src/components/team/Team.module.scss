@@ -1,18 +1,9 @@
-.teamLine_big,
-.teamLine_small {  
+.teamLine {  
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
   margin: 0 auto;
-}
-
-.teamLine_big {
-  max-width: 1000px;  
-}
-
-.teamLine_small{
-  max-width: 780px;
 }
 
 .teamMember {
@@ -47,13 +38,7 @@
 .teamMember_imgLink {
   margin: 0 10px 0;
 }
-
-@media (max-width: 940px) {
-  .teamLine_big {
-    max-width: 600px;  
-  }
-
-  .teamLine_small{
-    max-width: 720px;
-  }  
+.teamContainer {
+  padding: 20px 50px 40px;
+  background-color: var(--lightGray-color);
 }
