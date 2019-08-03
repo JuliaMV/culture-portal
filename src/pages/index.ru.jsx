@@ -1,6 +1,10 @@
+// eslint-disable-file
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
+
+// import ArtistCard from '../components/artistcard/ArtistCard';
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Layout from '../components/layout/Layout';
@@ -8,11 +12,15 @@ import Layout from '../components/layout/Layout';
 
 const IndexPage = ({ data, location }) => {
   const { pathname: url } = location;
+  const currentArtistList = data.allContentfulArchitectPage.edges; //eslint-disable-line
+  const numberOfArtists = currentArtistList.length; //eslint-disable-line
+  // const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
   return (
     <Layout data={data} location={location}>
       <Link to={`${url}artists`}>
         К списку архитекторов
       </Link>
+      {/* <ArtistCard queryData={node} /> */}
     </Layout>
   );
 };
@@ -59,6 +67,13 @@ query RuQuery {
           videoTag
         }
         yearsOfLife
+        listOfWorks {
+          content {
+            content {
+              value
+            }
+          }
+        }
       }
     }
   }
