@@ -144,7 +144,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        allContentfulTimeline(filter: {lang: {eq: $lang}}, sort: {fields: order}) {
+        allContentfulTimeline(filter: {lang: {eq: $lang}, title: {eq: $slug}}, sort: {fields: order}) {
           edges {
             node {
               date
@@ -157,6 +157,7 @@ export const pageQuery = graphql`
         }
         contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang },) {
           slug
+          lang
           patronymic {
             patronymic
           }
