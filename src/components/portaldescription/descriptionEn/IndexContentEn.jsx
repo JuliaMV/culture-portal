@@ -28,8 +28,8 @@ const useStyles = makeStyles({
     paddingBottom: 40,
     paddingLeft: 50,
     paddingRight: 50,
-    marginTop: '2rem',
-    marginBottom: '5rem',
+    // marginTop: '2rem',
+    marginBottom: '2rem',
   },
 });
 

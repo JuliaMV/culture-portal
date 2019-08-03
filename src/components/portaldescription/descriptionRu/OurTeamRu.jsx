@@ -28,8 +28,8 @@ const theme = createMuiTheme({
 const useStyles = makeStyles({
   root: {
     padding: '30px 0',
-    marginTop: '5rem',
-    marginBottom: '5rem',
+    marginTop: '2rem',
+    marginBottom: '2rem',
     backgroundColor: '#f5f5f5',
   },
 });

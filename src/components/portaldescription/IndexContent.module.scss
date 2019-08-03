@@ -12,3 +12,11 @@
     font-size: 26px;
     text-align: justify;
 }
+
+@media (max-width: 740px) {
+  .textDescription {
+    column-count: 1; 
+    -moz-column-count: 1; 
+    -webkit-column-count: 1; 
+  }
+}
