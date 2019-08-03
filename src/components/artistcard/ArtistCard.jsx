@@ -32,11 +32,6 @@ const ArtistCard = queryData => (
       </div>
       <CardActions>
         <Button size="small" color="primary">
-          <a href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">
-            <FormattedMessage id="artistCardVideo" />
-          </a>
-        </Button>
-        <Button size="small" color="primary">
           <Link to={`${queryData.node.lang}/artists/${queryData.node.slug}`}>
             <FormattedMessage id="artistCardReadMore" />
           </Link>
