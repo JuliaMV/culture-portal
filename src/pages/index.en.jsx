@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 
 import Layout from '../components/layout/Layout';
-import IndexContent from '../components/portaldescription/descriptionEn/IndexContentEn';
-import OurTeam from '../components/portaldescription/descriptionEn/OurTeamEn';
+import Team from '../components/team/Team';
+// import IndexContent from '../components/portaldescription/descriptionEn/IndexContentEn';
+// import OurTeam from '../components/portaldescription/descriptionEn/OurTeamEn';
 
 const IndexPage = ({ data, location }) => (
   <Layout data={data} location={location}>
-    <IndexContent />
-    <OurTeam />
+    <main>
+      <section>
+        <h2><FormattedMessage id="aboutPortal" /></h2>
+      </section>
+      <section>
+        <h2><FormattedMessage id="ourTeam" /></h2>
+        <Team />
+      </section>
+    </main>
+    {/* <IndexContent /> */}
+    {/* <OurTeam /> */}
   </Layout>
 );
 

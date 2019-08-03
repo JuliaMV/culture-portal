@@ -14,4 +14,6 @@ module.exports = {
   en: 'English',
   notFound: 'Страница не найдена',
   artistCardReadMore: 'ЧИТАТЬ ДАЛЬШЕ',
+  aboutPortal: 'О Портале',
+  ourTeam: 'Наша Команда',
 };
