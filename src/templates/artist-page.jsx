@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Link, graphql } from 'gatsby';
@@ -11,6 +12,7 @@ import Gallery from '../components/gallery/Gallery';
 import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
+import { PanelBot, PanelTop } from '../components/navigationPanel';
 
 const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
@@ -21,16 +23,10 @@ const ArtistPageTemplate = ({ data, location }) => {
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
-    listOfWorks: {
-      content,
-    },
-    generalInfo: {
-      content: generalInfo,
-    },
+    listOfWorks: { content },
+    generalInfo: { content: generalInfo },
     personalPhoto: {
-      file: {
-        url,
-      },
+      file: { url },
       title,
     },
     photoGallery,
@@ -38,38 +34,27 @@ const ArtistPageTemplate = ({ data, location }) => {
 
   const works = content.map((contentItem) => {
     const {
-      content: [
-        {
-          value,
-        },
-      ],
+      content: [{ value }],
     } = contentItem;
-    return (
-      <li key={`${value}`}>
-        {value}
-      </li>
-    );
+    return <li key={`${value}`}>{value}</li>;
   });
 
   const generalInformation = generalInfo.map((contentItem) => {
     const {
-      content: [
-        {
-          value,
-        },
-      ],
+      content: [{ value }],
     } = contentItem;
-    return (
-      <p key={`${value}`}>
-        {value}
-      </p>
-    );
+    return <p key={`${value}`}>{value}</p>;
   });
 
-  const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
+  const galleryImages = photoGallery.map((image) => ({
+    src: image.file.url,
+    title: image.title,
+  }));
 
   return (
     <Layout data={data} location={location}>
+      <PanelTop />
+      <PanelBot />
       <main className="artist-page">
         <div className="wrapper">
           <section className="artist__info">
@@ -79,9 +64,7 @@ const ArtistPageTemplate = ({ data, location }) => {
             </div>
             <h2>{`${surname} ${name} ${patronymic}`}</h2>
             <span className="artist__date">{yearsOfLife}</span>
-            <div className="artist__description">
-              {generalInformation}
-            </div>
+            <div className="artist__description">{generalInformation}</div>
           </section>
           <section className="artist__timeline">
             <h3>
@@ -94,9 +77,7 @@ const ArtistPageTemplate = ({ data, location }) => {
               <FormattedMessage id="worksTitle" />
             </h3>
             {/* <Buildings></Buildings> */}
-            <ul>
-              {works}
-            </ul>
+            <ul>{works}</ul>
           </section>
           <section className="artist__video">
             <h3>
@@ -135,70 +116,73 @@ ArtistPageTemplate.propTypes = {
 export default ArtistPageTemplate;
 
 export const pageQuery = graphql`
-    query artistQuery($slug: String!, $lang: String!) {
-        site {
-            siteMetadata {
-                languages {
-                    defaultLangKey
-                    langs
-                }
-            }
+  query artistQuery($slug: String!, $lang: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
         }
-        allContentfulTimeline(filter: {lang: {eq: $lang}}, sort: {fields: order}) {
-          edges {
-            node {
-              date
-              description {
-                description
-              }
-              order
-            }
-          }
-        }
-        contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang },) {
-          slug
-          patronymic {
-            patronymic
-          }
-          name {
-            name
-          }
-          personalPhoto {
-            file {
-              url
-              fileName
-            }
-          }
-          photoGallery {
-            file {
-              url
-            }
-            title
-          }
-          surname {
-            surname
-          }
-          videoTag {
-            videoTag
-          }
-          geoTag {
-            geoTag
-          }
-          yearsOfLife
-          listOfWorks {
-            content {
-              content {
-                value
-              }
-            }
-          }
-          generalInfo {
-            content {
-              content {
-                value
-              }
-            }
-          }
-        }
+      }
     }
+    allContentfulTimeline(
+      filter: { lang: { eq: $lang } }
+      sort: { fields: order }
+    ) {
+      edges {
+        node {
+          date
+          description {
+            description
+          }
+          order
+        }
+      }
+    }
+    contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang }) {
+      slug
+      patronymic {
+        patronymic
+      }
+      name {
+        name
+      }
+      personalPhoto {
+        file {
+          url
+          fileName
+        }
+      }
+      photoGallery {
+        file {
+          url
+        }
+        title
+      }
+      surname {
+        surname
+      }
+      videoTag {
+        videoTag
+      }
+      geoTag {
+        geoTag
+      }
+      yearsOfLife
+      listOfWorks {
+        content {
+          content {
+            value
+          }
+        }
+      }
+      generalInfo {
+        content {
+          content {
+            value
+          }
+        }
+      }
+    }
+  }
 `;

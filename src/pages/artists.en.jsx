@@ -1,6 +1,5 @@
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -19,11 +18,11 @@ const ArtistPage = ({ data, location }) => {
 
 ArtistPage.propTypes = {
   data: PropTypes.shape({
-    allContentfulArchitectPage: PropTypes.object
+    allContentfulArchitectPage: PropTypes.object,
   }).isRequired,
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
-  }).isRequired
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ArtistPage;
@@ -59,12 +58,8 @@ export const pageQuery = graphql`
             videoTag
           }
           yearsOfLife
+          searchKeys
         }
-<<<<<<< HEAD
-=======
-        yearsOfLife
-        searchKeys
->>>>>>> a5457ff49d13c7a0d2484fd1f65138a1487693e0
       }
     }
     site {

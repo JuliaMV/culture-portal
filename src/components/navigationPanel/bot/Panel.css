@@ -1,0 +1,8 @@
+.navigationPanelBot {
+  position: fixed;
+  width: 5vh;
+  height: 5vh;
+  margin-top: 10vh;
+  margin-left: 50%;
+  z-index: 1000;
+}

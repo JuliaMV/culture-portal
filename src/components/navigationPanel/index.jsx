@@ -1,3 +1,4 @@
-import NavigationPanel from './Panel';
+import PanelTop from './top';
+import PanelBot from './bot';
 
-export default NavigationPanel;
+export { PanelTop, PanelBot };

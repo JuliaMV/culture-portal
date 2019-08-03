@@ -17,11 +17,8 @@ import ru from 'react-intl/locale-data/ru';
 
 import Grid from '@material-ui/core/Grid';
 
-import { FaLongArrowAltUp } from 'react-icons/fa';
-
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-import { ButtonBot } from '../navigationButtons';
 
 import './custom_variables.css';
 import layoutStyles from './Layout.module.scss';
@@ -43,13 +40,7 @@ class Layout extends Component {
       getUrlForLang(this.homeLink, url)
     );
     this.i18nMessages = require(`../../data/messages/${this.langKey}`); // eslint-disable-line
-    this.childTop = React.createRef();
   }
-
-  handleClick = e => {
-    e.preventDefault();
-    window.scrollTo(0, 0);
-  };
 
   render() {
     return (
@@ -71,51 +62,6 @@ class Layout extends Component {
               <main className={layoutStyles.content}>{this.children}</main>
             </Grid>
             <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <Grid item xs={12}>
-              <main className={layoutStyles.content}>{this.children}</main>
-            </Grid>
-            <ButtonBot onClick={this.handleClick}>
-              <FaLongArrowAltUp />
-            </ButtonBot>
-            <Grid item xs={12}>
               <Footer />
             </Grid>
           </Grid>
@@ -127,12 +73,12 @@ class Layout extends Component {
 
 Layout.propTypes = {
   data: PropTypes.shape({
-    site: PropTypes.object
+    site: PropTypes.object,
   }).isRequired,
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

@@ -1,0 +1,10 @@
+.navigationPanelTop {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 40vh;
+  height: 5vh;
+  margin-top: -15vh;
+  margin-left: 64%;
+  z-index: 1000;
+}
