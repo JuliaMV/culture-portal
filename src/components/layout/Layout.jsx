@@ -13,13 +13,12 @@ import en from 'react-intl/locale-data/en';
 import be from 'react-intl/locale-data/be';
 import ru from 'react-intl/locale-data/ru';
 
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+
 import './custom_variables.css';
-// @ts-ignore
 import layoutStyles from './Layout.module.scss';
 
 addLocaleData([...en, ...be, ...ru]);
@@ -54,7 +53,7 @@ class Layout extends Component {
               <Header langs={this.langsMenu} url={this.homeLink} />
             </Grid>
             <Grid item xs={12}>
-              <Paper className={layoutStyles.content}>{this.children}</Paper>
+              <main className={layoutStyles.content}>{this.children}</main>
             </Grid>
             <Grid item xs={12}>
               <Footer />

@@ -1,34 +1,26 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
-import Layout from '../components/layout/Layout';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-const Item = queryData => (
-  <div>
-    <img src={queryData.node.personalPhoto.file.url} alt={queryData.node.personalPhoto.title} width="140" height="170" />
-    <h2>
-      <Link to={`en/artists/${queryData.node.slug}`}>
-        {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-      </Link>
-    </h2>
-    <p>{queryData.node.yearsOfLife}</p>
-  </div>
-);
+import Layout from '../components/layout/Layout';
+import Search from '../components/search/Search';
 
 const ArtistPage = ({ data, location }) => {
-  const items = data.allContentfulArchitectPage.edges.map(edge => Item(edge));
+  const searchData = data.allContentfulArchitectPage.edges;
   return (
     <Layout data={data} location={location}>
-      <ul>
-        {items}
-      </ul>
+      <Search searchData={searchData} />
     </Layout>
   );
 };
 
 ArtistPage.propTypes = {
-  data: PropTypes.object.isRequired, // eslint-disable-line
-  location: PropTypes.object.isRequired, // eslint-disable-line
+  data: PropTypes.shape({
+    allContentfulArchitectPage: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ArtistPage;
@@ -39,6 +31,7 @@ query AboutEnQuery {
     edges {
       node {
         slug
+        lang
         patronymic {
           patronymic
         }
@@ -64,6 +57,7 @@ query AboutEnQuery {
           videoTag
         }
         yearsOfLife
+        searchKeys
       }
     }
   }

@@ -57,7 +57,6 @@ class Video extends React.Component {
   }
 }
 
-
 Video.propTypes = {
   url: PropTypes.string.isRequired,
 };

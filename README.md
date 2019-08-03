@@ -1,26 +1,85 @@
-# Using Contentful with i18n plugin
+# CodeJam-Culture-Portal
 
-## **UPGRADED TO GATSBY v2**
+## Link to the task
 
-## Details
-To build on the [Using Contentful](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-contentful) example site using the [i18n community plugin](https://github.com/angeloocana/gatsby-plugin-i18n), this starter repo shows a language switcher and the bilingual content only for the selected language (codes en-US and de).
+https://github.com/rolling-scopes-school/tasks/blob/2018-Q3/tasks/codejam-culture-portal.md
 
-Please take a look at the [issue queue](https://github.com/mccrodp/gatsby-contentful-i18n) to help out and feel free to submit PRs :)
+## Link to the application
 
-See [DEMO](https://gatsby-starter-contentful-i18n.netlify.com/).
+https://culture-portal-arch.netlify.com
 
-## Quick Start
-First, create a new Gatsby site from the starter:
+## Score calculation
+Maximum points - **240**
 
-```$ gatsby new my-fun-site https://github.com/mccrodp/gatsby-starter-contentful-i18n.git```
+Total - (**240/240**)
 
-From your project's root, make sure dependencies are installed and start the Gatsby development server.
+### Min scope - (**40/40**)
+- [x] **10** Main page + page with a list of authors + author's page (only html);
+- [x] **10** Page with list of authors contains search widget;
+- [x] **20** Portal has two languages;
 
-```$ npm i```  
-```$ gatsby develop```
+### Normal scope - (**130/130**)
+- [x] **10** Author's page contains timeline;
+- [x] **10** Author's page contains video overlay;
+- [x] **20** Author's page contains photo gallery;
+- [x] **10** Author's page contains map (geowidget);
+- [x] **from 10 to 40** Project is made using react (max 40 - if all widgets are done in React);
+- [x] **from 0 to 20** Design;
+- [x] **20** material-ui / bootstrap is used 
 
-## Quick Deploy
-Want to deploy on [Netlify](https://netlify.com)?
+### Extra scope - (**70/70**)
+- [x] **10** Confidence of the project presentation;
+- [x] **30** Project is made using gatsbyjs;
+- [x] **20** contentful / netlify cms is used for content management
+- [x] **10** Portal has third language;
 
-<!-- Markdown snippet -->
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mccrodp/gatsby-starter-contentful-i18n)
+## Worklog
+
+### anna-klempach
+| time spent | feature |
+|-------------|-------------|
+| 8h | implement multilanguage layout |
+| 5h | refactor and implement language select component |
+
+### Anna-Pronovich
+| time spent | feature |
+|------------|-------------|
+| 1h | layout component|
+| 4h | footer component|
+| 4h | header component|
+| 3h | fix bug in header|
+| 3h | list of architects|
+
+### JuliaMV
+| time spent | feature |
+|-------------|-------------|
+| 3h | base structure of the project with gatsby starter, add eslint and fix all errors, setup Nedlify deploy |
+| 1h | fix production build errors |
+| 0.5h | add basic timeline component |
+| 0.5h | add basic geowidget component |
+| 1 | add video component |
+| 0.25 | add gallery component |
+
+### ggwebproject
+| time spent | feature |
+|------------|-------------|
+| 2h | Artist page template, fix problems |
+| 1h | 404 page |
+| 2h | implement adaptive to gallery |
+
+### pryvvid
+| time spent | feature |
+|------------|-------------|
+| 6h | search component |
+| 2h | add styles, placeholders and error messages to search component |
+| 0.5h | add readme with score calculation and worklog |
+
+# Reminder
+During the presentation the following things have to be shown:
+
+- readme with self evaluation and worklog
+- PR of all team members
+- main page;
+- list of authors with search field (filtering);
+- author's page with photo gallery, timeline and video;
+- 1-3 difficulties occurred during teamwork;

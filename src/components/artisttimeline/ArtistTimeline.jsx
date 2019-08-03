@@ -16,8 +16,8 @@ const ArtistTimeline = ({ inputData }) => (
   </Timeline>
 );
 
-export default ArtistTimeline;
-
 ArtistTimeline.propTypes = {
   inputData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+export default ArtistTimeline;

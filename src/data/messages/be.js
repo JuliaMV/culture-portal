@@ -1,5 +1,5 @@
 module.exports = {
-  selectLanguage: 'Выберыце мову',
+  selectLanguage: 'Мова',
   artistsPageButton: 'Да спісу архітэктараў',
   mainPageButton: 'На галоўную',
   footerMessage: 'Сайт распрацаваны',
@@ -9,4 +9,11 @@ module.exports = {
   mapTitle: 'Мапа',
   galleryTitle: 'Галерэя',
   logo: 'Архітэктары Беларусі',
+  be: 'Беларуская',
+  ru: 'Русский',
+  en: 'English',
+  notFound: 'Старонка не знойдзена',
+  artistCardReadMore: 'ЧЫТАЦЬ ДАЛЕЙ',
+  searchPlaceholder: 'Пошук',
+  noSearchResults: 'Нічога не знойдзена',
 };

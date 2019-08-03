@@ -1,19 +1,23 @@
 import React from 'react';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import { Link, graphql } from 'gatsby';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 // import Img from 'gatsby-image';
 // import { rhythm } from '../utils/typography';
-import Video from '../components/video/Video';
-import Layout from '../components/layout/Layout';
-import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
 
-const artistPageTemplate = ({ data, location }) => {
+import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
+import Gallery from '../components/gallery/Gallery';
+import Geowidget from '../components/geowidget/geowidget';
+import Layout from '../components/layout/Layout';
+import Video from '../components/video/Video';
+
+const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
   const {
     yearsOfLife,
     videoTag: { videoTag },
+    geoTag: { geoTag },
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
@@ -23,7 +27,15 @@ const artistPageTemplate = ({ data, location }) => {
     generalInfo: {
       content: generalInfo,
     },
+    personalPhoto: {
+      file: {
+        url,
+      },
+      title,
+    },
+    photoGallery,
   } = artist;
+
   const works = content.map((contentItem) => {
     const {
       content: [
@@ -38,6 +50,7 @@ const artistPageTemplate = ({ data, location }) => {
       </li>
     );
   });
+
   const generalInformation = generalInfo.map((contentItem) => {
     const {
       content: [
@@ -52,64 +65,74 @@ const artistPageTemplate = ({ data, location }) => {
       </p>
     );
   });
-  return (// eslint-disable-line
+
+  const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
+
+  return (
     <Layout data={data} location={location}>
       <main className="artist-page">
         <div className="wrapper">
           <section className="artist__info">
             <div className="artist__img">
+              <img src={url} alt={title} width="140" height="170" />
               {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
-            <h1>{`${surname} ${name} ${patronymic}`}</h1>
+            <h2>{`${surname} ${name} ${patronymic}`}</h2>
             <span className="artist__date">{yearsOfLife}</span>
             <div className="artist__description">
               {generalInformation}
             </div>
           </section>
           <section className="artist__timeline">
-            <h2>
+            <h3>
               <FormattedMessage id="timelineTitle" />
-            </h2>
+            </h3>
             <ArtistTimeline inputData={data.allContentfulTimeline.edges} />
           </section>
           <section className="artist__buildings">
-            <h2>
+            <h3>
               <FormattedMessage id="worksTitle" />
-            </h2>
+            </h3>
             {/* <Buildings></Buildings> */}
             <ul>
               {works}
             </ul>
           </section>
           <section className="artist__video">
-            <h2>
+            <h3>
               <FormattedMessage id="videoTitle" />
-            </h2>
+            </h3>
             <Video url={videoTag} />
           </section>
-          <section className="artist__map">
-            <h2>
-              <FormattedMessage id="mapTitle" />
-            </h2>
-            {/* <Map></Map> */}
-          </section>
           <section className="gallery">
-            <h2>
+            <h3>
               <FormattedMessage id="galleryTitle" />
-            </h2>
-            {/* <Gallery></Gallery> */}
+            </h3>
+            <Gallery images={galleryImages} />
+          </section>
+          <section className="artist__map">
+            <h3>
+              <FormattedMessage id="mapTitle" />
+            </h3>
+            <Geowidget url={geoTag} />
           </section>
         </div>
       </main>
     </Layout>
   );
 };
-artistPageTemplate.propTypes = {
-  data: PropTypes.object.isRequired, // eslint-disable-line
-  location: PropTypes.object.isRequired, // eslint-disable-line
+
+ArtistPageTemplate.propTypes = {
+  data: PropTypes.shape({
+    contentfulArchitectPage: PropTypes.object,
+    allContentfulTimeline: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    href: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
-export default artistPageTemplate;
+export default ArtistPageTemplate;
 
 export const pageQuery = graphql`
     query artistQuery($slug: String!, $lang: String!) {
@@ -134,6 +157,7 @@ export const pageQuery = graphql`
         }
         contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang },) {
           slug
+          lang
           patronymic {
             patronymic
           }
@@ -157,6 +181,9 @@ export const pageQuery = graphql`
           }
           videoTag {
             videoTag
+          }
+          geoTag {
+            geoTag
           }
           yearsOfLife
           listOfWorks {
