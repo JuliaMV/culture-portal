@@ -13,4 +13,6 @@ module.exports = {
   ru: 'Русский',
   en: 'English',
   notFound: 'Page is not found',
+  artistCardVideo: 'YOUTUBE VIDEO',
+  artistCardReadMore: 'READ MORE',
 };

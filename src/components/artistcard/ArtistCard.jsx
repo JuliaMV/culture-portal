@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'gatsby';
-// import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 // @ts-ignore
 import artistCardStyles from './artistCardStyles.module.scss';
 
@@ -33,12 +33,12 @@ const ArtistCard = queryData => (
       <CardActions>
         <Button size="small" color="primary">
           <a href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">
-                YOUTUBE VIDEO
+            <FormattedMessage id="artistCardVideo" />
           </a>
         </Button>
         <Button size="small" color="primary">
           <Link to={`${queryData.node.lang}/artists/${queryData.node.slug}`}>
-              READ MORE
+            <FormattedMessage id="artistCardReadMore" />
           </Link>
         </Button>
       </CardActions>
