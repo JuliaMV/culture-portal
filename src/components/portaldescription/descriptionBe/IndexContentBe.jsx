@@ -11,7 +11,6 @@ const theme = createMuiTheme({
     MuiTypography: {
       h3: {
         fontSize: 32,
-        // fontWeight: 'bold',
         textAlign: 'center',
         textTransform: 'uppercase',
         marginTop: 20,
@@ -29,7 +28,8 @@ const useStyles = makeStyles({
     paddingBottom: 40,
     paddingLeft: 50,
     paddingRight: 50,
-    marginBottom: '1.5rem',
+    marginTop: '2rem',
+    marginBottom: '5rem',
   },
 });
 

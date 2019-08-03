@@ -13,6 +13,7 @@ Anna-Pronovich
 | 3h | fix bug in header|
 | 3h | create list of architects|
 | 4h | create component "about portal"|
+| 4h | create component "our team"|
 
 JuliaMV
 | time spent | feature |
