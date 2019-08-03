@@ -1,0 +1,35 @@
+.artists-wrapper {
+  padding: 0 10px;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  min-width: 300px;
+  max-width: 640px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 9px 10px 8px 32px;
+  background: #ffffff url(../../images/search.png) no-repeat 9px;
+  font-family: sans-serif;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 
+              0px 1px 1px 0px rgba(0,0,0,0.14), 
+              0px 2px 1px -1px rgba(0,0,0,0.12);
+}
+
+.artists-list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.error-message {
+  font-family: sans-serif;
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    width: 200px;
+  }
+}
