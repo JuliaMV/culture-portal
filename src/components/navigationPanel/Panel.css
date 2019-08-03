@@ -1,0 +1,9 @@
+.navigationWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  width: 40vh;
+  height: 5vh;
+  margin-top: 3vh;
+  z-index: 1000;
+}

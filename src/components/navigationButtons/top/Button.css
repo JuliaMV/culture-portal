@@ -1,0 +1,14 @@
+.navigationButton {
+  background-color: #1e90ff;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigationButton:hover {
+  background: #014180;
+  cursor: pointer;
+}

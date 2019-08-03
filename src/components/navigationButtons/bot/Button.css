@@ -1,0 +1,16 @@
+.button__top {
+  position: fixed;
+  top: 96vh;
+  width: 3vh;
+  height: 4vh;
+  background-color: #1e90ff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1vh;
+}
+.button__top:hover {
+  background: #014180;
+  cursor: pointer;
+}

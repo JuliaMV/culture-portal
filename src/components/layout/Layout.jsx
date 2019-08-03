@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable arrow-parens */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
@@ -15,8 +17,11 @@ import ru from 'react-intl/locale-data/ru';
 
 import Grid from '@material-ui/core/Grid';
 
+import { FaLongArrowAltUp } from 'react-icons/fa';
+
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+import { ButtonBot } from '../navigationButtons';
 
 import './custom_variables.css';
 import layoutStyles from './Layout.module.scss';
@@ -32,21 +37,31 @@ class Layout extends Component {
     const { langs, defaultLangKey } = data.site.siteMetadata.languages;
     this.langKey = getCurrentLangKey(langs, defaultLangKey, url);
     this.homeLink = `/${this.langKey}/`;
-    this.langsMenu = getLangs(langs, this.langKey, getUrlForLang(this.homeLink, url));
+    this.langsMenu = getLangs(
+      langs,
+      this.langKey,
+      getUrlForLang(this.homeLink, url)
+    );
     this.i18nMessages = require(`../../data/messages/${this.langKey}`); // eslint-disable-line
+    this.childTop = React.createRef();
   }
+
+  handleClick = e => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+  };
 
   render() {
     return (
-      <IntlProvider
-        locale={this.langKey}
-        messages={this.i18nMessages}
-      >
+      <IntlProvider locale={this.langKey} messages={this.i18nMessages}>
         <div>
           <Helmet>
             <meta charSet="utf-8" />
             <title>CodeJam-Culture-Portal</title>
-            <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
+            <link
+              href="https://fonts.googleapis.com/css?family=Caveat&display=swap&subset=cyrillic,cyrillic-ext"
+              rel="stylesheet"
+            />
           </Helmet>
           <Grid container className={layoutStyles.container}>
             <Grid item xs={12}>
@@ -55,6 +70,51 @@ class Layout extends Component {
             <Grid item xs={12}>
               <main className={layoutStyles.content}>{this.children}</main>
             </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <Grid item xs={12}>
+              <main className={layoutStyles.content}>{this.children}</main>
+            </Grid>
+            <ButtonBot onClick={this.handleClick}>
+              <FaLongArrowAltUp />
+            </ButtonBot>
             <Grid item xs={12}>
               <Footer />
             </Grid>
@@ -67,12 +127,12 @@ class Layout extends Component {
 
 Layout.propTypes = {
   data: PropTypes.shape({
-    site: PropTypes.object,
+    site: PropTypes.object
   }).isRequired,
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired
   }).isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;
