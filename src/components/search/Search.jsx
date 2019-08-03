@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import artistCardStyles from './artistCardStyles.module.scss';
+// import artistCardStyles from './artistCardStyles.module.scss';
 
 const ArtistInfo = queryData => (
   <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard}>
