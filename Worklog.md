@@ -6,6 +6,9 @@ anna-klempach
 | 1h | add information about Baklanov |
 | 1h | add information about Langbard |
 | 1h | add timeline information for Baklanov |
+| 0.5h | add timeline information for Langbard |
+
+
 
 Anna-Pronovich
 | time spent | feature |
