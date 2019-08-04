@@ -4,18 +4,54 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
-// import Img from 'gatsby-image';
-// import { rhythm } from '../utils/typography';
 
-import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
-import Gallery from '../components/gallery/Gallery';
-import Geowidget from '../components/geowidget/geowidget';
-import Layout from '../components/layout/Layout';
+import { createMuiTheme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { ThemeProvider } from '@material-ui/styles';
+
 import Video from '../components/video/Video';
 
-import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
+import Layout from '../components/layout/Layout';
+import Geowidget from '../components/geowidget/geowidget';
+import Gallery from '../components/gallery/Gallery';
+import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
 
-import { PanelBot, PanelTop } from '../components/navigationPanel';
+import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
+import artistPageStyles from './artist-pageStyles.module.scss';
+
+// import { PanelBot, PanelTop } from '../components/navigationPanel';
+
+const styles = createMuiTheme({
+  overrides: {
+    MuiTypography: {
+      h4: {
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 10,
+      },
+      h5: {
+        fontWeight: 'bold',
+        color: '#777777',
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        marginTop: 50,
+        marginBottom: 30,
+      },
+      body1: {
+        fontWeight: 'bold',
+      },
+      subtitle1: {
+        marginTop: 10,
+        marginBottom: 10,
+      },
+      body2: {
+        fontSize: 18,
+      },
+    },
+  },
+});
 
 const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
@@ -49,61 +85,67 @@ const ArtistPageTemplate = ({ data, location }) => {
   const timelineData = data.allContentfulTimeline.edges;
   return (
     <Layout data={data} location={location}>
-      <PanelTop />
-      <PanelBot />
-      <main className="artist-page">
-        <div className="wrapper">
-          <section className="artist__info">
-            <div className="artist__img">
-              <img src={url} alt={title} style={{ maxWidth: 400 }} />
-              {/* <Img resolutions={image[0].resolutions} /> */}
-            </div>
-            <h2>{`${surname} ${name} ${patronymic}`}</h2>
-            <span className="artist__date">{yearsOfLife}</span>
-            <div className="artist__description">{generalInformation}</div>
-          </section>
-          {timelineData && (
-            <section className="artist__timeline">
-              <h3>
-                <FormattedMessage id="timelineTitle" />
-              </h3>
-              <ArtistTimeline inputData={timelineData} />
-            </section>
-          )}
-
-          <section className="artist__buildings">
-            <h3>
-              <FormattedMessage id="worksTitle" />
-            </h3>
-            <ArtistWorksList content={content} />
-          </section>
-
-          {videoTag && (
-            <section className="artist__video">
-              <h3>
+      <Paper className="artist-page">
+        <ThemeProvider theme={styles}>
+          <Box className={artistPageStyles.artistPageWrapper}>
+            <Box component="section" className={artistPageStyles.artistInfo}>
+              <div className={artistPageStyles.artistImg}>
+                <img src={url} alt={title} />
+                {/* <Img resolutions={image[0].resolutions} /> */}
+              </div>
+              <div className={artistPageStyles.artistText}>
+                <Typography component="h2" variant="h4">
+                  {`${surname} ${name} ${patronymic}`}
+                </Typography>
+                <Typography variant="body1" color="textSecondary" component="span">
+                  {yearsOfLife}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {generalInformation}
+                </Typography>
+              </div>
+            </Box>
+            {timelineData && (
+              <Box component="section" className={artistPageStyles.artistTimeline}>
+                <Typography component="h3" variant="h5">
+                  <FormattedMessage id="timelineTitle" />
+                </Typography>
+                <ArtistTimeline inputData={timelineData} />
+              </Box>
+            )}
+            <Box component="section" className={artistPageStyles.artistBuildings}>
+              <Typography component="h3" variant="h5">
+                <FormattedMessage id="worksTitle" />
+              </Typography>
+              <ArtistWorksList content={content} />
+            </Box>
+            {videoTag && (
+            <Box component="section" className={artistPageStyles.artistVideo}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="videoTitle" />
-              </h3>
+              </Typography>
               <Video url={videoTag} />
-            </section>
-          )}
-          {galleryImages && (
-            <section className="gallery">
-              <h3>
+            </Box>
+            )}
+            {galleryImages && (
+            <Box component="section" className={artistPageStyles.artistGallery}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="galleryTitle" />
-              </h3>
+              </Typography>
               <Gallery images={galleryImages} />
-            </section>
-          )}
-          {geoTag && (
-            <section className="artist__map">
-              <h3>
+            </Box>
+            )}
+            {geoTag && (
+            <Box component="section" className={artistPageStyles.artistMap}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="mapTitle" />
-              </h3>
+              </Typography>
               <Geowidget url={geoTag} />
-            </section>
-          )}
-        </div>
-      </main>
+            </Box>
+            )}
+          </Box>
+        </ThemeProvider>
+      </Paper>
     </Layout>
   );
 };

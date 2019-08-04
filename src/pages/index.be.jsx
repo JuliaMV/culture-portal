@@ -2,13 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Paper from '@material-ui/core/Paper';
+
+
 import { FormattedMessage } from 'react-intl';
-
-import ArtistCard from '../components/artistcard/ArtistCard';
-import Team from '../components/team/Team';
-import AboutPortal from '../components/aboutportal/AboutPortal';
-
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import Layout from '../components/layout/Layout';
+import AboutPortal from '../components/aboutportal/AboutPortal';
+import Team from '../components/team/Team';
+import ArtistCard from '../components/artistcard/ArtistCard';
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiTypography: {
+      h5: {
+        textAlign: 'center',
+        textTransform: 'uppercase',
+      },
+    },
+  },
+});
 
 const IndexPage = ({ data, location }) => {
   // const { pathname: url } = location;
@@ -21,9 +36,14 @@ const IndexPage = ({ data, location }) => {
         <AboutPortal />
       </Paper>
       <Paper>
-        {/* Author of the day */}
-        <h2><FormattedMessage id="AuthorOfDay" /></h2>
-        <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
+        <Box>
+          <ThemeProvider theme={theme}>
+            <Typography variant="h5" component="h2">
+              <FormattedMessage id="AuthorOfDay" />
+            </Typography>
+          </ThemeProvider>
+          <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
+        </Box>
       </Paper>
       <Paper>
         <Team />
