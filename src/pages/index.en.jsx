@@ -1,28 +1,31 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Paper from '@material-ui/core/Paper';
+import { graphql, Link } from 'gatsby';
+
+import ArtistCard from '../components/artistcard/ArtistCard';
+// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Layout from '../components/layout/Layout';
-import Team from '../components/team/Team';
-import AboutPortal from '../components/aboutportal/AboutPortal';
 
-const IndexPage = ({ data, location }) => (
-  <Layout data={data} location={location}>
-    <Paper>
-      <AboutPortal />
-    </Paper>
-    <Paper>{/* Author of the day */}</Paper>
-    <Paper>
-      <Team />
-    </Paper>
-  </Layout>
-);
+const IndexPage = ({ data, location }) => {
+  const { pathname: url } = location;
+  const currentArtistList = data.allContentfulArchitectPage.edges;
+  const numberOfArtists = currentArtistList.length;
+  const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
+  return (
+    <Layout data={data} location={location}>
+      <Link to={`${url}artists`}>К списку архитекторов</Link>
+      <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
+    </Layout>
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    data: PropTypes.object,
+    allContentfulArchitectPage: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }),
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
@@ -37,6 +40,7 @@ export const pageQuery = graphql`
       edges {
         node {
           slug
+          lang
           patronymic {
             patronymic
           }

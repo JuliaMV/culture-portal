@@ -13,6 +13,7 @@
     "gatsby": "^2.13.41",
     "gatsby-image": "^2.2.7",
     "gatsby-link": "^2.2.2",
+    "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-analytics": "^2.0.5",
     "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-material-ui": "^2.1.4",
@@ -52,6 +53,7 @@
     "contentful": "6.1.0"
   },
   "scripts": {
+    "linux_dev": "rm -rf .cache && npm run develop",
     "develop": "gatsby develop",
     "developWithPlayGround": "./node_modules/.bin/env-cmd -f .env.development gatsby develop",
     "build": "gatsby build",
