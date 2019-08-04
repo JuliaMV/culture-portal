@@ -4,13 +4,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
-const Button = ({ children, onClick }) => (
-  <a className="navigationButton" onClick={onClick} role="button" tabIndex="-1">
+const Button = ({ children, onClick, section = '' }) => (
+  <a
+    className="navigationButton"
+    onClick={onClick}
+    role="button"
+    tabIndex="-1"
+    href={section}
+  >
     {children}
   </a>
 );
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.isRequired,
+  section: PropTypes.isRequired,
 };
 export default Button;

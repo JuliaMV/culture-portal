@@ -14,22 +14,29 @@ import './Panel.css';
 class NavigationPanel extends Component {
   handleClick = (e) => {
     e.preventDefault();
-    console.log(111);
+    console.log(e.currentTarget.href.split('_separator_').pop());
+    document
+      .querySelector(`.${e.currentTarget.href.split('_separator_').pop()}`)
+      .scrollIntoView({
+        behavior: 'smooth',
+      });
   };
 
   render = () => {
+    const separator = '_separator_';
     const images = [
       { name: <FaHome />, path: '#' },
-      { name: <FaCalendarAlt />, path: '#timelineTitle' },
-      { name: <FaYoutube />, path: '#' },
-      { name: <FaMapMarkedAlt />, path: '#' },
-      { name: <FaTable />, path: '#' },
-      { name: <FaImages />, path: '#' },
+      { name: <FaCalendarAlt />, path: `${separator}artist__timeline` },
+      { name: <FaYoutube />, path: `${separator}artist__video` },
+      { name: <FaMapMarkedAlt />, path: `${separator}artist__map` },
+      { name: <FaTable />, path: `${separator}artist__buildings` },
+      { name: <FaImages />, path: `${separator}gallery` },
     ];
-    const navsArray = images.map(({ name }) => (
+    const navsArray = images.map(({ name, path }) => (
       <ButtonNavs
         key={`${Date.now()}${Math.random()}${name}`}
         onClick={this.handleClick}
+        section={path}
       >
         {name}
       </ButtonNavs>
