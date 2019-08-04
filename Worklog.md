@@ -2,6 +2,11 @@ anna-klempach
 | time spent | feature |
 |-------------|-------------|
 | 8h | implement multilanguage layout |
+| 1h | add ArchitectPage and TimeLine content types to contentful |
+| 1h | add information about Baklanov |
+| 1h | add information about Langbard |
+| 1h | add timeline information for Baklanov |
+| 0.5h | add timeline information for Langbard |
 | 5h | refactor and implement language select component |
 | 0.75h | implement artist card component |
 | 0.75h | fix problems with queries and page linking |
