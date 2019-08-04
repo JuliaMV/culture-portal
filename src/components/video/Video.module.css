@@ -1,0 +1,141 @@
+.VideoFrame {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.videoWrapper + button > svg {
+  fill: #ff0000;
+}
+
+.customModal {
+  padding: 0;
+  font-size: 0;
+  background-color: #000000;
+  position: relative;
+  width: 100%;
+}
+
+.customModal div {
+  max-width: 900px;
+  width: 100%;
+}
+
+.videoWrapper {
+  width: 100%;
+  position: relative;
+  padding-bottom: 60%;
+  padding-top: 25px;
+  height: 0;
+  margin: 0 auto;
+}
+
+.VideoFrame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.VideoButton {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+
+  font-weight: 600;
+  color: var(--white-color);
+  box-shadow: 1px 2px 9px 2px #9E9C9C;
+  background-color: #848181;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.VideoButton:hover {
+  background-color: #ff0000;
+  cursor: pointer;
+}
+
+.Loader {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Loader span {
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+.Loader_First {
+  animation: blinkAndWait 2s forwards linear infinite;
+}
+
+.Loader_Second {
+  animation: blink 1s forwards linear infinite 0.5s;
+}
+
+.Loader_Third {
+  animation: blinkAndWait 2s forwards linear infinite 1s;
+}
+
+
+@keyframes blink {
+  0% {
+    opacity: 0.3;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0.25rem;
+  }
+
+  50% {
+    opacity: 1;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 0.25rem 0 0;
+  }
+
+  100% {
+    opacity: 0.3;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0.25rem;
+  }
+}
+
+@keyframes blinkAndWait {
+  0% {
+    opacity: 0.3;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0.25rem;
+  }
+
+  25% {
+    opacity: 1;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 0.25rem 0 0;
+  }
+
+  50% {
+    opacity: 0.3;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0.25rem;
+  }
+
+  100% {
+    opacity: 0.3;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0.25rem;
+  }
+}
+

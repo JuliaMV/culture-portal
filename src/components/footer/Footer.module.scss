@@ -1,0 +1,39 @@
+.footer {
+  background-color: var(--black-color);
+  height: 100%;
+}
+
+.footerContent {
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 230px;
+  max-width: 470px;
+  margin: 0 auto;
+  padding: 15px;
+  color: var(--white-color);
+  font-family: var(--main-font);
+  align-items: center;
+}
+
+.footerImg {
+  margin: 0 15px 0;
+}
+
+.footerText {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+}
+
+.styleSpan {
+  color: var(--darkRed-color);
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    flex-direction: column;
+    min-width: 305px;
+    text-align: center;
+  }
+}
