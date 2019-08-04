@@ -67,7 +67,7 @@ Total - (**240/240**)
 | 1h | fix production build errors |
 | 0.5h | add basic timeline component |
 | 0.5h | add basic geowidget component |
-| 1 | add video component |
+| 3 | add video component |
 | 0.25 | add gallery component |
 | 0.25 | add information into contentful |
 | 1 | refactoring team and portal description components |
