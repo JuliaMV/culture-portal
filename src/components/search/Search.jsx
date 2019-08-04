@@ -1,50 +1,9 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { Link } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import artistCardStyles from './artistCardStyles.module.scss';
 
-const ArtistInfo = queryData => (
-  <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard}>
-    <CardMedia
-      className={artistCardStyles.artistImage}
-      image={queryData.node.personalPhoto.file.url}
-      alt={queryData.node.personalPhoto.title}
-      title="Contemplative Reptile"
-    />
-    <CardContent className={artistCardStyles.artistDescriptions}>
-      <div>
-        <Typography gutterBottom variant="h5" component="h2">
-          <CardActions>
-            <Link to={`en/artists/${queryData.node.slug}`}>
-              {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-            </Link>
-          </CardActions>
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {queryData.node.yearsOfLife}
-        </Typography>
-      </div>
-      <CardActions>
-        <Button size="small" color="primary">
-          <Link href={queryData.node.videoTag.videoTag} target="_blank" rel="noopener noreferrer">
-                YOUTUBE VIDEO
-          </Link>
-        </Button>
-        <Button size="small" color="primary">
-          <Link to={`ru/artists/${queryData.node.slug}`}>
-              READ MORE
-          </Link>
-        </Button>
-      </CardActions>
-    </CardContent>
-  </Card>
-);
+import ArtistCard from '../artistcard/ArtistCard';
+import searchStyles from './Search.module.scss';
 
 class Search extends Component {
   static searchFor(edge, query) {
@@ -63,24 +22,35 @@ class Search extends Component {
     this.setState({ query: event.target.value });
   }
 
+  submitHandler = (event) => {
+    event.preventDefault();
+  }
+
   render() {
     const { query } = this.state;
     const searchQuery = query.trim();
     const { searchData } = this.props;
     const searchItems = searchData.filter(edge => Search.searchFor(edge, searchQuery));
-    const searchResultItems = searchItems ? searchItems.map(edge => ArtistInfo(edge)) : null;
+    const searchResultItems = searchItems ? searchItems.map(edge => ArtistCard(edge)) : null;
+
     return (
-      <div>
-        <form>
-          <input
-            type="text"
-            value={query}
-            onChange={this.searchHandler}
-          />
+      <div className={searchStyles.artistsWrapper}>
+        <form onSubmit={this.submitHandler}>
+          <FormattedMessage id="searchPlaceholder">
+            {placeholder => (
+              <input
+                className={searchStyles.searchInput}
+                type="text"
+                value={query}
+                placeholder={placeholder}
+                onChange={this.searchHandler}
+              />
+            )}
+          </FormattedMessage>
         </form>
         {searchResultItems.length > 0
-          ? <ul className="artists-list">{searchResultItems}</ul>
-          : <p>No results found</p>}
+          ? <ul className={searchStyles.artistsList}>{searchResultItems}</ul>
+          : <p className={searchStyles.errorMessage}><FormattedMessage id="noSearchResults" /></p>}
       </div>
     );
   }

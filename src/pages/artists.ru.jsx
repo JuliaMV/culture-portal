@@ -31,6 +31,7 @@ query RuArtistQuery {
     edges {
       node {
         slug
+        lang
         patronymic {
           patronymic
         }
@@ -43,17 +44,15 @@ query RuArtistQuery {
             fileName
           }
         }
-        photoGallery {
-          file {
-            url
-          }
-          title
-        }
         surname {
           surname
         }
-        videoTag {
-          videoTag
+        generalInfo {
+            content {
+                content {
+                    value
+                }
+            }
         }
         yearsOfLife
         searchKeys

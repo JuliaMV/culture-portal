@@ -33,6 +33,7 @@ export const pageQuery = graphql`
       edges {
         node {
           slug
+          lang
           patronymic {
             patronymic
           }
@@ -45,17 +46,15 @@ export const pageQuery = graphql`
               fileName
             }
           }
-          photoGallery {
-            file {
-              url
-            }
-            title
-          }
           surname {
             surname
           }
-          videoTag {
-            videoTag
+          generalInfo {
+            content {
+              content {
+                value
+              }
+            }
           }
           yearsOfLife
           searchKeys

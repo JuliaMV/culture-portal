@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable arrow-parens */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -12,6 +13,9 @@ import Gallery from '../components/gallery/Gallery';
 import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
+
+// import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
+
 import { PanelBot, PanelTop } from '../components/navigationPanel';
 
 const ArtistPageTemplate = ({ data, location }) => {
@@ -32,25 +36,22 @@ const ArtistPageTemplate = ({ data, location }) => {
     photoGallery,
   } = artist;
 
-  const works = content.map((contentItem) => {
+  const generalInformation = generalInfo.map((contentItem) => {
     const {
       content: [{ value }],
     } = contentItem;
     return <li key={`${value}`}>{value}</li>;
   });
 
-  const generalInformation = generalInfo.map((contentItem) => {
-    const {
-      content: [{ value }],
-    } = contentItem;
-    return <p key={`${value}`}>{value}</p>;
-  });
-
   const galleryImages = photoGallery.map((image) => ({
     src: image.file.url,
     title: image.title,
   }));
-
+  const timelineData = data.allContentfulTimeline.edges;
+  // TODO remove when ready
+  const works = false;
+  content === true;
+  //
   return (
     <Layout data={data} location={location}>
       <PanelTop />
@@ -59,44 +60,54 @@ const ArtistPageTemplate = ({ data, location }) => {
         <div className="wrapper">
           <section className="artist__info">
             <div className="artist__img">
-              <img src={url} alt={title} width="140" height="170" />
+              <img src={url} alt={title} style={{ maxWidth: 400 }} />
               {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
             <h2>{`${surname} ${name} ${patronymic}`}</h2>
             <span className="artist__date">{yearsOfLife}</span>
             <div className="artist__description">{generalInformation}</div>
           </section>
-          <section className="artist__timeline">
-            <h3>
-              <FormattedMessage id="timelineTitle" />
-            </h3>
-            <ArtistTimeline inputData={data.allContentfulTimeline.edges} />
-          </section>
-          <section className="artist__buildings">
-            <h3>
-              <FormattedMessage id="worksTitle" />
-            </h3>
-            {/* <Buildings></Buildings> */}
-            <ul>{works}</ul>
-          </section>
-          <section className="artist__video">
-            <h3>
-              <FormattedMessage id="videoTitle" />
-            </h3>
-            <Video url={videoTag} />
-          </section>
-          <section className="gallery">
-            <h3>
-              <FormattedMessage id="galleryTitle" />
-            </h3>
-            <Gallery images={galleryImages} />
-          </section>
-          <section className="artist__map">
-            <h3>
-              <FormattedMessage id="mapTitle" />
-            </h3>
-            <Geowidget url={geoTag} />
-          </section>
+          {timelineData && (
+            <section className="artist__timeline">
+              <h3>
+                <FormattedMessage id="timelineTitle" />
+              </h3>
+              <ArtistTimeline inputData={timelineData} />
+            </section>
+          )}
+          {works && (
+            <section className="artist__buildings">
+              <h3>
+                <FormattedMessage id="worksTitle" />
+              </h3>
+              {/* <Buildings></Buildings> */}
+              <ul>{works}</ul>
+            </section>
+          )}
+          {videoTag && (
+            <section className="artist__video">
+              <h3>
+                <FormattedMessage id="videoTitle" />
+              </h3>
+              <Video url={videoTag} />
+            </section>
+          )}
+          {galleryImages && (
+            <section className="gallery">
+              <h3>
+                <FormattedMessage id="galleryTitle" />
+              </h3>
+              <Gallery images={galleryImages} />
+            </section>
+          )}
+          {geoTag && (
+            <section className="artist__map">
+              <h3>
+                <FormattedMessage id="mapTitle" />
+              </h3>
+              <Geowidget url={geoTag} />
+            </section>
+          )}
         </div>
       </main>
     </Layout>
@@ -126,7 +137,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulTimeline(
-      filter: { lang: { eq: $lang } }
+      filter: { lang: { eq: $lang }, title: { eq: $slug } }
       sort: { fields: order }
     ) {
       edges {
@@ -141,6 +152,7 @@ export const pageQuery = graphql`
     }
     contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang }) {
       slug
+      lang
       patronymic {
         patronymic
       }
