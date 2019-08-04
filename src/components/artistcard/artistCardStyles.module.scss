@@ -13,33 +13,114 @@
   min-width: 300px;
   max-width: 640px;
   width: 100%;
-  min-height: 200px;
+  height: 250px;
   margin: 20px auto;
+  align-items: stretch;
+  justify-content: flex-start;
+  transition: box-shadow .3s;
 }
 
-.artistCard a {
-  text-decoration: none;
-  color: var(--black-color);
+.artistCard:hover {
+  box-shadow: 0 0 4px 4px rgba(0,0,0,0.2);
 }
 
-.artistCard a:hover {
-  color: var(--darkRed-color);
+.artistImageBlock {
+  width: 200px;
+}
+
+.artistImageBlock img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  margin: 0;
 }
 
 .artistImage {
-  width: 210px;
+  flex: 0 0 30%;
 }
 
-.artistDescriptions{
+.artistDescriptions {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1 1 70%;
+}
+
+.artistDescriptions a{
+  text-decoration: none;
+}
+
+.artistDescriptions h2 {
+  padding: 0 10px;
+  text-align: center;
+  margin: 0;
+}
+.artistDescriptions h2 div {
+  padding: 0;
+  display: inline-block;
+}
+
+
+.artistDescriptions h2 a{
+  color: var(--black-color)
+}
+
+.artistDescriptions .generalInfo {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.artistCard button {
+  border: 2px solid #3f51b5;
+  transition: background-color .3s;
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+
+.artistCard button:hover {
+  background-color: #3f51b5;
+}
+
+.artistCard button a {
+  color: black;
+  font-variant: small-caps;
+  font-weight: bolder;
+  text-transform: lowercase;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  transition: color .3s;
+}
+
+.artistCard button:hover a {
+  color: #ffffff
 }
 
 @media (max-width: 480px) {
   .artistCard {
-    // flex-direction: column;
-    //if you open a line above, you will not see photo of author!!!
-    width: 200px;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
   }
+
+  .artistImageBlock {
+    width: 100%;
+    height: 200px;
+    max-width: 320px;
+  }
+
+  .artistImageBlock img {
+    object-fit: contain;
+  }
+
+  .artistCard button {
+    margin-top: 10px;
+  }
+
 }
