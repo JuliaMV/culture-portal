@@ -9,8 +9,8 @@ import Layout from '../components/layout/Layout';
 
 const IndexPage = ({ data, location }) => {
   const { pathname: url } = location;
-  const currentArtistList = data.allContentfulArchitectPage.edges; //eslint-disable-line
-  const numberOfArtists = currentArtistList.length; //eslint-disable-line
+  const currentArtistList = data.allContentfulArchitectPage.edges;
+  const numberOfArtists = currentArtistList.length;
   const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
   return (
     <Layout data={data} location={location}>
@@ -22,7 +22,7 @@ const IndexPage = ({ data, location }) => {
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    data: PropTypes.object,
+    allContentfulArchitectPage: PropTypes.shape({ edges: PropTypes.array.isRequired }),
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
