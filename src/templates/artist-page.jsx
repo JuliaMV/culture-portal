@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link, graphql } from 'gatsby';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 // import Img from 'gatsby-image';
@@ -22,7 +21,7 @@ const ArtistPageTemplate = ({ data, location }) => {
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
-    listOfWorks: { content },
+    listOfWorks: { content }, //eslint-disable-line
     generalInfo: { content: generalInfo },
     personalPhoto: {
       file: { url },
@@ -62,17 +61,15 @@ const ArtistPageTemplate = ({ data, location }) => {
               <ArtistTimeline inputData={timelineData} />
             </section>
           )}
-          {works && (
-            <section className="artist__buildings">
-              <h3>
-                <FormattedMessage id="worksTitle" />
-              </h3>
-              {/* <Buildings></Buildings> */}
-              <ul>
-                {works}
-              </ul>
-            </section>
-          )}
+
+
+          <section className="artist__buildings">
+            <h3>
+              <FormattedMessage id="worksTitle" />
+            </h3>
+            <ArtistWorksList content={content} />
+          </section>
+
           {videoTag && (
             <section className="artist__video">
               <h3>
