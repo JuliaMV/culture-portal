@@ -1,3 +1,5 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -26,57 +28,60 @@ ArtistPage.propTypes = {
 export default ArtistPage;
 
 export const pageQuery = graphql`
-query AboutEnQuery {
-  allContentfulArchitectPage(filter: {lang: {eq: "en"}}) {
-    edges {
-      node {
-        slug
-        lang
-        patronymic {
-          patronymic
-        }
-        name {
-          name
-        }
-        personalPhoto {
-          file {
-            url
-            fileName
+  query AboutEnQuery {
+    allContentfulArchitectPage(filter: { lang: { eq: "en" } }) {
+      edges {
+        node {
+          slug
+          lang
+          patronymic {
+            patronymic
           }
-        }
-        surname {
-          surname
-        }
-        generalInfo {
-            content {
-                content {
-                    value
-                }
+          name {
+            name
+          }
+          personalPhoto {
+            file {
+              url
+              fileName
             }
+          }
+          surname {
+            surname
+          }
+          generalInfo {
+            content {
+              content {
+                value
+              }
+            }
+          }
+          yearsOfLife
+          searchKeys
         }
-        yearsOfLife
-        searchKeys
       }
     }
-  }
-  site {
-    siteMetadata {
-      languages {
-        defaultLangKey
-        langs
-      }
-    }
-  }
-  allContentfulTimeline(filter: {lang: {eq: "en"}}, sort: {fields: order}) {
-    edges {
-      node {
-        date
-        description {
-          description
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
         }
-        order
+      }
+    }
+    allContentfulTimeline(
+      filter: { lang: { eq: "en" } }
+      sort: { fields: order }
+    ) {
+      edges {
+        node {
+          date
+          description {
+            description
+          }
+          order
+        }
       }
     }
   }
-}
 `;

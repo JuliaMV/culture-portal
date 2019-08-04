@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable arrow-parens */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -10,7 +12,10 @@ import Gallery from '../components/gallery/Gallery';
 import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
+
 import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
+
+import { PanelBot, PanelTop } from '../components/navigationPanel';
 
 const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
@@ -37,11 +42,15 @@ const ArtistPageTemplate = ({ data, location }) => {
     return <li key={`${value}`}>{value}</li>;
   });
 
-  const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
+  const galleryImages = photoGallery.map((image) => ({
+    src: image.file.url,
+    title: image.title,
+  }));
   const timelineData = data.allContentfulTimeline.edges;
-
   return (
     <Layout data={data} location={location}>
+      <PanelTop />
+      <PanelBot />
       <main className="artist-page">
         <div className="wrapper">
           <section className="artist__info">
@@ -61,7 +70,6 @@ const ArtistPageTemplate = ({ data, location }) => {
               <ArtistTimeline inputData={timelineData} />
             </section>
           )}
-
 
           <section className="artist__buildings">
             <h3>
