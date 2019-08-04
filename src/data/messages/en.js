@@ -2,6 +2,7 @@ module.exports = {
   selectLanguage: 'Language',
   artistsPageButton: 'List of architects',
   mainPageButton: 'Main',
+  AuthorOfDay: 'Author of day',
   footerMessage: 'Created by',
   timelineTitle: 'Timeline',
   worksTitle: 'Noticeable works',

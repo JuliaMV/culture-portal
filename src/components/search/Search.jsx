@@ -31,7 +31,8 @@ class Search extends Component {
     const searchQuery = query.trim();
     const { searchData } = this.props;
     const searchItems = searchData.filter(edge => Search.searchFor(edge, searchQuery));
-    const searchResultItems = searchItems ? searchItems.map(edge => ArtistCard(edge)) : null;
+    const searchResultItems = searchItems ? searchItems.map(edge => <ArtistCard queryData={edge} />)
+      : null;
 
     return (
       <div className={searchStyles.artistsWrapper}>

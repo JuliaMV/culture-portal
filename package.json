@@ -6,6 +6,7 @@
   "author": "Group19",
   "dependencies": {
     "@material-ui/core": "^4.3.0",
+    "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.2.1",
     "babel-eslint": "^10.0.2",
     "bluebird": "^3.5.5",
@@ -50,7 +51,7 @@
     "contentful": "6.1.0"
   },
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "rm -rf .cache && gatsby develop",
     "developWithPlayGround": "./node_modules/.bin/env-cmd -f .env.development gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve",

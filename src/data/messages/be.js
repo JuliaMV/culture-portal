@@ -2,6 +2,7 @@ module.exports = {
   selectLanguage: 'Мова',
   artistsPageButton: 'Да спісу архітэктараў',
   mainPageButton: 'На галоўную',
+  AuthorOfDay: 'Аўтар дня',
   footerMessage: 'Сайт распрацаваны',
   timelineTitle: 'Стужка часу',
   worksTitle: 'Галоўныя творы',
