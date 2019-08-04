@@ -53,7 +53,7 @@ const Team = () => {
           }
         }
       }
-      userPhoto6:file(relativePath: { eq: "userPhoto6.png" }) {
+      userPhoto6:file(relativePath: { eq: "userPhoto6.jpg" }) {
         childImageSharp {
           fixed(width: 150, height: 150) {
             ...GatsbyImageSharpFixed
@@ -87,10 +87,10 @@ const Team = () => {
       name: 'Hleb Shynkarou', github: 'https://github.com/pryvvid', img: images.userPhoto5.childImageSharp.fixed, contribution: 'contribShynkarou',
     },
     {
-      name: 'Magnus Ducatuslt', github: 'hhttps://github.com/magnusducatuslt', img: images.userPhoto6.childImageSharp.fixed, contribution: 'contribDucatuslt',
+      name: 'Ilya Kaptsevich', github: 'https://github.com/hybeard', img: images.userPhoto7.childImageSharp.fixed, contribution: 'contribKaptsevich',
     },
     {
-      name: 'Ilya Kaptsevich', github: 'https://github.com/hybeard', img: images.userPhoto7.childImageSharp.fixed, contribution: 'contribKaptsevich',
+      name: 'Magnus Ducatuslt', github: 'hhttps://github.com/magnusducatuslt', img: images.userPhoto6.childImageSharp.fixed, contribution: 'contribDucatuslt',
     },
   ];
 

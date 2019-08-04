@@ -1,16 +1,80 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link, graphql } from 'gatsby';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
-// import Img from 'gatsby-image';
-// import { rhythm } from '../utils/typography';
 
-import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
-import Gallery from '../components/gallery/Gallery';
-import Geowidget from '../components/geowidget/geowidget';
-import Layout from '../components/layout/Layout';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { ThemeProvider } from '@material-ui/styles';
+
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import { red } from '@material-ui/core/colors';
 import Video from '../components/video/Video';
+import Layout from '../components/layout/Layout';
+import Geowidget from '../components/geowidget/geowidget';
+import Gallery from '../components/gallery/Gallery';
+import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
+
+import artistPageStyles from './artist-pageStyles.module.scss';
+
+const styles = createMuiTheme({
+  overrides: {
+    MuiTypography: {
+      h4: {
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 10,
+      },
+      h5: {
+        fontWeight: 'bold',
+        color: '#777777',
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        marginTop: 50,
+        marginBottom: 30,
+      },
+      body1: {
+        fontWeight: 'bold',
+      },
+      subtitle1: {
+        marginTop: 10,
+        marginBottom: 10,
+      },
+      body2: {
+        fontSize: 18,
+      },
+    },
+  },
+});
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '95%',
+    margin: '0 auto',
+  },
+  inline: {
+    display: 'inline',
+  },
+  icon: {
+    margin: theme.spacing(2),
+    color: red[400],
+  },
+}));
+
+function HomeIcon(props) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z" />
+    </SvgIcon>
+  );
+}
 
 const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
@@ -45,9 +109,9 @@ const ArtistPageTemplate = ({ data, location }) => {
       ],
     } = contentItem;
     return (
-      <li key={`${value}`}>
+      <span key={`${value}`}>
         {value}
-      </li>
+      </span>
     );
   });
 
@@ -68,67 +132,97 @@ const ArtistPageTemplate = ({ data, location }) => {
 
   const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
   const timelineData = data.allContentfulTimeline.edges;
+  const classes = useStyles();
 
   return (
     <Layout data={data} location={location}>
-      <main className="artist-page">
-        <div className="wrapper">
-          <section className="artist__info">
-            <div className="artist__img">
-              <img src={url} alt={title} style={{ maxWidth: 400 }} />
-              {/* <Img resolutions={image[0].resolutions} /> */}
-            </div>
-            <h2>{`${surname} ${name} ${patronymic}`}</h2>
-            <span className="artist__date">{yearsOfLife}</span>
-            <div className="artist__description">
-              {generalInformation}
-            </div>
-          </section>
-          {timelineData && (
-            <section className="artist__timeline">
-              <h3>
-                <FormattedMessage id="timelineTitle" />
-              </h3>
-              <ArtistTimeline inputData={timelineData} />
-            </section>
-          )}
-          {works && (
-            <section className="artist__buildings">
-              <h3>
+      <Paper className="artist-page">
+        <ThemeProvider theme={styles}>
+          <Box className={artistPageStyles.artistPageWrapper}>
+            <Box component="section" className={artistPageStyles.artistInfo}>
+              <div className={artistPageStyles.artistImg}>
+                <img src={url} alt={title} />
+                {/* <Img resolutions={image[0].resolutions} /> */}
+              </div>
+              <div className={artistPageStyles.artistText}>
+                <Typography component="h2" variant="h4">
+                  {`${surname} ${name} ${patronymic}`}
+                </Typography>
+                <Typography variant="body1" color="textSecondary" component="span">
+                  {yearsOfLife}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {generalInformation}
+                </Typography>
+              </div>
+            </Box>
+            {timelineData && (
+              <Box component="section" className={artistPageStyles.artistTimeline}>
+                <Typography component="h3" variant="h5">
+                  <FormattedMessage id="timelineTitle" />
+                </Typography>
+                <ArtistTimeline inputData={timelineData} />
+              </Box>
+            )}
+            {works && (
+            <Box component="section" className={artistPageStyles.artistBuildings}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="worksTitle" />
-              </h3>
-              {/* <Buildings></Buildings> */}
-              <ul>
-                {works}
-              </ul>
-            </section>
-          )}
-          {videoTag && (
-            <section className="artist__video">
-              <h3>
+              </Typography>
+
+              <List className={classes.root}>
+                {works.map(building => (
+                  <ListItem lignitems="flex-start" key={`${building}-key`}>
+                    <ListItemIcon>
+                      <HomeIcon className={classes.icon} color="secondary" />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={(
+                        <>
+                          <Typography
+                            component="span"
+                            variant="body2"
+                            className={classes.inline}
+                            color="textSecondary"
+                          >
+                            {building}
+                          </Typography>
+                        </>
+)}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+
+            </Box>
+            )}
+            {videoTag && (
+            <Box component="section" className={artistPageStyles.artistVideo}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="videoTitle" />
-              </h3>
+              </Typography>
               <Video url={videoTag} />
-            </section>
-          )}
-          {galleryImages && (
-            <section className="gallery">
-              <h3>
+            </Box>
+            )}
+            {galleryImages && (
+            <Box component="section" className={artistPageStyles.artistGallery}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="galleryTitle" />
-              </h3>
+              </Typography>
               <Gallery images={galleryImages} />
-            </section>
-          )}
-          {geoTag && (
-            <section className="artist__map">
-              <h3>
+            </Box>
+            )}
+            {geoTag && (
+            <Box component="section" className={artistPageStyles.artistMap}>
+              <Typography component="h3" variant="h5">
                 <FormattedMessage id="mapTitle" />
-              </h3>
+              </Typography>
               <Geowidget url={geoTag} />
-            </section>
-          )}
-        </div>
-      </main>
+            </Box>
+            )}
+          </Box>
+        </ThemeProvider>
+      </Paper>
     </Layout>
   );
 };

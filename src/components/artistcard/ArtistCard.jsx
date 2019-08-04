@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 // @ts-ignore
 import artistCardStyles from './artistCardStyles.module.scss';
 
-const ArtistCard = queryData => {
+const ArtistCard = (queryData) => {
   const generalInformation = queryData.node.generalInfo.content[0].content[0].value;
   return (
     <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard} component="li">
@@ -32,7 +32,9 @@ const ArtistCard = queryData => {
             </CardActions>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            ({queryData.node.yearsOfLife})
+            (
+            {queryData.node.yearsOfLife}
+)
           </Typography>
           <Typography variant="body2" color="textPrimary" component="p" className={artistCardStyles.generalInfo}>
             {generalInformation}
@@ -47,7 +49,7 @@ const ArtistCard = queryData => {
         </CardActions>
       </CardContent>
     </Card>
-  )
+  );
 };
 
 export default ArtistCard;
