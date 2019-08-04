@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import HomeIcon from '@material-ui/icons/Home';
+// import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,9 +26,9 @@ const ArtistList = ({ content }) => {
     return (
       <ListItem key={value.slice(0, 10)}>
         <ListItemAvatar>
-          <Avatar>
+          {/* <Avatar>
             <HomeIcon />
-          </Avatar>
+          </Avatar> */}
         </ListItemAvatar>
         <ListItemText primary={value} />
       </ListItem>
