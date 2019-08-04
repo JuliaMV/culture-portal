@@ -14,6 +14,7 @@ import './Panel.css';
 class NavigationPanel extends Component {
   handleClick = (e) => {
     e.preventDefault();
+    console.log(111);
   };
 
   render = () => {
@@ -26,14 +27,22 @@ class NavigationPanel extends Component {
       { name: <FaImages />, path: '#' },
     ];
     const navsArray = images.map(({ name }) => (
-      <IconContext.Provider
+      <ButtonNavs
         key={`${Date.now()}${Math.random()}${name}`}
-        value={{ color: 'white', size: '70%', className: 'icon' }}
+        onClick={this.handleClick}
       >
-        <ButtonNavs onClick={this.handleClick}>{name}</ButtonNavs>
-      </IconContext.Provider>
+        {name}
+      </ButtonNavs>
     ));
-    return <div className="navigationPanelTop">{navsArray}</div>;
+    return (
+      <div className="navigationPanelTop">
+        <IconContext.Provider
+          value={{ color: 'white', size: '70%', className: 'icon' }}
+        >
+          {navsArray}
+        </IconContext.Provider>
+      </div>
+    );
   };
 }
 

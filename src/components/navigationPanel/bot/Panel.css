@@ -2,7 +2,14 @@
   position: fixed;
   width: 5vh;
   height: 5vh;
-  margin-top: 10vh;
-  margin-left: 50%;
+  margin-top: 33%;
+  margin-left: 93.5%;
   z-index: 1000;
+}
+
+@media only screen and (max-width: 600px) {
+  .navigationPanelBot {
+    margin-top: 77%;
+    margin-left: 88.5%;
+  }
 }
