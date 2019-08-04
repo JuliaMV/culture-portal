@@ -49,6 +49,7 @@ Total - (**240/240**)
 | 0.75h | fix problems with queries and page linking |
 | 1.25h | add information and timeline for Parusnikov |
 | 1h | add information and timeline for Korol |
+| 0.75h | add information and timeline for Levin |
 
 ### Anna-Pronovich
 | time spent | feature |
