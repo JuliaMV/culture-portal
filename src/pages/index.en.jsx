@@ -64,28 +64,18 @@ query EnQuery {
             url
             fileName
           }
-          name {
-            name
+        }
+        photoGallery {
+          file {
+            url
           }
-          personalPhoto {
-            file {
-              url
-              fileName
-            }
-          }
-          photoGallery {
-            file {
-              url
-            }
-            title
-          }
-          surname {
-            surname
-          }
-          videoTag {
-            videoTag
-          }
-          yearsOfLife
+          title
+        }
+        surname {
+          surname
+        }
+        videoTag {
+          videoTag
         }
         yearsOfLife
         listOfWorks {
@@ -102,26 +92,27 @@ query EnQuery {
               }
           }
         }
->>>>>>> develop
-      }
-    }
-    site {
-      siteMetadata {
-        languages {
-          defaultLangKey
-          langs
-        }
       }
     }
   }
-  allContentfulTimeline(filter: { lang: { eq: "en" } }, sort: { fields: order }) {
+  site {
+    siteMetadata {
+      languages {
+        defaultLangKey
+        langs
+      }
+    }
+  }
+  allContentfulTimeline(filter: { lang: { eq: "ru" } }, sort: { fields: order }) {
     edges {
       node {
         date
         description {
           description
         }
+        order
       }
     }
   }
+}
 `;

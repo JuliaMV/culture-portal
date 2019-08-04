@@ -100,7 +100,7 @@ query BeQuery {
       }
     }
   }
-  allContentfulTimeline(filter: { lang: { eq: "be" } }, sort: { fields: order }) {
+  allContentfulTimeline(filter: { lang: { eq: "ru" } }, sort: { fields: order }) {
     edges {
       node {
         date
