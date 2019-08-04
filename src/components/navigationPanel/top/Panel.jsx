@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from 'gatsby';
 import { IconContext } from 'react-icons';
 import {
   FaYoutube,
@@ -14,18 +15,23 @@ import './Panel.css';
 class NavigationPanel extends Component {
   handleClick = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget.href.split('_separator_').pop());
-    document
-      .querySelector(`.${e.currentTarget.href.split('_separator_').pop()}`)
-      .scrollIntoView({
+    const path = e.currentTarget.href.split('_separator_').pop();
+    if (path === '/') {
+      navigate('/');
+    } else {
+      document.querySelector(`.${path}`).scrollIntoView({
         behavior: 'smooth',
       });
+    }
   };
 
   render = () => {
     const separator = '_separator_';
     const images = [
-      { name: <FaHome />, path: '#' },
+      {
+        name: <FaHome />,
+        path: `${separator}/`,
+      },
       { name: <FaCalendarAlt />, path: `${separator}artist__timeline` },
       { name: <FaYoutube />, path: `${separator}artist__video` },
       { name: <FaMapMarkedAlt />, path: `${separator}artist__map` },
