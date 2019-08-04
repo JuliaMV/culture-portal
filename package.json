@@ -51,7 +51,8 @@
     "contentful": "6.1.0"
   },
   "scripts": {
-    "develop": "rm -rf .cache && gatsby develop",
+    "develop": "gatsby develop",
+    "developAndCache": "rm -rf .cache && gatsby develop",
     "developWithPlayGround": "./node_modules/.bin/env-cmd -f .env.development gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve",

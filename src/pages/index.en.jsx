@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Paper from '@material-ui/core/Paper';
-import { FormattedMessage } from 'react-intl';
 
 import ArtistCard from '../components/artistcard/ArtistCard';
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -23,8 +22,6 @@ const IndexPage = ({ data, location }) => {
         <AboutPortal />
       </Paper>
       <Paper>
-        {/* Author of the day */}
-        <h2><FormattedMessage id="AuthorOfDay" /></h2>
         <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
       </Paper>
       <Paper>

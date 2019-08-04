@@ -51,14 +51,6 @@ const ArtistList = ({ content }) => {
     } = contentItem;
 
     return (
-      // <ListItem key={value.slice(0, 10)}>
-      //   <ListItemAvatar>
-      //     {/* <Avatar>
-      //       <HomeIcon />
-      //     </Avatar> */}
-      //   </ListItemAvatar>
-      //   <ListItemText primary={value} />
-      // </ListItem>
       <ListItem lignitems="flex-start" key={value.slice(0, 10)}>
         <ListItemIcon>
           <HomeIcon className={classes.icon} color="secondary" />

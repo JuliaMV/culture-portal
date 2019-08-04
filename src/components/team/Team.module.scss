@@ -55,9 +55,9 @@
 .teamMemberContibution{
   width: 100%;
   min-height: 30px;
-  max-height: 80px;
   font-family: var(--main-font);
-  background-color: var(--darkRed-color);
+  font-style: italic;
+  text-align: center;
 }
 
 @media (max-width: 740px) {
