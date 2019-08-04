@@ -47,10 +47,6 @@ const ArtistPageTemplate = ({ data, location }) => {
     title: image.title,
   }));
   const timelineData = data.allContentfulTimeline.edges;
-  // TODO remove when ready
-  // const works = false;
-  // content === true;
-  //
   return (
     <Layout data={data} location={location}>
       <PanelTop />

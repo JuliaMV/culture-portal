@@ -11,7 +11,6 @@ import { FormattedMessage } from 'react-intl';
 
 import artistCardStyles from './artistCardStyles.module.scss';
 
-
 const ArtistCard = ({ queryData }) => {
   const generalInformation = queryData.node.generalInfo.content[0].content[0].value; //eslint-disable-line
   return (
@@ -43,12 +42,12 @@ const ArtistCard = ({ queryData }) => {
             </CardActions>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-
             (
             {
               queryData.node.yearsOfLife
               }
             )
+
           </Typography>
           <Typography
             variant="body2"
