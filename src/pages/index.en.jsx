@@ -7,17 +7,15 @@ import Layout from '../components/layout/Layout';
 import Team from '../components/team/Team';
 import AboutPortal from '../components/aboutportal/AboutPortal';
 
-import indexStyle from './indexStyle.module.scss';
-
 const IndexPage = ({ data, location }) => (
   <Layout data={data} location={location}>
-    <Paper className={indexStyle.sectionWrapper}>
+    <Paper>
       <AboutPortal />
     </Paper>
     <Paper>
       {/* Author of the day */}
     </Paper>
-    <Paper className={indexStyle.sectionWrapper}>
+    <Paper>
       <Team />
     </Paper>
   </Layout>

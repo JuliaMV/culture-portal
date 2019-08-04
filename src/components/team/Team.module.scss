@@ -1,5 +1,6 @@
 .teamWrapper {
-  padding: 20px 50px 10px;
+  margin: 60px 0;
+  padding: 10px 50px;
   background-color: var(--lightGray-color);
 }
 
@@ -61,10 +62,16 @@
 
 @media (max-width: 740px) {
   .teamWrapper {
+    margin: 20px 0;
     padding: 20px;
   }
   
+  .teamHeader {
+    margin: 10px 0 20px;
+  }
+
   .teamMember {
     margin: 10px;
   }
+
 }

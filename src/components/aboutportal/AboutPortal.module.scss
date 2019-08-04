@@ -1,4 +1,5 @@
 .containerAboutPortal {
+  margin: 20px 0 60px;
   padding: 50px 40px 30px;
   background-color: var(--lightGray-color);
 }
@@ -24,6 +25,7 @@
 
 @media (max-width: 740px) {
   .containerAboutPortal {
+    margin: 0 0 20px;
     padding: 20px 40px;
   }
   
