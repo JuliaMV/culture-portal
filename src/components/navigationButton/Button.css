@@ -1,5 +1,5 @@
 .navigationButton {
-  background-color: #1e90ff;
+  background-color: #b00000;
   width: 5vh;
   height: 5vh;
   border-radius: 5px;
@@ -9,6 +9,6 @@
 }
 
 .navigationButton:hover {
-  background: #014180;
+  background: #800000;
   cursor: pointer;
 }
