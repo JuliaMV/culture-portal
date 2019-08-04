@@ -11,7 +11,7 @@ import Gallery from '../components/gallery/Gallery';
 import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
-import ArtistList from '../components/artistList/ArtistList';
+import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
 
 const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
@@ -62,7 +62,7 @@ const ArtistPageTemplate = ({ data, location }) => {
             <h3>
               <FormattedMessage id="worksTitle" />
             </h3>
-            <ArtistList content={content} />
+            <ArtistWorksList content={content} />
           </section>
           <section className="artist__video">
             <h3>
