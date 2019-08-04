@@ -14,7 +14,11 @@ const IndexPage = ({ data, location }) => {
   // const { pathname: url } = location;
   const currentArtistList = data.allContentfulArchitectPage.edges;
   const numberOfArtists = currentArtistList.length;
-  const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
+  const currentDateMs = Date.now();
+  const currentDate = new Date(currentDateMs);
+  const currentDay = currentDate.getDate();
+  const randomArtistIndex = currentDay >= numberOfArtists
+    ? currentDay % numberOfArtists : currentDay - 1;
   return (
     <Layout data={data} location={location}>
       <Paper>
