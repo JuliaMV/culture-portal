@@ -49,7 +49,7 @@ export default function SelectLanguage({ langs }) {
   };
 
   const menuItems = langs.map(lang => (
-    <MenuItem value={lang.langKey}>
+    <MenuItem value={lang.langKey} key={lang.langKey}>
       <Link className={selectLanguageStyles.link} to={lang.link} key={`${lang.langKey}-key`}>
         <FormattedMessage id={lang.langKey} />
       </Link>

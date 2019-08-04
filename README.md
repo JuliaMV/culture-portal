@@ -23,8 +23,8 @@ Total - (**240/240**)
 - [x] **10** Author's page contains video overlay;
 - [x] **20** Author's page contains photo gallery;
 - [x] **10** Author's page contains map (geowidget);
-- [x] **from 10 to 40** Project is made using react (max 40 - if all widgets are done in React);
-- [x] **from 0 to 20** Design;
+- [x] **40** Project is made using react (max 40 - if all widgets are done in React);
+- [x] **20** Design;
 - [x] **20** material-ui / bootstrap is used 
 
 ### Extra scope - (**70/70**)
@@ -64,7 +64,7 @@ Total - (**240/240**)
 | time spent | feature |
 |-------------|-------------|
 | 3h | base structure of the project with gatsby starter, add eslint and fix all errors, setup Nedlify deploy |
-| 1h | fix production build errors |
+| 6h | fix production build errors |
 | 0.5h | add basic timeline component |
 | 0.5h | add basic geowidget component |
 | 3 | add video component |
@@ -80,7 +80,8 @@ Total - (**240/240**)
 | 2h | Artist page template, fix problems |
 | 1h | 404 page |
 | 2h | implement adaptive to gallery |
-| 4h | fix artist cards styles |
+| 5h | fix artist cards styles |
+| 1h | implement adaptive video |
 
 ### pryvvid
 | time spent | feature |

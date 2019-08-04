@@ -1,22 +1,37 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import Paper from '@material-ui/core/Paper';
+import { FormattedMessage } from 'react-intl';
 
 import ArtistCard from '../components/artistcard/ArtistCard';
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Layout from '../components/layout/Layout';
+import Team from '../components/team/Team';
+import AboutPortal from '../components/aboutportal/AboutPortal';
 
 const IndexPage = ({ data, location }) => {
-  const { pathname: url } = location;
+  // const { pathname: url } = location;
   const currentArtistList = data.allContentfulArchitectPage.edges;
   const numberOfArtists = currentArtistList.length;
   const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
   return (
     <Layout data={data} location={location}>
-      <Link to={`${url}artists`}>К списку архитекторов</Link>
-      <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
+      <Paper>
+        <AboutPortal />
+      </Paper>
+      <Paper>
+        {/* Author of the day */}
+        <h2>
+          <FormattedMessage id="AuthorOfDay" />
+        </h2>
+        <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
+      </Paper>
+      <Paper>
+        <Team />
+      </Paper>
     </Layout>
   );
 };
@@ -66,6 +81,20 @@ export const pageQuery = graphql`
             videoTag
           }
           yearsOfLife
+          listOfWorks {
+            content {
+              content {
+                value
+              }
+            }
+          }
+          generalInfo {
+            content {
+              content {
+                value
+              }
+            }
+          }
         }
       }
     }
@@ -78,7 +107,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulTimeline(
-      filter: { lang: { eq: "en" } }
+      filter: { lang: { eq: "ru" } }
       sort: { fields: order }
     ) {
       edges {

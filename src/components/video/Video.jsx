@@ -43,26 +43,19 @@ class Video extends React.Component {
           open={isOpen}
           onClose={this.hideVideo}
           center
-          styles={{
-            modal: {
-              padding: 0,
-              fontSize: 0,
-              backgroundColor: '#000000',
-              position: 'relative',
-            },
-          }}
+          classNames={{ modal: styles.customModal }}
         >
           <Loader />
-          <iframe
-            className={styles.VideoFrame}
-            title="video"
-            width="560"
-            height="315"
-            src={url}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          <div className={styles.videoWrapper}>
+            <iframe
+              className={styles.VideoFrame}
+              title="video"
+              src={url}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </Modal>
       </div>
     );
