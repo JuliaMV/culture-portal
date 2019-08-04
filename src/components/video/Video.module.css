@@ -43,16 +43,14 @@
   margin: 0 auto;
 
   font-weight: 600;
-  color: #ff0000;
-
-  background-color: #000000;
+  color: var(--white-color);
+  box-shadow: 1px 2px 9px 2px #9E9C9C;
+  background-color: #848181;
   border: 1px solid transparent;
   border-radius: 5px;
 }
 
 .VideoButton:hover {
-  color: #000000;
-
   background-color: #ff0000;
   cursor: pointer;
 }

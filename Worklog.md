@@ -22,6 +22,7 @@ Anna-Pronovich
 | 3h | create list of architects|
 | 4h | create component "about portal"|
 | 4h | create component "our team"|
+| 5h | add styles for page of artist |
 
 JuliaMV
 | time spent | feature |
