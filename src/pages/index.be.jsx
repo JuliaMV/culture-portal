@@ -2,29 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Paper from '@material-ui/core/Paper';
+import { FormattedMessage } from 'react-intl';
 
-import Layout from '../components/layout/Layout';
+import ArtistCard from '../components/artistcard/ArtistCard';
 import Team from '../components/team/Team';
 import AboutPortal from '../components/aboutportal/AboutPortal';
 
-const IndexPage = ({ data, location }) => (
-  <Layout data={data} location={location}>
-    <Paper>
-      <AboutPortal />
-    </Paper>
-    <Paper>
-      {/* Author of the day */}
-    </Paper>
-    <Paper>
-      <Team />
-    </Paper>
-  </Layout>
-);
+import Layout from '../components/layout/Layout';
 
+const IndexPage = ({ data, location }) => {
+  // const { pathname: url } = location;
+  const currentArtistList = data.allContentfulArchitectPage.edges;
+  const numberOfArtists = currentArtistList.length;
+  const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
+  return (
+    <Layout data={data} location={location}>
+      <Paper>
+        <AboutPortal />
+      </Paper>
+      <Paper>
+        {/* Author of the day */}
+        <h2><FormattedMessage id="AuthorOfDay" /></h2>
+        <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
+      </Paper>
+      <Paper>
+        <Team />
+      </Paper>
+    </Layout>
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    data: PropTypes.object,
+    allContentfulArchitectPage: PropTypes.shape({ edges: PropTypes.array.isRequired }),
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
@@ -34,11 +44,12 @@ IndexPage.propTypes = {
 export default IndexPage;
 
 export const pageQuery = graphql`
-query MyQuery {
-  allContentfulArchitectPage(filter: {lang: {eq: "be"}}) {
+query BeQuery {
+  allContentfulArchitectPage(filter: { lang: { eq: "be" } }) {
     edges {
       node {
         slug
+        lang
         patronymic {
           patronymic
         }
@@ -64,6 +75,20 @@ query MyQuery {
           videoTag
         }
         yearsOfLife
+        listOfWorks {
+          content {
+            content {
+              value
+            }
+          }
+        }
+        generalInfo {
+          content {
+              content {
+                  value
+              }
+          }
+        }
       }
     }
   }
@@ -75,7 +100,7 @@ query MyQuery {
       }
     }
   }
-  allContentfulTimeline(filter: {lang: {eq: "be"}}, sort: {fields: order}) {
+  allContentfulTimeline(filter: { lang: { eq: "be" } }, sort: { fields: order }) {
     edges {
       node {
         date

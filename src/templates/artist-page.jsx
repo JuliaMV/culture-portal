@@ -2,7 +2,6 @@
 /* eslint-disable arrow-parens */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Link, graphql } from 'gatsby';
 import { graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 // import Img from 'gatsby-image';
@@ -14,7 +13,7 @@ import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
 
-// import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
+import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
 
 import { PanelBot, PanelTop } from '../components/navigationPanel';
 
@@ -27,7 +26,7 @@ const ArtistPageTemplate = ({ data, location }) => {
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
-    listOfWorks: { content },
+    listOfWorks: { content }, //eslint-disable-line
     generalInfo: { content: generalInfo },
     personalPhoto: {
       file: { url },
@@ -49,8 +48,8 @@ const ArtistPageTemplate = ({ data, location }) => {
   }));
   const timelineData = data.allContentfulTimeline.edges;
   // TODO remove when ready
-  const works = false;
-  content === true;
+  // const works = false;
+  // content === true;
   //
   return (
     <Layout data={data} location={location}>
@@ -75,15 +74,14 @@ const ArtistPageTemplate = ({ data, location }) => {
               <ArtistTimeline inputData={timelineData} />
             </section>
           )}
-          {works && (
-            <section className="artist__buildings">
-              <h3>
-                <FormattedMessage id="worksTitle" />
-              </h3>
-              {/* <Buildings></Buildings> */}
-              <ul>{works}</ul>
-            </section>
-          )}
+
+          <section className="artist__buildings">
+            <h3>
+              <FormattedMessage id="worksTitle" />
+            </h3>
+            <ArtistWorksList content={content} />
+          </section>
+
           {videoTag && (
             <section className="artist__video">
               <h3>

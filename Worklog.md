@@ -39,7 +39,8 @@ ggwebproject
 | 2h | Artist page template, fix problems |
 | 1h | 404 page |
 | 2h | implement adaptive to gallery |
-| 4h | fix artist cards styles |
+| 5h | fix artist cards styles |
+| 1h | implement adaptive video |
 
 pryvvid
 | time spent | feature |
