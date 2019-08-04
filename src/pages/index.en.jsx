@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -11,7 +12,6 @@ import Layout from '../components/layout/Layout';
 import Team from '../components/team/Team';
 import AboutPortal from '../components/aboutportal/AboutPortal';
 
-
 const IndexPage = ({ data, location }) => {
   // const { pathname: url } = location;
   const currentArtistList = data.allContentfulArchitectPage.edges;
@@ -24,7 +24,9 @@ const IndexPage = ({ data, location }) => {
       </Paper>
       <Paper>
         {/* Author of the day */}
-        <h2><FormattedMessage id="AuthorOfDay" /></h2>
+        <h2>
+          <FormattedMessage id="AuthorOfDay" />
+        </h2>
         <ArtistCard queryData={currentArtistList[randomArtistIndex]} />
       </Paper>
       <Paper>
@@ -36,7 +38,9 @@ const IndexPage = ({ data, location }) => {
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    allContentfulArchitectPage: PropTypes.shape({ edges: PropTypes.array.isRequired }),
+    allContentfulArchitectPage: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }),
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
