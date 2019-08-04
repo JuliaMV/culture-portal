@@ -9,72 +9,49 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
-
-import Box from '@material-ui/core/Box';
-import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
 import artistCardStyles from './artistCardStyles.module.scss';
-
-const theme = createMuiTheme({
-  overrides: {
-    MuiTypography: {
-      h5: {
-        textAlign: 'center',
-        textTransform: 'uppercase',
-      },
-    },
-  },
-});
 
 const ArtistCard = ({ queryData }) => {
   const generalInformation = queryData.node.generalInfo.content[0].content[0].value; //eslint-disable-line
   return (
-    <Box className={artistCardStyles.artistCardContainer}>
-      <ThemeProvider theme={theme}>
-        <Typography variant="h5" component="h2">
-          <FormattedMessage id="AuthorOfDay" />
-        </Typography>
-      </ThemeProvider>
+    <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard} component="li">
+      <div className={artistCardStyles.artistImageBlock}>
+        <CardMedia
+          component="img"
+          className={artistCardStyles.artistImage}
+          image={queryData.node.personalPhoto.file.url}
+          title={`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
+          alt={`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
+        />
 
-      <Card key={`${queryData.node.slug}-item`} className={artistCardStyles.artistCard} component="li">
-        <div className={artistCardStyles.artistImageBlock}>
-          <CardMedia
-            component="img"
-            className={artistCardStyles.artistImage}
-            image={queryData.node.personalPhoto.file.url}
-            title={`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-            alt={`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-          />
-
-        </div>
-        <CardContent className={artistCardStyles.artistDescriptions}>
-          <div>
-            <Typography gutterBottom variant="h5" component="h2">
-              <CardActions>
-                {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
-              </CardActions>
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+      </div>
+      <CardContent className={artistCardStyles.artistDescriptions}>
+        <div>
+          <Typography gutterBottom variant="h5" component="h2">
+            <CardActions>
+              {`${queryData.node.name.name} ${queryData.node.patronymic.patronymic} ${queryData.node.surname.surname}`}
+            </CardActions>
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
             (
-              {
+            {
               queryData.node.yearsOfLife
               }
             )
-            </Typography>
-            <Typography variant="body2" color="textPrimary" component="p" className={artistCardStyles.generalInfo}>
-              {generalInformation}
-            </Typography>
-          </div>
-          <CardActions>
-            <Button size="small" color="primary">
-              <Link to={`${queryData.node.lang}/artists/${queryData.node.slug}`}>
-                <FormattedMessage id="artistCardReadMore" />
-              </Link>
-            </Button>
-          </CardActions>
-        </CardContent>
-      </Card>
-    </Box>
+          </Typography>
+          <Typography variant="body2" color="textPrimary" component="p" className={artistCardStyles.generalInfo}>
+            {generalInformation}
+          </Typography>
+        </div>
+        <CardActions>
+          <Button size="small" color="primary">
+            <Link to={`${queryData.node.lang}/artists/${queryData.node.slug}`}>
+              <FormattedMessage id="artistCardReadMore" />
+            </Link>
+          </Button>
+        </CardActions>
+      </CardContent>
+    </Card>
   );
 };
 

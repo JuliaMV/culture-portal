@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
@@ -37,7 +38,7 @@ const Header = ({ langs, url }) => (
 
 Header.propTypes = {
   langs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 };
 
 export default Header;

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable arrow-parens */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -15,8 +17,11 @@ import Layout from '../components/layout/Layout';
 import Geowidget from '../components/geowidget/geowidget';
 import Gallery from '../components/gallery/Gallery';
 import ArtistTimeline from '../components/artisttimeline/ArtistTimeline';
+
 import ArtistWorksList from '../components/artistWorksList/ArtistWorksList';
 import artistPageStyles from './artist-pageStyles.module.scss';
+
+// import { PanelBot, PanelTop } from '../components/navigationPanel';
 
 const styles = createMuiTheme({
   overrides: {
@@ -73,9 +78,11 @@ const ArtistPageTemplate = ({ data, location }) => {
     return <li key={`${value}`}>{value}</li>;
   });
 
-  const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
+  const galleryImages = photoGallery.map((image) => ({
+    src: image.file.url,
+    title: image.title,
+  }));
   const timelineData = data.allContentfulTimeline.edges;
-
   return (
     <Layout data={data} location={location}>
       <Paper className="artist-page">

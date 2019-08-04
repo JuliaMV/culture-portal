@@ -54,11 +54,14 @@ Total - (**240/240**)
 ### Anna-Pronovich
 | time spent | feature |
 |------------|-------------|
-| 1h | layout component|
-| 4h | footer component|
-| 4h | header component|
-| 3h | fix bug in header|
-| 3h | list of architects|
+| 1h | create layout component|
+| 4h | create footer component|
+| 4h | create header component|
+| 3h |  fix bug in header|
+| 3h | create list of architects|
+| 4h | create component "about portal"|
+| 4h | create component "our team"|
+| 5h | add styles for page of artist |
 
 ### JuliaMV
 | time spent | feature |
@@ -89,6 +92,12 @@ Total - (**240/240**)
 | 6h | search component |
 | 2h | add styles, placeholders and error messages to search component |
 | 0.5h | add readme with score calculation and worklog |
+
+### magnusducatuslt
+| time spent | feature |
+|------------|-------------|
+| 5h | create navigation component |
+
 
 # Reminder
 During the presentation the following things have to be shown:
