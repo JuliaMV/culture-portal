@@ -11,6 +11,7 @@ import Gallery from '../components/gallery/Gallery';
 import Geowidget from '../components/geowidget/geowidget';
 import Layout from '../components/layout/Layout';
 import Video from '../components/video/Video';
+import ArtistList from '../components/artistList/ArtistList';
 
 const ArtistPageTemplate = ({ data, location }) => {
   const artist = data.contentfulArchitectPage;
@@ -21,49 +22,20 @@ const ArtistPageTemplate = ({ data, location }) => {
     surname: { surname },
     name: { name },
     patronymic: { patronymic },
-    listOfWorks: {
-      content,
-    },
-    generalInfo: {
-      content: generalInfo,
-    },
+    listOfWorks: { content },
+    generalInfo: { content: generalInfo },
     personalPhoto: {
-      file: {
-        url,
-      },
+      file: { url },
       title,
     },
     photoGallery,
   } = artist;
 
-  const works = content.map((contentItem) => {
-    const {
-      content: [
-        {
-          value,
-        },
-      ],
-    } = contentItem;
-    return (
-      <li key={`${value}`}>
-        {value}
-      </li>
-    );
-  });
-
   const generalInformation = generalInfo.map((contentItem) => {
     const {
-      content: [
-        {
-          value,
-        },
-      ],
+      content: [{ value }],
     } = contentItem;
-    return (
-      <p key={`${value}`}>
-        {value}
-      </p>
-    );
+    return <li key={`${value}`}>{value}</li>;
   });
 
   const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
@@ -75,13 +47,10 @@ const ArtistPageTemplate = ({ data, location }) => {
           <section className="artist__info">
             <div className="artist__img">
               <img src={url} alt={title} width="140" height="170" />
-              {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
             <h2>{`${surname} ${name} ${patronymic}`}</h2>
             <span className="artist__date">{yearsOfLife}</span>
-            <div className="artist__description">
-              {generalInformation}
-            </div>
+            <div className="artist__description">{generalInformation}</div>
           </section>
           <section className="artist__timeline">
             <h3>
@@ -93,10 +62,7 @@ const ArtistPageTemplate = ({ data, location }) => {
             <h3>
               <FormattedMessage id="worksTitle" />
             </h3>
-            {/* <Buildings></Buildings> */}
-            <ul>
-              {works}
-            </ul>
+            <ArtistList content={content} />
           </section>
           <section className="artist__video">
             <h3>
@@ -135,71 +101,74 @@ ArtistPageTemplate.propTypes = {
 export default ArtistPageTemplate;
 
 export const pageQuery = graphql`
-    query artistQuery($slug: String!, $lang: String!) {
-        site {
-            siteMetadata {
-                languages {
-                    defaultLangKey
-                    langs
-                }
-            }
+  query artistQuery($slug: String!, $lang: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
         }
-        allContentfulTimeline(filter: {lang: {eq: $lang}, title: {eq: $slug}}, sort: {fields: order}) {
-          edges {
-            node {
-              date
-              description {
-                description
-              }
-              order
-            }
-          }
-        }
-        contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang },) {
-          slug
-          lang
-          patronymic {
-            patronymic
-          }
-          name {
-            name
-          }
-          personalPhoto {
-            file {
-              url
-              fileName
-            }
-          }
-          photoGallery {
-            file {
-              url
-            }
-            title
-          }
-          surname {
-            surname
-          }
-          videoTag {
-            videoTag
-          }
-          geoTag {
-            geoTag
-          }
-          yearsOfLife
-          listOfWorks {
-            content {
-              content {
-                value
-              }
-            }
-          }
-          generalInfo {
-            content {
-              content {
-                value
-              }
-            }
-          }
-        }
+      }
     }
+    allContentfulTimeline(
+      filter: { lang: { eq: $lang }, title: { eq: $slug } }
+      sort: { fields: order }
+    ) {
+      edges {
+        node {
+          date
+          description {
+            description
+          }
+          order
+        }
+      }
+    }
+    contentfulArchitectPage(slug: { eq: $slug }, lang: { eq: $lang }) {
+      slug
+      lang
+      patronymic {
+        patronymic
+      }
+      name {
+        name
+      }
+      personalPhoto {
+        file {
+          url
+          fileName
+        }
+      }
+      photoGallery {
+        file {
+          url
+        }
+        title
+      }
+      surname {
+        surname
+      }
+      videoTag {
+        videoTag
+      }
+      geoTag {
+        geoTag
+      }
+      yearsOfLife
+      listOfWorks {
+        content {
+          content {
+            value
+          }
+        }
+      }
+      generalInfo {
+        content {
+          content {
+            value
+          }
+        }
+      }
+    }
+  }
 `;
