@@ -71,6 +71,7 @@ Total - (**240/240**)
 | 0.25 | add gallery component |
 | 0.25 | add information into contentful |
 | 1 | refactoring team and portal description components |
+| 0.25 | fix bug with search |
 
 
 ### ggwebproject
