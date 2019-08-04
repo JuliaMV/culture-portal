@@ -1,19 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import Paper from '@material-ui/core/Paper';
 
 import Layout from '../components/layout/Layout';
+import Team from '../components/team/Team';
+import AboutPortal from '../components/aboutportal/AboutPortal';
 
-const IndexPage = ({ data, location }) => {
-  const { pathname: url } = location;
-  return (
-    <Layout data={data} location={location}>
-      <Link to={`${url}artists`}>
-        Да спісу архітэктараў
-      </Link>
-    </Layout>
-  );
-};
+const IndexPage = ({ data, location }) => (
+  <Layout data={data} location={location}>
+    <Paper>
+      <AboutPortal />
+    </Paper>
+    <Paper>
+      {/* Author of the day */}
+    </Paper>
+    <Paper>
+      <Team />
+    </Paper>
+  </Layout>
+);
+
 
 IndexPage.propTypes = {
   data: PropTypes.shape({

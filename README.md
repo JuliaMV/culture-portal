@@ -60,6 +60,8 @@ Total - (**240/240**)
 | 1 | add video component |
 | 0.25 | add gallery component |
 | 0.25 | add information into contentful |
+| 1 | refactoring team and portal description components |
+
 
 ### ggwebproject
 | time spent | feature |
