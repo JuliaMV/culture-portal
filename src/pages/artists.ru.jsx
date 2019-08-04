@@ -44,17 +44,15 @@ query RuArtistQuery {
             fileName
           }
         }
-        photoGallery {
-          file {
-            url
-          }
-          title
-        }
         surname {
           surname
         }
-        videoTag {
-          videoTag
+        generalInfo {
+            content {
+                content {
+                    value
+                }
+            }
         }
         yearsOfLife
         searchKeys
