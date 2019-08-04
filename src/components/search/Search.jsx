@@ -22,6 +22,10 @@ class Search extends Component {
     this.setState({ query: event.target.value });
   }
 
+  submitHandler = (event) => {
+    event.preventDefault();
+  }
+
   render() {
     const { query } = this.state;
     const searchQuery = query.trim();
@@ -31,7 +35,7 @@ class Search extends Component {
 
     return (
       <div className={searchStyles.artistsWrapper}>
-        <form>
+        <form onSubmit={this.submitHandler}>
           <FormattedMessage id="searchPlaceholder">
             {placeholder => (
               <input
