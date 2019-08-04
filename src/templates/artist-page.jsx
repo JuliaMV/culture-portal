@@ -67,6 +67,7 @@ const ArtistPageTemplate = ({ data, location }) => {
   });
 
   const galleryImages = photoGallery.map(image => ({ src: image.file.url, title: image.title }));
+  const timelineData = data.allContentfulTimeline.edges;
 
   return (
     <Layout data={data} location={location}>
@@ -74,7 +75,7 @@ const ArtistPageTemplate = ({ data, location }) => {
         <div className="wrapper">
           <section className="artist__info">
             <div className="artist__img">
-              <img src={url} alt={title} width="140" height="170" />
+              <img src={url} alt={title} style={{ maxWidth: 400 }} />
               {/* <Img resolutions={image[0].resolutions} /> */}
             </div>
             <h2>{`${surname} ${name} ${patronymic}`}</h2>
@@ -83,39 +84,49 @@ const ArtistPageTemplate = ({ data, location }) => {
               {generalInformation}
             </div>
           </section>
-          <section className="artist__timeline">
-            <h3>
-              <FormattedMessage id="timelineTitle" />
-            </h3>
-            <ArtistTimeline inputData={data.allContentfulTimeline.edges} />
-          </section>
-          <section className="artist__buildings">
-            <h3>
-              <FormattedMessage id="worksTitle" />
-            </h3>
-            {/* <Buildings></Buildings> */}
-            <ul>
-              {works}
-            </ul>
-          </section>
-          <section className="artist__video">
-            <h3>
-              <FormattedMessage id="videoTitle" />
-            </h3>
-            <Video url={videoTag} />
-          </section>
-          <section className="gallery">
-            <h3>
-              <FormattedMessage id="galleryTitle" />
-            </h3>
-            <Gallery images={galleryImages} />
-          </section>
-          <section className="artist__map">
-            <h3>
-              <FormattedMessage id="mapTitle" />
-            </h3>
-            <Geowidget url={geoTag} />
-          </section>
+          {timelineData && (
+            <section className="artist__timeline">
+              <h3>
+                <FormattedMessage id="timelineTitle" />
+              </h3>
+              <ArtistTimeline inputData={timelineData} />
+            </section>
+          )}
+          {works && (
+            <section className="artist__buildings">
+              <h3>
+                <FormattedMessage id="worksTitle" />
+              </h3>
+              {/* <Buildings></Buildings> */}
+              <ul>
+                {works}
+              </ul>
+            </section>
+          )}
+          {videoTag && (
+            <section className="artist__video">
+              <h3>
+                <FormattedMessage id="videoTitle" />
+              </h3>
+              <Video url={videoTag} />
+            </section>
+          )}
+          {galleryImages && (
+            <section className="gallery">
+              <h3>
+                <FormattedMessage id="galleryTitle" />
+              </h3>
+              <Gallery images={galleryImages} />
+            </section>
+          )}
+          {geoTag && (
+            <section className="artist__map">
+              <h3>
+                <FormattedMessage id="mapTitle" />
+              </h3>
+              <Geowidget url={geoTag} />
+            </section>
+          )}
         </div>
       </main>
     </Layout>
