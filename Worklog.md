@@ -10,11 +10,13 @@ anna-klempach
 Anna-Pronovich
 | time spent | feature |
 |------------|-------------|
-| 1h | layout component|
-| 4h | footer component|
-| 4h | header component|
+| 1h | create layout component|
+| 4h | create footer component|
+| 4h | create header component|
 | 3h | fix bug in header|
-| 3h | list of architects|
+| 3h | create list of architects|
+| 4h | create component "about portal"|
+| 4h | create component "our team"|
 
 JuliaMV
 | time spent | feature |
