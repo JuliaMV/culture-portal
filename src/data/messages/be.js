@@ -20,6 +20,7 @@ module.exports = {
   ourTeam: 'Наша Каманда',
   searchPlaceholder: 'Пошук',
   noSearchResults: 'Нічога не знойдзена',
+  showVideo: 'Сматрэць видэа',
   contribMiatlionak: 'Наша Команда, Наша Команда, Наша Команда',
   contribHantarenka: 'Наша Команда, Наша Команда, Наша Команда',
   contribPranovich: 'Наша Команда, Наша Команда, Наша Команда',
