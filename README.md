@@ -39,7 +39,17 @@ Total - (**240/240**)
 | time spent | feature |
 |-------------|-------------|
 | 8h | implement multilanguage layout |
+| 1h | add ArchitectPage and TimeLine content types to contentful |
+| 1h | add information about Baklanov |
+| 1h | add information about Langbard |
+| 1h | add timeline information for Baklanov |
+| 0.5h | add timeline information for Langbard |
 | 5h | refactor and implement language select component |
+| 0.75h | implement artist card component |
+| 0.75h | fix problems with queries and page linking |
+| 1.25h | add information and timeline for Parusnikov |
+| 1h | add information and timeline for Korol |
+| 0.75h | add information and timeline for Levin |
 
 ### Anna-Pronovich
 | time spent | feature |
@@ -57,9 +67,12 @@ Total - (**240/240**)
 | 1h | fix production build errors |
 | 0.5h | add basic timeline component |
 | 0.5h | add basic geowidget component |
-| 1 | add video component |
+| 3 | add video component |
 | 0.25 | add gallery component |
+| 0.25 | add information into contentful |
 | 1 | refactoring team and portal description components |
+| 0.25 | fix bug with search |
+
 
 ### ggwebproject
 | time spent | feature |
@@ -67,6 +80,7 @@ Total - (**240/240**)
 | 2h | Artist page template, fix problems |
 | 1h | 404 page |
 | 2h | implement adaptive to gallery |
+| 4h | fix artist cards styles |
 
 ### pryvvid
 | time spent | feature |

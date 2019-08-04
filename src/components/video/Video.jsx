@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-responsive-modal';
+import { FormattedMessage } from 'react-intl';
 
 // @ts-ignore
-import styles from './Video.module.scss';
+import styles from './Video.module.css';
+
+const Loader = () => (
+  <div className={styles.Loader}>
+    <span className={styles.Loader_First} />
+    <span className={styles.Loader_Second} />
+    <span className={styles.Loader_Third} />
+  </div>
+);
 
 class Video extends React.Component {
   state = {
@@ -28,7 +37,7 @@ class Video extends React.Component {
     return (
       <div>
         <button className={styles.VideoButton} type="button" onClick={this.showVideo}>
-          Show Video
+          <FormattedMessage id="showVideo" />
         </button>
         <Modal
           open={isOpen}
@@ -38,9 +47,12 @@ class Video extends React.Component {
             modal: {
               padding: 0,
               fontSize: 0,
+              backgroundColor: '#000000',
+              position: 'relative',
             },
           }}
         >
+          <Loader />
           <iframe
             className={styles.VideoFrame}
             title="video"
