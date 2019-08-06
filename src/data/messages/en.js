@@ -28,5 +28,5 @@ module.exports = {
   contribKlempach: ' multi-language layout, data at Contentful CMS, bug fixing ',
   contribShynkarou: 'search widget, project documentation',
   contribKaptsevich: 'Artist works list component, Artist of the day component',
-  contribDucatuslt: 'Artist page navigation',
+  contribDucatuslt: 'Favicon, Artist page navigation',
 };

@@ -28,5 +28,5 @@ module.exports = {
   contribKlempach: ' шматмоўнасць,запаўненне дадзенымі ў Contentful CMS, выпраўленне памылак',
   contribShynkarou: 'пошукавы віджэт, праектная дакументацыя',
   contribKaptsevich: 'кампанент "Спіс твораў аўтара", кампанент "Аўтар дня" ',
-  contribDucatuslt: 'навігацыя па старонцы аўтара',
+  contribDucatuslt: 'фавікон, Навігацыя па старонцы аўтара',
 };
