@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     position: 'absolute',
     top: 20,
-    right: 20,
+    left: 10,
     margin: theme.spacing(1),
     minWidth: 120,
     zIndex: 10,
