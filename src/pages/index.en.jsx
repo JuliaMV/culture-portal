@@ -74,7 +74,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
 query EnQuery {
-  allContentfulArchitectPage(filter: { lang: { eq: "en" } }) {
+  allContentfulArchitectPage(filter: {lang: {eq: "en"}}, sort: {fields: surname___surname}) {
     edges {
       node {
         slug
@@ -126,17 +126,6 @@ query EnQuery {
       languages {
         defaultLangKey
         langs
-      }
-    }
-  }
-  allContentfulTimeline(filter: { lang: { eq: "ru" } }, sort: { fields: order }) {
-    edges {
-      node {
-        date
-        description {
-          description
-        }
-        order
       }
     }
   }

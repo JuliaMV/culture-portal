@@ -69,7 +69,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
 query BeQuery {
-  allContentfulArchitectPage(filter: { lang: { eq: "be" } }) {
+  allContentfulArchitectPage(filter: {lang: {eq: "be"}}, sort: {fields: surname___surname}) {
     edges {
       node {
         slug
@@ -121,17 +121,6 @@ query BeQuery {
       languages {
         defaultLangKey
         langs
-      }
-    }
-  }
-  allContentfulTimeline(filter: { lang: { eq: "ru" } }, sort: { fields: order }) {
-    edges {
-      node {
-        date
-        description {
-          description
-        }
-        order
       }
     }
   }
