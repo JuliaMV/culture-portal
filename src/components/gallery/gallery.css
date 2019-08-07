@@ -7,16 +7,6 @@
   width: 800px;
 }
 
-.gallery .image-gallery-swipe .image-gallery-slides .image-gallery-slide {
-  width: 800px;
-  height: 600px;
-}
-
-.gallery .image-gallery-swipe .image-gallery-slides .image-gallery-slide .image-gallery-image img {
-  width: 600px;
-  height: 400px;
-}
-
 @media (max-width: 1000px) {
   .gallery .fullscreen-modal .image-gallery-swipe  {
     height: 400px;
