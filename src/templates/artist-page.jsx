@@ -92,7 +92,6 @@ const ArtistPageTemplate = ({ data, location }) => {
             <Box component="section" className={artistPageStyles.artistInfo}>
               <div className={artistPageStyles.artistImg}>
                 <img src={url} alt={title} />
-                {/* <Img resolutions={image[0].resolutions} /> */}
               </div>
               <div className={artistPageStyles.artistText}>
                 <Typography component="h2" variant="h4">

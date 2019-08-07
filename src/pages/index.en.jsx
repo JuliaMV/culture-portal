@@ -1,11 +1,7 @@
-/* eslint-disable comma-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Paper from '@material-ui/core/Paper';
-
-// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
 
 import { FormattedMessage } from 'react-intl';
 import Typography from '@material-ui/core/Typography';
@@ -36,15 +32,13 @@ const useStyles = makeStyles({
 });
 
 const IndexPage = ({ data, location }) => {
-  // const { pathname: url } = location;
   const classes = useStyles();
   const currentArtistList = data.allContentfulArchitectPage.edges;
   const numberOfArtists = currentArtistList.length;
   const currentDateMs = Date.now();
   const currentDate = new Date(currentDateMs);
   const currentDay = currentDate.getDate();
-  const randomArtistIndex = currentDay >= numberOfArtists
-    ? currentDay % numberOfArtists : currentDay - 1;
+  const randomArtistIndex = (currentDay - 1) % numberOfArtists;
   return (
     <Layout data={data} location={location}>
       <Paper>
