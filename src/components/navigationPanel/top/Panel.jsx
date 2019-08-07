@@ -15,28 +15,28 @@ import './Panel.css';
 class NavigationPanel extends Component {
   handleClick = (e) => {
     e.preventDefault();
-    const path = e.currentTarget.href.split('_separator_').pop();
-    if (path === '/') {
+
+    const path = e.currentTarget.href.split('/').pop();
+    if (path === '') {
       navigate('/');
     } else {
-      document.querySelector(`.${path}`).scrollIntoView({
+      document.querySelector(`#${path}`).scrollIntoView({
         behavior: 'smooth',
       });
     }
   };
 
   render = () => {
-    const separator = '_separator_';
     const images = [
       {
         name: <FaHome />,
-        path: `${separator}/`,
+        path: '/',
       },
-      { name: <FaCalendarAlt />, path: `${separator}artist__timeline` },
-      { name: <FaYoutube />, path: `${separator}artist__video` },
-      { name: <FaMapMarkedAlt />, path: `${separator}artist__map` },
-      { name: <FaTable />, path: `${separator}artist__buildings` },
-      { name: <FaImages />, path: `${separator}gallery` },
+      { name: <FaCalendarAlt />, path: 'typog' },
+      { name: <FaYoutube />, path: 'youtube' },
+      { name: <FaMapMarkedAlt />, path: 'geo' },
+      { name: <FaTable />, path: 'works' },
+      { name: <FaImages />, path: 'gally' },
     ];
     const navsArray = images.map(({ name, path }) => (
       <ButtonNavs

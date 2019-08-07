@@ -13,6 +13,8 @@ import { ThemeProvider } from '@material-ui/styles';
 
 import Video from '../components/video/Video';
 
+import { PanelBot, PanelTop } from '../components/navigationPanel';
+
 import Layout from '../components/layout/Layout';
 import Geowidget from '../components/geowidget/geowidget';
 import Gallery from '../components/gallery/Gallery';
@@ -88,6 +90,8 @@ const ArtistPageTemplate = ({ data, location }) => {
     <Layout data={data} location={location}>
       <Paper className="artist-page">
         <ThemeProvider theme={styles}>
+          <PanelTop />
+          <PanelBot />
           <Box className={artistPageStyles.artistPageWrapper}>
             <Box component="section" className={artistPageStyles.artistInfo}>
               <div className={artistPageStyles.artistImg}>
@@ -97,7 +101,11 @@ const ArtistPageTemplate = ({ data, location }) => {
                 <Typography component="h2" variant="h4">
                   {`${surname} ${name} ${patronymic}`}
                 </Typography>
-                <Typography variant="body1" color="textSecondary" component="span">
+                <Typography
+                  variant="body1"
+                  color="textSecondary"
+                  component="span"
+                >
                   {yearsOfLife}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
@@ -105,43 +113,57 @@ const ArtistPageTemplate = ({ data, location }) => {
                 </Typography>
               </div>
             </Box>
+            <div id="typog" />
             {timelineData && (
-              <Box component="section" className={artistPageStyles.artistTimeline}>
+              <Box
+                component="section"
+                className={artistPageStyles.artistTimeline}
+              >
                 <Typography component="h3" variant="h5">
                   <FormattedMessage id="timelineTitle" />
                 </Typography>
                 <ArtistTimeline inputData={timelineData} />
               </Box>
             )}
-            <Box component="section" className={artistPageStyles.artistBuildings}>
+            <div id="works" />
+            <Box
+              component="section"
+              className={artistPageStyles.artistBuildings}
+            >
               <Typography component="h3" variant="h5">
                 <FormattedMessage id="worksTitle" />
               </Typography>
               <ArtistWorksList content={content} />
             </Box>
+            <div id="youtube" />
             {videoTag && (
-            <Box component="section" className={artistPageStyles.artistVideo}>
-              <Typography component="h3" variant="h5">
-                <FormattedMessage id="videoTitle" />
-              </Typography>
-              <Video url={videoTag} />
-            </Box>
+              <Box component="section" className={artistPageStyles.artistVideo}>
+                <Typography component="h3" variant="h5">
+                  <FormattedMessage id="videoTitle" />
+                </Typography>
+                <Video url={videoTag} />
+              </Box>
             )}
+            <div id="gally" />
             {galleryImages && (
-            <Box component="section" className={`${artistPageStyles.artistGallery} gallery`}>
-              <Typography component="h3" variant="h5">
-                <FormattedMessage id="galleryTitle" />
-              </Typography>
-              <Gallery images={galleryImages} />
-            </Box>
+              <Box
+                component="section"
+                className={`${artistPageStyles.artistGallery} gallery`}
+              >
+                <Typography component="h3" variant="h5">
+                  <FormattedMessage id="galleryTitle" />
+                </Typography>
+                <Gallery images={galleryImages} />
+              </Box>
             )}
+            <div id="geo" />
             {geoTag && (
-            <Box component="section" className={artistPageStyles.artistMap}>
-              <Typography component="h3" variant="h5">
-                <FormattedMessage id="mapTitle" />
-              </Typography>
-              <Geowidget url={geoTag} />
-            </Box>
+              <Box component="section" className={artistPageStyles.artistMap}>
+                <Typography component="h3" variant="h5">
+                  <FormattedMessage id="mapTitle" />
+                </Typography>
+                <Geowidget url={geoTag} />
+              </Box>
             )}
           </Box>
         </ThemeProvider>
