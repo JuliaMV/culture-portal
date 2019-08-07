@@ -29,25 +29,25 @@ export default ArtistPage;
 
 export const pageQuery = graphql`
   query AboutEnQuery {
-    allContentfulArchitectPage(filter: { lang: { eq: "en" } }) {
+    allContentfulArchitectPage(filter: {lang: {eq: "en"}}, sort: {fields: surname___surname}) {
       edges {
         node {
+          surname {
+            surname
+          }
           slug
           lang
-          patronymic {
-            patronymic
-          }
           name {
             name
+          }
+          patronymic {
+            patronymic
           }
           personalPhoto {
             file {
               url
               fileName
             }
-          }
-          surname {
-            surname
           }
           generalInfo {
             content {

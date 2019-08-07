@@ -45,6 +45,7 @@ const styles = createMuiTheme({
       subtitle1: {
         marginTop: 10,
         marginBottom: 10,
+        listStyleType: 'none',
       },
       body2: {
         fontSize: 18,
@@ -91,7 +92,6 @@ const ArtistPageTemplate = ({ data, location }) => {
             <Box component="section" className={artistPageStyles.artistInfo}>
               <div className={artistPageStyles.artistImg}>
                 <img src={url} alt={title} />
-                {/* <Img resolutions={image[0].resolutions} /> */}
               </div>
               <div className={artistPageStyles.artistText}>
                 <Typography component="h2" variant="h4">
@@ -128,7 +128,7 @@ const ArtistPageTemplate = ({ data, location }) => {
             </Box>
             )}
             {galleryImages && (
-            <Box component="section" className={artistPageStyles.artistGallery}>
+            <Box component="section" className={`${artistPageStyles.artistGallery} gallery`}>
               <Typography component="h3" variant="h5">
                 <FormattedMessage id="galleryTitle" />
               </Typography>

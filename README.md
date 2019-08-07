@@ -98,6 +98,11 @@ Total - (**240/240**)
 |------------|-------------|
 | 5h | create navigation component |
 
+### hybeard
+| time spent | feature |
+|------------|-------------|
+| 2h | create artist of the day component|
+| 3h | create artist works list component|
 
 # Reminder
 During the presentation the following things have to be shown:
