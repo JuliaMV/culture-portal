@@ -45,6 +45,7 @@ const styles = createMuiTheme({
       subtitle1: {
         marginTop: 10,
         marginBottom: 10,
+        listStyleType: 'none',
       },
       body2: {
         fontSize: 18,
