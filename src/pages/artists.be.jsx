@@ -26,16 +26,19 @@ export default ArtistPage;
 
 export const pageQuery = graphql`
 query AboutBeQuery {
-  allContentfulArchitectPage(filter: {lang: {eq: "be"}}) {
+  allContentfulArchitectPage(filter: {lang: {eq: "be"}}, sort: {fields: surname___surname}) {
     edges {
       node {
+        surname {
+          surname
+        }
         slug
         lang
-        patronymic {
-          patronymic
-        }
         name {
           name
+        }
+        patronymic {
+          patronymic
         }
         personalPhoto {
           file {
@@ -43,15 +46,12 @@ query AboutBeQuery {
             fileName
           }
         }
-        surname {
-          surname
-        }
         generalInfo {
+          content {
             content {
-                content {
-                    value
-                }
+              value
             }
+          }
         }
         yearsOfLife
         searchKeys

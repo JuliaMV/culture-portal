@@ -27,16 +27,19 @@ export default ArtistPage;
 
 export const pageQuery = graphql`
 query RuArtistQuery {
-  allContentfulArchitectPage(filter: {lang: {eq: "ru"}}) {
+  allContentfulArchitectPage(filter: {lang: {eq: "ru"}}, sort: {fields: surname___surname}) {
     edges {
       node {
+        surname {
+          surname
+        }
         slug
         lang
-        patronymic {
-          patronymic
-        }
         name {
           name
+        }
+        patronymic {
+          patronymic
         }
         personalPhoto {
           file {
@@ -44,15 +47,12 @@ query RuArtistQuery {
             fileName
           }
         }
-        surname {
-          surname
-        }
         generalInfo {
+          content {
             content {
-                content {
-                    value
-                }
+              value
             }
+          }
         }
         yearsOfLife
         searchKeys

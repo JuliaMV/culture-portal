@@ -7,7 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import { FormattedMessage } from 'react-intl';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { ThemeProvider } from '@material-ui/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/styles';
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import Layout from '../components/layout/Layout';
 import AboutPortal from '../components/aboutportal/AboutPortal';
@@ -25,18 +26,27 @@ const theme = createMuiTheme({
   },
 });
 
+const useStyles = makeStyles({
+  root: {
+    padding: '30px 0',
+  },
+});
+
 const IndexPage = ({ data, location }) => {
-  // const { pathname: url } = location;
+  const classes = useStyles();
   const currentArtistList = data.allContentfulArchitectPage.edges;
   const numberOfArtists = currentArtistList.length;
-  const randomArtistIndex = Math.floor(Math.random() * numberOfArtists);
+  const currentDateMs = Date.now();
+  const currentDate = new Date(currentDateMs);
+  const currentDay = currentDate.getDate();
+  const randomArtistIndex = (currentDay - 1) % numberOfArtists;
   return (
     <Layout data={data} location={location}>
       <Paper>
         <AboutPortal />
       </Paper>
       <Paper>
-        <Box>
+        <Box className={classes.root}>
           <ThemeProvider theme={theme}>
             <Typography variant="h5" component="h2">
               <FormattedMessage id="AuthorOfDay" />
@@ -65,7 +75,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
 query BeQuery {
-  allContentfulArchitectPage(filter: { lang: { eq: "be" } }) {
+  allContentfulArchitectPage(filter: {lang: {eq: "be"}}, sort: {fields: surname___surname}) {
     edges {
       node {
         slug
@@ -117,17 +127,6 @@ query BeQuery {
       languages {
         defaultLangKey
         langs
-      }
-    }
-  }
-  allContentfulTimeline(filter: { lang: { eq: "ru" } }, sort: { fields: order }) {
-    edges {
-      node {
-        date
-        description {
-          description
-        }
-        order
       }
     }
   }
