@@ -7,7 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import { FormattedMessage } from 'react-intl';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { ThemeProvider } from '@material-ui/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/styles';
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import Layout from '../components/layout/Layout';
 import AboutPortal from '../components/aboutportal/AboutPortal';
@@ -25,8 +26,15 @@ const theme = createMuiTheme({
   },
 });
 
+const useStyles = makeStyles({
+  root: {
+    padding: '30px 0',
+  },
+});
+
 const IndexPage = ({ data, location }) => {
   // const { pathname: url } = location;
+  const classes = useStyles();
   const currentArtistList = data.allContentfulArchitectPage.edges;
   const numberOfArtists = currentArtistList.length;
   const currentDateMs = Date.now();
@@ -40,7 +48,7 @@ const IndexPage = ({ data, location }) => {
         <AboutPortal />
       </Paper>
       <Paper>
-        <Box>
+        <Box className={classes.root}>
           <ThemeProvider theme={theme}>
             <Typography variant="h5" component="h2">
               <FormattedMessage id="AuthorOfDay" />
