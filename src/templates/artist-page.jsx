@@ -128,7 +128,7 @@ const ArtistPageTemplate = ({ data, location }) => {
             </Box>
             )}
             {galleryImages && (
-            <Box component="section" className={artistPageStyles.artistGallery}>
+            <Box component="section" className={`${artistPageStyles.artistGallery} gallery`}>
               <Typography component="h3" variant="h5">
                 <FormattedMessage id="galleryTitle" />
               </Typography>
